@@ -1,0 +1,34 @@
+# Challenge data and generated artifacts
+student_resource/dataset/
+cache/
+models/
+output/*
+!output/.gitkeep
+
+# OS/editor artifacts
+.DS_Store
+**/.DS_Store
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments and temporary files
+.venv/
+venv/
+env/
+.env/
+*.tmp
+*.temp
+*.swp
+*~
+

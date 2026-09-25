@@ -1,0 +1,2928 @@
+{
+  "artifact_id": "d6bc6ef7fefc",
+  "artifacts": {
+    "config": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm/e2_lgbm_d6bc6ef7fefc_config.json",
+    "features": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm/e2_lgbm_d6bc6ef7fefc_features.json",
+    "metadata": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm/e2_lgbm_d6bc6ef7fefc_metadata.json",
+    "model": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm/e2_lgbm_d6bc6ef7fefc_model.txt",
+    "predictions": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/predictions/e2_lgbm_d6bc6ef7fefc_validation.parquet",
+    "report": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/experiments/e2_lgbm_d6bc6ef7fefc_metrics.json",
+    "threshold": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm/e2_lgbm_d6bc6ef7fefc_threshold.json"
+  },
+  "candidate_configuration": {
+    "final_k": 50,
+    "fusion": "rrf",
+    "legacy_weight": 2.0,
+    "rrf_constant": 20.0,
+    "tfidf_top_k": 30,
+    "tfidf_weight": 1.0
+  },
+  "candidate_metrics_validation": {
+    "average_candidate_count": 45.77935222672065,
+    "entity_candidate_recall": 0.9620855022170811,
+    "maximum_candidate_count": 50,
+    "median_candidate_count": 50.0,
+    "missed_true_pairs": 74,
+    "oracle_macro_f0_5": 0.9885716086150714,
+    "p95_candidate_count": 50.0,
+    "pair_candidate_recall": 0.9566490919742238,
+    "recovered_true_pairs": 1633,
+    "total_candidate_pairs": 22615,
+    "true_pairs": 1707
+  },
+  "config": {
+    "cache_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache",
+    "candidate_k": 30,
+    "chunk_size": 100000,
+    "e2_close_competitor_tolerance": 0.05,
+    "e2_hard_negatives_per_positive": 5,
+    "e2_split_seed": 202603,
+    "e2_validation_fraction": 0.25,
+    "evaluation_ks": [
+      10,
+      20,
+      30,
+      50
+    ],
+    "experiments_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/experiments",
+    "fusion_final_ks": [
+      30,
+      40,
+      50,
+      75
+    ],
+    "fusion_hybrid_minimum_legacy": [
+      [
+        30,
+        20
+      ],
+      [
+        30,
+        24
+      ],
+      [
+        40,
+        30
+      ],
+      [
+        40,
+        32
+      ],
+      [
+        50,
+        35
+      ],
+      [
+        50,
+        40
+      ],
+      [
+        50,
+        45
+      ],
+      [
+        75,
+        50
+      ]
+    ],
+    "fusion_normalized_configs": [
+      [
+        0.7,
+        0.3,
+        0.1
+      ],
+      [
+        0.8,
+        0.2,
+        0.1
+      ],
+      [
+        0.65,
+        0.35,
+        0.15
+      ]
+    ],
+    "fusion_quota_configs": [
+      [
+        30,
+        20,
+        10
+      ],
+      [
+        30,
+        24,
+        6
+      ],
+      [
+        40,
+        30,
+        10
+      ],
+      [
+        40,
+        32,
+        8
+      ],
+      [
+        50,
+        35,
+        15
+      ],
+      [
+        50,
+        40,
+        10
+      ],
+      [
+        50,
+        45,
+        5
+      ],
+      [
+        75,
+        50,
+        25
+      ]
+    ],
+    "fusion_rrf_configs": [
+      [
+        2.0,
+        1.0,
+        20.0
+      ],
+      [
+        3.0,
+        1.0,
+        20.0
+      ],
+      [
+        3.0,
+        1.0,
+        60.0
+      ]
+    ],
+    "fusion_tfidf_top_ks": [
+      20,
+      30,
+      50
+    ],
+    "lgbm_bagging_fraction": 0.8,
+    "lgbm_bagging_freq": 1,
+    "lgbm_early_stopping_rounds": 100,
+    "lgbm_feature_fraction": 0.8,
+    "lgbm_learning_rate": 0.05,
+    "lgbm_max_rounds": 2000,
+    "lgbm_min_data_in_leaf": 50,
+    "lgbm_num_leaves": 63,
+    "minimum_token_length": 3,
+    "models_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/models/lgbm",
+    "output_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/output",
+    "posting_list_cap": 250,
+    "rare_address_token_max_df": 50,
+    "rare_name_token_max_df": 100,
+    "rule_thresholds": [
+      0.7,
+      0.75,
+      0.8,
+      0.84,
+      0.87,
+      0.9,
+      0.92,
+      0.94,
+      0.96,
+      0.98
+    ],
+    "seed": 42,
+    "test_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/student_resource/dataset/test",
+    "tfidf_max_features": 300000,
+    "tfidf_min_df": 1,
+    "tfidf_name_top_k": 50,
+    "tfidf_ngram_max": 4,
+    "tfidf_ngram_min": 3,
+    "tfidf_query_chunk_size": 128,
+    "train_dir": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/student_resource/dataset/train",
+    "use_name_tfidf": false,
+    "validation_distractors_per_source": 50000,
+    "validation_fraction": 0.1,
+    "validation_s1_limit": 2000,
+    "validator_path": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/student_resource/utils/validate_submission.py",
+    "weight_exact_address": 3.0,
+    "weight_exact_core_name": 4.5,
+    "weight_exact_full_name": 5.0,
+    "weight_exact_sorted_name": 4.0,
+    "weight_name_tfidf": 4.0,
+    "weight_rare_address_token": 0.5,
+    "weight_rare_name_token": 1.0,
+    "weight_same_country": 0.5
+  },
+  "e0_breakdowns": {
+    "by_country": {
+      "India": {
+        "average_predicted_matches": 2.317073170731707,
+        "empty_predictions": 26,
+        "entities": 205,
+        "entity_macro_precision": 0.8441463414634147,
+        "entity_macro_recall": 0.6275493612078977,
+        "macro_f0_5": 0.7674891500038943,
+        "nonempty_predictions": 179,
+        "pair_micro_precision": 0.9305263157894736,
+        "pair_micro_recall": 0.6260623229461756,
+        "predicted_pairs": 475,
+        "true_pairs": 706,
+        "true_positive_pairs": 442
+      },
+      "US": {
+        "average_predicted_matches": 3.0761245674740483,
+        "empty_predictions": 21,
+        "entities": 289,
+        "entity_macro_precision": 0.8909464142163105,
+        "entity_macro_recall": 0.7362154665787883,
+        "macro_f0_5": 0.8326115939924783,
+        "nonempty_predictions": 268,
+        "pair_micro_precision": 0.8222722159730034,
+        "pair_micro_recall": 0.7302697302697303,
+        "predicted_pairs": 889,
+        "true_pairs": 1001,
+        "true_positive_pairs": 731
+      }
+    },
+    "by_true_match_count": {
+      "0": {
+        "average_predicted_matches": 0.4375,
+        "empty_predictions": 26,
+        "entities": 32,
+        "entity_macro_precision": 0.8125,
+        "entity_macro_recall": 0.8125,
+        "macro_f0_5": 0.8125,
+        "nonempty_predictions": 6,
+        "pair_micro_precision": 0.0,
+        "pair_micro_recall": 1.0,
+        "predicted_pairs": 14,
+        "true_pairs": 0,
+        "true_positive_pairs": 0
+      },
+      "1": {
+        "average_predicted_matches": 0.8235294117647058,
+        "empty_predictions": 8,
+        "entities": 17,
+        "entity_macro_precision": 0.4117647058823529,
+        "entity_macro_recall": 0.4117647058823529,
+        "macro_f0_5": 0.4117647058823529,
+        "nonempty_predictions": 9,
+        "pair_micro_precision": 0.5,
+        "pair_micro_recall": 0.4117647058823529,
+        "predicted_pairs": 14,
+        "true_pairs": 17,
+        "true_positive_pairs": 7
+      },
+      "2": {
+        "average_predicted_matches": 1.6808510638297873,
+        "empty_predictions": 6,
+        "entities": 94,
+        "entity_macro_precision": 0.8506205673758864,
+        "entity_macro_recall": 0.7127659574468085,
+        "macro_f0_5": 0.7994417625206112,
+        "nonempty_predictions": 88,
+        "pair_micro_precision": 0.8481012658227848,
+        "pair_micro_recall": 0.7127659574468085,
+        "predicted_pairs": 158,
+        "true_pairs": 188,
+        "true_positive_pairs": 134
+      },
+      "3+": {
+        "average_predicted_matches": 3.3561253561253563,
+        "empty_predictions": 7,
+        "entities": 351,
+        "entity_macro_precision": 0.9047725936614825,
+        "entity_macro_recall": 0.6877888572333016,
+        "macro_f0_5": 0.825676640278311,
+        "nonempty_predictions": 344,
+        "pair_micro_precision": 0.8760611205432938,
+        "pair_micro_recall": 0.6870838881491345,
+        "predicted_pairs": 1178,
+        "true_pairs": 1502,
+        "true_positive_pairs": 1032
+      }
+    }
+  },
+  "e0_metrics_same_validation": {
+    "average_predicted_matches": 2.7611336032388665,
+    "empty_predictions": 47,
+    "entities": 494,
+    "entity_macro_precision": 0.8715253313937525,
+    "entity_macro_recall": 0.691121232568601,
+    "macro_f0_5": 0.8055870980053129,
+    "nonempty_predictions": 447,
+    "pair_micro_precision": 0.8599706744868035,
+    "pair_micro_recall": 0.687170474516696,
+    "predicted_pairs": 1364,
+    "true_pairs": 1707,
+    "true_positive_pairs": 1173
+  },
+  "e0_threshold": 0.7,
+  "error_analysis": {
+    "classifier_false_negative_examples": [
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "13816 184st St, Arington CITY, Washington",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-622204546",
+        "candidate_name": "Clean \u00edntegrated LLC",
+        "fusion_rank": 2,
+        "name_character_similarity": 1.0,
+        "name_tfidf_rank": 3,
+        "name_tfidf_similarity": 1.0,
+        "name_token_jaccard": 1.0,
+        "numeric_token_conflict": 1,
+        "probability": 0.0007750923978164792,
+        "source1_address": "13818 184th Street, Arlington, WA",
+        "source1_country": "US",
+        "source1_entity_id": "S1-682097721",
+        "source1_name": "Clean Integrated LLC",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 14.0,
+          "name_core_exact": 1,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 1
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.1764705926179886,
+        "candidate_address": "Sh-b51., Pune, MH",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-299335722",
+        "candidate_name": "\u0935\u0928 \u0907\u092e\u094d\u092a\u0947\u0915\u094d\u0938 \u092a\u094d\u0930\u093e. \u0932\u093f.",
+        "fusion_rank": 17,
+        "name_character_similarity": 0.19354838132858276,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.002194819273427129,
+        "source1_address": "Sh-B51, B Wing, Jai Ganesh Vision, Siddivinayak Kohinoor, Ass S-171A, Akurd, I, Pune, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-527391164",
+        "source1_name": "One Impex Pvt Ltd",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.125,
+        "candidate_address": "001/522A, Panvel, \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-317748253",
+        "candidate_name": "\u092f\u0942\u0928\u093e\u0907\u091f\u0947\u0921 \u0915\u0902\u0938\u0932\u094d\u091f\u0947\u0902\u091f\u094d\u0938 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "fusion_rank": 15,
+        "name_character_similarity": 0.08955223858356476,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.002336780773475766,
+        "source1_address": "1/522A, Survey No 52, Rajput Associates, Kolkhe, Panvel, Raigarh(Mh), Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-216181354",
+        "source1_name": "United Consultants Private Limited",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.25,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-912690801",
+        "candidate_name": "High Agro Ltd Enterprises",
+        "fusion_rank": 32,
+        "name_character_similarity": 0.6190476417541504,
+        "name_tfidf_rank": 3,
+        "name_tfidf_similarity": 0.6997807621955872,
+        "name_token_jaccard": 0.4000000059604645,
+        "numeric_token_conflict": 0,
+        "probability": 0.0036086689215153456,
+        "source1_address": "Pl 307 Office Aero Wheelz Sn-17 Opp-Nirmal Park, Dhankawadi Chvanngr, Pune City, Pune, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-20091251",
+        "source1_name": "High Agro Limited",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 0.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.25,
+        "candidate_address": "OFFICE NO.F123, MUMBAI, Maharashtra",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-104462637",
+        "candidate_name": "\u0928\u094d\u092f\u0942 \u090f\u0928\u0930\u094d\u091c\u0940 \u090f\u0932\u090f\u0932\u092a\u0940",
+        "fusion_rank": 5,
+        "name_character_similarity": 0.14814814925193787,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.005108090583235025,
+        "source1_address": "Office No.F123, F124 And F125, First Floor, Moongipa, Arcada, D. N. Nagar, Off. Link Road, Andheri West, Mumbai, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-912631474",
+        "source1_name": "New Energy LLP",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.4285714328289032,
+        "candidate_address": "01613 LACOTA LN, BURNSVILLE, MN",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-903502627",
+        "candidate_name": "SPI",
+        "fusion_rank": 41,
+        "name_character_similarity": 0.13793103396892548,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 1,
+        "probability": 0.006609044503420591,
+        "source1_address": "1613 Lacota Lane, Burnsville, MN",
+        "source1_country": "US",
+        "source1_entity_id": "S1-901210153",
+        "source1_name": "Scholarship Program IV LLC",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.5,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-430354645",
+        "candidate_name": "Velliis Velliis Inc | www.velliisve.com",
+        "fusion_rank": 5,
+        "name_character_similarity": 0.4583333432674408,
+        "name_tfidf_rank": 5,
+        "name_tfidf_similarity": 0.8729733228683472,
+        "name_token_jaccard": 0.4000000059604645,
+        "numeric_token_conflict": 0,
+        "probability": 0.009468483738601208,
+        "source1_address": "220 Sunny Dale Road, Pleasant Plains, AR",
+        "source1_country": "US",
+        "source1_entity_id": "S1-691331021",
+        "source1_name": "Velliis Inc",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.5,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 1
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.11764705926179886,
+        "candidate_address": "Bangalore, \u0c95\u0cb0\u0ccd\u0ca8\u0cbe\u0c9f\u0c95, Bangalore, 132",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-346474131",
+        "candidate_name": "Guru Energy \u0caa\u0ccd\u0cb0\u0cc8\u0cb5\u0cc7\u0c9f\u0ccd \u0cb2\u0cbf\u0cae\u0cbf\u0c9f\u0cc6\u0ca1\u0ccd",
+        "fusion_rank": 25,
+        "name_character_similarity": 0.49056604504585266,
+        "name_tfidf_rank": 2,
+        "name_tfidf_similarity": 0.8333587050437927,
+        "name_token_jaccard": 0.20000000298023224,
+        "numeric_token_conflict": 0,
+        "probability": 0.018641533330082893,
+        "source1_address": "132, Ground Floor, Mig, 1St Main, 2Nd Cross 707 Khb, Yelahanka New Town, Bangalore, Karnataka",
+        "source1_country": "India",
+        "source1_entity_id": "S1-774070269",
+        "source1_name": "Guru Energy Private Limited",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 0.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.5,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-663675272",
+        "candidate_name": "Sun Hospitality \u092a\u094d\u0930\u093e. \u0932\u093f.",
+        "fusion_rank": 29,
+        "name_character_similarity": 0.7906976938247681,
+        "name_tfidf_rank": 4,
+        "name_tfidf_similarity": 0.9709765315055847,
+        "name_token_jaccard": 0.3333333432674408,
+        "numeric_token_conflict": 0,
+        "probability": 0.01972893811762333,
+        "source1_address": "8 Mamta Kutir Mahakali Road Andheri (East), Mumbai City, Mumbai, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-1727907",
+        "source1_name": "Sun Hospitality Pvt Ltd",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 0.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-994001724",
+        "candidate_name": "Dental Partners Corp",
+        "fusion_rank": 7,
+        "name_character_similarity": 0.8571428656578064,
+        "name_tfidf_rank": 6,
+        "name_tfidf_similarity": 0.9999998807907104,
+        "name_token_jaccard": 0.6666666865348816,
+        "numeric_token_conflict": 0,
+        "probability": 0.019737280905246735,
+        "source1_address": "WA, 8719 Hill N Dale Street, Spokane",
+        "source1_country": "US",
+        "source1_entity_id": "S1-686128990",
+        "source1_name": "Dental Partners",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 9.0,
+          "name_core_exact": 1,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 1
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.07692307978868484,
+        "candidate_address": "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1, Chennai, 042, Chennai",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-171273215",
+        "candidate_name": "White Foundation Pvt",
+        "fusion_rank": 1,
+        "name_character_similarity": 0.9090909361839294,
+        "name_tfidf_rank": 1,
+        "name_tfidf_similarity": 0.9999999403953552,
+        "name_token_jaccard": 0.75,
+        "numeric_token_conflict": 1,
+        "probability": 0.03112676925957203,
+        "source1_address": "4Th Street, Subbalakshmi Nagar Korattur, Chennai, 42, Tamil Nadu",
+        "source1_country": "India",
+        "source1_entity_id": "S1-310249535",
+        "source1_name": "White Foundation Pvt Ltd",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 10.0,
+          "name_core_exact": 1,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 1
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.3076923191547394,
+        "candidate_address": "001/522A, Panvel, Raigarh(mh), MH",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-685337179",
+        "candidate_name": "\u092f\u0942\u0928\u093e\u0907\u091f\u0947\u0921 \u0915\u0902\u0938\u0932\u094d\u091f\u0947\u0902\u091f\u094d\u0938 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "fusion_rank": 16,
+        "name_character_similarity": 0.08955223858356476,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.10047054290771484,
+        "source1_address": "1/522A, Survey No 52, Rajput Associates, Kolkhe, Panvel, Raigarh(Mh), Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-216181354",
+        "source1_name": "United Consultants Private Limited",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.25,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.3333333432674408,
+        "candidate_address": "3160 SIXTH ST, CHINO, CA",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-634076503",
+        "candidate_name": "M0untain Montessori",
+        "fusion_rank": 27,
+        "name_character_similarity": 0.800000011920929,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.25,
+        "numeric_token_conflict": 1,
+        "probability": 0.12772487103939056,
+        "source1_address": "Chino, Unit UNIT 174, CA, 13160 Sixth Street",
+        "source1_country": "US",
+        "source1_entity_id": "S1-649506567",
+        "source1_name": "Mountain Montessori School",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.5,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-219394689",
+        "candidate_name": "Urgent Care Cl\u00ednic Ltd",
+        "fusion_rank": 6,
+        "name_character_similarity": 0.8999999761581421,
+        "name_tfidf_rank": 5,
+        "name_tfidf_similarity": 1.0,
+        "name_token_jaccard": 0.75,
+        "numeric_token_conflict": 0,
+        "probability": 0.19347190856933594,
+        "source1_address": "25320 Chicago Avenue, Ingleside, IL",
+        "source1_country": "US",
+        "source1_entity_id": "S1-867038639",
+        "source1_name": "Urgent Care Clinic",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 9.0,
+          "name_core_exact": 1,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 1
+        },
+        "truth_label": 1
+      },
+      {
+        "address_token_jaccard": 0.1764705926179886,
+        "candidate_address": "Lalitha Palace, Chennai, \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-435360489",
+        "candidate_name": "\u0b88\u0bb8\u0bcd\u0b9f\u0bcd Business Private Limited",
+        "fusion_rank": 9,
+        "name_character_similarity": 0.8771929740905762,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.6000000238418579,
+        "numeric_token_conflict": 0,
+        "probability": 0.256186306476593,
+        "source1_address": "Lalitha Palace, Flat No. Bf3, Door No. 4/5, Gandhi Street, Vanuvampet, Chennai, Tamil Nadu",
+        "source1_country": "India",
+        "source1_entity_id": "S1-836877993",
+        "source1_name": "East Business Private Limited",
+        "strongest_features": {
+          "address_exact": 0,
+          "legacy_cheap_score": 1.0,
+          "name_core_exact": 0,
+          "numeric_token_overlap": 0.0,
+          "same_country": 1,
+          "supported_by_both": 0
+        },
+        "truth_label": 1
+      }
+    ],
+    "classifier_false_negatives": 39,
+    "false_positive_categories": {
+      "generic/common business name": 1,
+      "numeric-address conflict": 5,
+      "other high similarity collision": 2,
+      "same address / different business": 1,
+      "same name / different address": 1,
+      "strong lexical noise": 2
+    },
+    "false_positives": 12,
+    "high_confidence_false_positive_examples": [
+      {
+        "address_token_jaccard": 0.2222222238779068,
+        "candidate_address": "4119 Anice Street, Houton CITY, Texas",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-612248630",
+        "candidate_name": "Coffey, Lee and Dyson Partners Corp",
+        "category": "numeric-address conflict",
+        "fusion_rank": 3,
+        "name_character_similarity": 0.7407407164573669,
+        "name_tfidf_rank": 3,
+        "name_tfidf_similarity": 0.9226728677749634,
+        "name_token_jaccard": 0.6666666865348816,
+        "numeric_token_conflict": 1,
+        "probability": 0.9966098070144653,
+        "source1_address": "TX, Houston, 4114 Anice Street",
+        "source1_country": "US",
+        "source1_entity_id": "S1-976374545",
+        "source1_name": "Coffey, Lee and Dyson",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.5555555820465088,
+        "candidate_address": "##19020 143ND AVENUE, SUN CITY WEST, AZ",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-700033587",
+        "candidate_name": "Fox Ace Hologram Holdings",
+        "category": "numeric-address conflict",
+        "fusion_rank": 3,
+        "name_character_similarity": 0.7659574747085571,
+        "name_tfidf_rank": 3,
+        "name_tfidf_similarity": 0.8607111573219299,
+        "name_token_jaccard": 0.5,
+        "numeric_token_conflict": 1,
+        "probability": 0.9940177798271179,
+        "source1_address": "19007 143rd Avenue, Sun City West, AZ",
+        "source1_country": "US",
+        "source1_entity_id": "S1-563933566",
+        "source1_name": "Fox Ace Hologram L.L.C.",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 1.0,
+        "candidate_address": "2215 CARABEL AVENUE, LAKEWOOD, OH",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-226252133",
+        "candidate_name": "FAMlLY HEARTLAND CGGEE-ASSOCIATES, LLC",
+        "category": "same address / different business",
+        "fusion_rank": 7,
+        "name_character_similarity": 0.1846153885126114,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.9927772283554077,
+        "source1_address": "2215 Carabel Avenue, Lakewood, OH",
+        "source1_country": "US",
+        "source1_entity_id": "S1-125294099",
+        "source1_name": "Interstate Carolina Holdings",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.5,
+        "candidate_address": "11441 Falcon Ridge Court, Beltsville, Maryland",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-905730232",
+        "candidate_name": "W I & J Acquisitions Partners",
+        "category": "numeric-address conflict",
+        "fusion_rank": 2,
+        "name_character_similarity": 0.8301886916160583,
+        "name_tfidf_rank": 2,
+        "name_tfidf_similarity": 0.9117943048477173,
+        "name_token_jaccard": 0.8333333134651184,
+        "numeric_token_conflict": 1,
+        "probability": 0.9923617839813232,
+        "source1_address": "11434 Falcon Ridge Court, Beltsville, MD",
+        "source1_country": "US",
+        "source1_entity_id": "S1-191622331",
+        "source1_name": "W I & J Acquisitions",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.0,
+        "candidate_address": "",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-326452995",
+        "candidate_name": "Mills Travel",
+        "category": "same name / different address",
+        "fusion_rank": 3,
+        "name_character_similarity": 1.0,
+        "name_tfidf_rank": 1,
+        "name_tfidf_similarity": 1.0000001192092896,
+        "name_token_jaccard": 1.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.991504430770874,
+        "source1_address": "2480 Lark Avenue, Lima, OH",
+        "source1_country": "US",
+        "source1_entity_id": "S1-439111395",
+        "source1_name": "Mills Travel",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.27272728085517883,
+        "candidate_address": "2-8/3, Mumbai City, MH",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-261977206",
+        "candidate_name": "-- Star Trading Ventures Private Ltd",
+        "category": "other high similarity collision",
+        "fusion_rank": 6,
+        "name_character_similarity": 0.8064516186714172,
+        "name_tfidf_rank": 2,
+        "name_tfidf_similarity": 0.8302700519561768,
+        "name_token_jaccard": 0.5,
+        "numeric_token_conflict": 0,
+        "probability": 0.987484872341156,
+        "source1_address": "N 3 Pemino Altamount Road, Mumbai, Mumbai City, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-339989103",
+        "source1_name": "Star Ventures Private Limited",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.5333333611488342,
+        "candidate_address": "GROUND FLOOR SHOP, HOUSE NO. 269, STREET NO 4, GOVIND PURI, KALKAJI, NEW DELHI, SOUTH DELHI, Delhi",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-104072559",
+        "candidate_name": "\u0938\u094d\u092e\u093e\u0930\u094d\u091f \u092a\u094d\u0930\u094b\u0921\u094d\u092f\u0942\u0938\u0930 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "category": "strong lexical noise",
+        "fusion_rank": 5,
+        "name_character_similarity": 0.09836065769195557,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.9815961718559265,
+        "source1_address": "269 -A/4 Govind Puri Kalkaji, New Delhi, South Delhi, Delhi",
+        "source1_country": "India",
+        "source1_entity_id": "S1-278085974",
+        "source1_name": "Vng Enterprises Private Limited",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.7777777910232544,
+        "candidate_address": "59-, NEW KATRA, ISHWAR BHAWAN KHARI BAOLI, Delhi",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-179840762",
+        "candidate_name": "Ishwar Bhawan Khari Baoli  Chits",
+        "category": "numeric-address conflict",
+        "fusion_rank": 4,
+        "name_character_similarity": 0.84375,
+        "name_tfidf_rank": 5,
+        "name_tfidf_similarity": 0.8196156620979309,
+        "name_token_jaccard": 0.6666666865348816,
+        "numeric_token_conflict": 1,
+        "probability": 0.9584651589393616,
+        "source1_address": "46, Ishwar Bhawan Khari Baoli, New Katra, Delhi, New Delhi",
+        "source1_country": "India",
+        "source1_entity_id": "S1-98371688",
+        "source1_name": "Ishwar Bhawan Khari Baoli Textile",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.5555555820465088,
+        "candidate_address": "506. Harrison St, City Of Appleton, Wisconsin",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-122137220",
+        "candidate_name": "Halcyon",
+        "category": "strong lexical noise",
+        "fusion_rank": 31,
+        "name_character_similarity": 0.1428571492433548,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 0,
+        "probability": 0.9483686685562134,
+        "source1_address": "506 Harrison Street, City Of Appleton, WI",
+        "source1_country": "US",
+        "source1_entity_id": "S1-212363226",
+        "source1_name": "Vision Physicians LLC",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.1818181872367859,
+        "candidate_address": "No. 2, Chennai, TN",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-241485539",
+        "candidate_name": "Maa Ventures  Private",
+        "category": "generic/common business name",
+        "fusion_rank": 46,
+        "name_character_similarity": 0.699999988079071,
+        "name_tfidf_rank": 23,
+        "name_tfidf_similarity": 0.631592333316803,
+        "name_token_jaccard": 0.1666666716337204,
+        "numeric_token_conflict": 0,
+        "probability": 0.8771501183509827,
+        "source1_address": "Milkat No.2, Nilgaon Rode, Bidkin Paithan, Paithan, Aurangabad, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-666076445",
+        "source1_name": "Sai Ventures Pvt Ltd",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.6363636255264282,
+        "candidate_address": "5/844, VIRAM KHAND GOMTI NAGAR, LUCKNOW, Uttar Pradesh",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-30122282",
+        "candidate_name": "\u0938\u093f\u0932\u094d\u0935\u0930 \u092b\u0942\u0921 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "category": "numeric-address conflict",
+        "fusion_rank": 1,
+        "name_character_similarity": 0.07692307978868484,
+        "name_tfidf_rank": 0,
+        "name_tfidf_similarity": 0.0,
+        "name_token_jaccard": 0.0,
+        "numeric_token_conflict": 1,
+        "probability": 0.8667286038398743,
+        "source1_address": "4/236 Viram Khand Gomti Nagar Lucknow, Lucknow, Uttar Pradesh",
+        "source1_country": "India",
+        "source1_entity_id": "S1-509482198",
+        "source1_name": "Creative Properties Limited",
+        "truth_label": 0
+      },
+      {
+        "address_token_jaccard": 0.5,
+        "candidate_address": "HOGAN DRIVE, HUNTSVILLE, AL",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-646011039",
+        "candidate_name": "FINAN ROYAL OF HUNTSVILLE  LTD",
+        "category": "other high similarity collision",
+        "fusion_rank": 10,
+        "name_character_similarity": 0.6451612710952759,
+        "name_tfidf_rank": 7,
+        "name_tfidf_similarity": 0.5297536849975586,
+        "name_token_jaccard": 0.25,
+        "numeric_token_conflict": 0,
+        "probability": 0.8644505739212036,
+        "source1_address": "211 Salem Drive, Huntsville, AL",
+        "source1_country": "US",
+        "source1_entity_id": "S1-933814404",
+        "source1_name": "Singh Safeguard of Huntsville LLC",
+        "truth_label": 0
+      }
+    ],
+    "retrieval_false_negative_examples": [
+      {
+        "candidate_address": "BUNGALOW NO-2 1ST FLOOR MAIN PATEL ROAD WEST PATEL NAGAR, <NULL>, NEW DELHI, WEST DELHI, Delhi",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-670103418",
+        "candidate_name": "\u0938\u094d\u0935\u0938\u094d\u0924\u093f\u0915 \u092b\u0942\u0921 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "source1_address": "Bungalow No-2 1St Floor Main Patel Road West Patel Nagar, New Delhi, West Delhi, Delhi",
+        "source1_country": "India",
+        "source1_entity_id": "S1-108551334",
+        "source1_name": "Swastik Food Private Limited"
+      },
+      {
+        "candidate_address": "182 A, VADODARA, JAIPUR, Rajasthan",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-429267687",
+        "candidate_name": "\u092c\u094d\u0930\u093e\u0907\u091f \u0907\u0902\u092b\u094b\u091f\u0947\u0915 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "source1_address": "182 A, Vasudevpuri, Jhotwara, Jaipur, Rajasthan",
+        "source1_country": "India",
+        "source1_entity_id": "S1-142434511",
+        "source1_name": "Bright Infotech Private Limited"
+      },
+      {
+        "candidate_address": "Bangalore, Old No C 26, 3Rd Main Road K S I D C Industrial Estate, Rajajinagar, Bangalore, No #10, KA",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-580300641",
+        "candidate_name": "Brixnylasyn",
+        "source1_address": "No. 10, Karnataka, Old No C 26, 3Rd Main Road K S I D C Industrial Estate, Rajajinagar, Bangalore",
+        "source1_country": "India",
+        "source1_entity_id": "S1-14306813",
+        "source1_name": "Newway (India) Mills Private Limited"
+      },
+      {
+        "candidate_address": "No. #10, Old No C 26, 3Rd Main Road K S I D C Industrial Estate, Rajajinagar, Bangalore, KA",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-713984317",
+        "candidate_name": "inmills.com",
+        "source1_address": "No. 10, Karnataka, Old No C 26, 3Rd Main Road K S I D C Industrial Estate, Rajajinagar, Bangalore",
+        "source1_country": "India",
+        "source1_entity_id": "S1-14306813",
+        "source1_name": "Newway (India) Mills Private Limited"
+      },
+      {
+        "candidate_address": "43 DEER PARK ROAD, KATOAH, NY",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-154377324",
+        "candidate_name": "5traight Edde Tavern",
+        "source1_address": "43 Deer Park Road, Bedford, NY",
+        "source1_country": "US",
+        "source1_entity_id": "S1-146165069",
+        "source1_name": "Straight Edge Tavern"
+      },
+      {
+        "candidate_address": "43 DEER PARK ROAD, KATOAH, NY",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-331413043",
+        "candidate_name": "@straightedge",
+        "source1_address": "43 Deer Park Road, Bedford, NY",
+        "source1_country": "US",
+        "source1_entity_id": "S1-146165069",
+        "source1_name": "Straight Edge Tavern"
+      },
+      {
+        "candidate_address": "43 Deer Park Road, Katonah CITY, New York",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-530816775",
+        "candidate_name": "Straight Edge Tfvern",
+        "source1_address": "43 Deer Park Road, Bedford, NY",
+        "source1_country": "US",
+        "source1_entity_id": "S1-146165069",
+        "source1_name": "Straight Edge Tavern"
+      },
+      {
+        "candidate_address": "",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-139336736",
+        "candidate_name": "Chiropractic Gr\u00f3up Trading",
+        "source1_address": "7811 Ardmore Avenue, Parkville, MD",
+        "source1_country": "US",
+        "source1_entity_id": "S1-205432256",
+        "source1_name": "Chiropractic Group"
+      },
+      {
+        "candidate_address": "947, MADRAS-84, \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-387047974",
+        "candidate_name": "\u0b9c\u0bc6\u0baf\u0bcd \u0b8e\u0ba3\u0bcd\u0b9f\u0bb0\u0bcd\u0baa\u0bbf\u0bb0\u0bc8\u0b9a\u0bb8\u0bcd \u0baa\u0bbf\u0bb0\u0bc8\u0bb5\u0bc7\u0b9f\u0bcd \u0bb2\u0bbf\u0bae\u0bbf\u0b9f\u0bc6\u0b9f\u0bcd",
+        "source1_address": "947, Poonamallee High Road, Madras-84 Madras-84, Madras-84, Tamil Nadu",
+        "source1_country": "India",
+        "source1_entity_id": "S1-219132827",
+        "source1_name": "Jai Enterprises Private Limited"
+      },
+      {
+        "candidate_address": "947, MADRAS-84 MADRAS-84, Tamil Nadu",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-50444657",
+        "candidate_name": "\u0b9c\u0bc6\u0baf\u0bcd \u0b8e\u0ba3\u0bcd\u0b9f\u0bb0\u0bcd\u0baa\u0bbf\u0bb0\u0bc8\u0b9a\u0bb8\u0bcd \u0baa\u0bbf\u0bb0\u0bc8\u0bb5\u0bc7\u0b9f\u0bcd \u0bb2\u0bbf\u0bae\u0bbf\u0b9f\u0bc6\u0b9f\u0bcd",
+        "source1_address": "947, Poonamallee High Road, Madras-84 Madras-84, Madras-84, Tamil Nadu",
+        "source1_country": "India",
+        "source1_entity_id": "S1-219132827",
+        "source1_name": "Jai Enterprises Private Limited"
+      },
+      {
+        "candidate_address": "NO 697 7-1/18/SA/302, K.V.RANGAREDDY, SERI LINGAMPALLY, Telangana",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-888251832",
+        "candidate_name": "\u0c38\u0c46\u0c35\u0c46\u0c28\u0c4d \u0c2b\u0c4c\u0c02\u0c21\u0c47\u0c37\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c48\u0c35\u0c47\u0c1f\u0c4d \u0c32\u0c3f\u0c2e\u0c3f\u0c1f\u0c46\u0c21\u0c4d",
+        "source1_address": "7-1/18/Sa/302, Flat No 302, Siri Arcade, Seri Lingampally, K.V.Rangareddy, Telangana",
+        "source1_country": "India",
+        "source1_entity_id": "S1-223245005",
+        "source1_name": "Seven Foundation Private Limited"
+      },
+      {
+        "candidate_address": "1935 APACHE BOULEVARD, TEMPE, AZ",
+        "candidate_country": "US",
+        "candidate_entity_id": "S2-374659322",
+        "candidate_name": "ybuilders.com",
+        "source1_address": "1935 Apache Boulevard, Unit 3005, Tempe, AZ",
+        "source1_country": "US",
+        "source1_entity_id": "S1-223283080",
+        "source1_name": "Young Builders, Inc"
+      },
+      {
+        "candidate_address": "2013b Campbell Road, PMB 6004, Houston, Texas",
+        "candidate_country": "US",
+        "candidate_entity_id": "S3-493989793",
+        "candidate_name": "Zetakelolum",
+        "source1_address": "TX, Houston, 2013 Campbell Road",
+        "source1_country": "US",
+        "source1_entity_id": "S1-277300099",
+        "source1_name": "John Taxable Company"
+      },
+      {
+        "candidate_address": "BLOCK NO .103 SAI HOMES, SOLAPUR, Maharashtra",
+        "candidate_country": "India",
+        "candidate_entity_id": "S2-159603922",
+        "candidate_name": "\u0936\u093f\u0935 \u0907\u0902\u091f\u0930\u0928\u0947\u0936\u0928\u0932 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "source1_address": "Block No .103 Sai Homes, Near Aditya Nagar, Solapur South, Solapur, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-311868916",
+        "source1_name": "Shiv International Private Limited"
+      },
+      {
+        "candidate_address": "70 S. No. 41, Haveli, Pune, \u092e\u0939\u093e\u0930\u093e\u0937\u094d\u091f\u094d\u0930",
+        "candidate_country": "India",
+        "candidate_entity_id": "S3-243304193",
+        "candidate_name": "\u0936\u093f\u0935\u093e \u0938\u093f\u0938\u094d\u091f\u092e\u094d\u0938 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "source1_address": "S. No. 41, Dattanagar Ambegaon Bk, Nr Dattanagar Chouk, Haveli, Pune, Maharashtra",
+        "source1_country": "India",
+        "source1_entity_id": "S1-331013860",
+        "source1_name": "Shiva Systems Private Limited"
+      }
+    ],
+    "retrieval_false_negatives": 74
+  },
+  "experiment": "E2_lightgbm_pair_classifier",
+  "feature_columns": [
+    "name_full_exact",
+    "name_core_exact",
+    "name_sorted_exact",
+    "name_token_jaccard",
+    "name_shared_token_count",
+    "name_token_count_difference",
+    "name_length_ratio",
+    "name_character_similarity",
+    "name_prefix_ratio",
+    "name_suffix_ratio",
+    "address_exact",
+    "address_token_jaccard",
+    "address_shared_token_count",
+    "numeric_token_equal",
+    "numeric_token_overlap",
+    "numeric_token_conflict",
+    "address_length_ratio",
+    "address_missing_left",
+    "address_missing_right",
+    "same_country",
+    "country_conflict",
+    "country_missing_left",
+    "country_missing_right",
+    "both_country_present",
+    "source_is_s2",
+    "source_is_s3",
+    "block_exact_full_name",
+    "block_exact_core_name",
+    "block_exact_sorted_name",
+    "block_rare_name_token",
+    "block_exact_address",
+    "block_rare_address_token",
+    "block_cross_country_exact_name",
+    "block_name_tfidf",
+    "blocking_channel_count",
+    "rare_name_token_hits",
+    "rare_address_token_hits",
+    "name_tfidf_similarity",
+    "name_tfidf_rank",
+    "legacy_blocking_channel_count",
+    "legacy_rank",
+    "legacy_cheap_score",
+    "is_tfidf_only",
+    "is_legacy_only",
+    "supported_by_both",
+    "fusion_score",
+    "fusion_rank",
+    "candidate_count_for_s1",
+    "cheap_score",
+    "cheap_rank",
+    "cheap_score_margin_to_next",
+    "relative_name_similarity_rank",
+    "relative_address_similarity_rank",
+    "relative_tfidf_similarity_rank",
+    "relative_fusion_score_rank",
+    "top_name_similarity_margin",
+    "top_address_similarity_margin",
+    "top_tfidf_similarity_margin",
+    "fusion_score_gap_to_best",
+    "close_name_competitor_count"
+  ],
+  "feature_importance": {
+    "all_features": [
+      {
+        "feature": "name_full_exact",
+        "gain": 1.2032509744167328,
+        "split": 2
+      },
+      {
+        "feature": "name_core_exact",
+        "gain": 5.810961842536926,
+        "split": 4
+      },
+      {
+        "feature": "name_sorted_exact",
+        "gain": 1.8475219905376434,
+        "split": 3
+      },
+      {
+        "feature": "name_token_jaccard",
+        "gain": 5640.363611057401,
+        "split": 478
+      },
+      {
+        "feature": "name_shared_token_count",
+        "gain": 149.7314490377903,
+        "split": 90
+      },
+      {
+        "feature": "name_token_count_difference",
+        "gain": 358.12658554315567,
+        "split": 148
+      },
+      {
+        "feature": "name_length_ratio",
+        "gain": 698.860088352114,
+        "split": 430
+      },
+      {
+        "feature": "name_character_similarity",
+        "gain": 9866.85186933726,
+        "split": 748
+      },
+      {
+        "feature": "name_prefix_ratio",
+        "gain": 2502.833111587912,
+        "split": 457
+      },
+      {
+        "feature": "name_suffix_ratio",
+        "gain": 301.1888322085142,
+        "split": 144
+      },
+      {
+        "feature": "address_exact",
+        "gain": 0.394351989030838,
+        "split": 1
+      },
+      {
+        "feature": "address_token_jaccard",
+        "gain": 204898.46021179855,
+        "split": 911
+      },
+      {
+        "feature": "address_shared_token_count",
+        "gain": 883.5806889738888,
+        "split": 239
+      },
+      {
+        "feature": "numeric_token_equal",
+        "gain": 1254.282341485843,
+        "split": 78
+      },
+      {
+        "feature": "numeric_token_overlap",
+        "gain": 17525.434962384403,
+        "split": 315
+      },
+      {
+        "feature": "numeric_token_conflict",
+        "gain": 3452.2109538316727,
+        "split": 190
+      },
+      {
+        "feature": "address_length_ratio",
+        "gain": 4083.18637291342,
+        "split": 452
+      },
+      {
+        "feature": "address_missing_left",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "address_missing_right",
+        "gain": 736.1841175109148,
+        "split": 45
+      },
+      {
+        "feature": "same_country",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "country_conflict",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "country_missing_left",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "country_missing_right",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "both_country_present",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "source_is_s2",
+        "gain": 478.0598635971546,
+        "split": 131
+      },
+      {
+        "feature": "source_is_s3",
+        "gain": 261.967119038105,
+        "split": 78
+      },
+      {
+        "feature": "block_exact_full_name",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "block_exact_core_name",
+        "gain": 2.7567200660705566,
+        "split": 1
+      },
+      {
+        "feature": "block_exact_sorted_name",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "block_rare_name_token",
+        "gain": 142.1221452653408,
+        "split": 40
+      },
+      {
+        "feature": "block_exact_address",
+        "gain": 0.2328920066356659,
+        "split": 1
+      },
+      {
+        "feature": "block_rare_address_token",
+        "gain": 319.74873389303684,
+        "split": 71
+      },
+      {
+        "feature": "block_cross_country_exact_name",
+        "gain": 0.0,
+        "split": 0
+      },
+      {
+        "feature": "block_name_tfidf",
+        "gain": 42.26359277963638,
+        "split": 9
+      },
+      {
+        "feature": "blocking_channel_count",
+        "gain": 40.40453788638115,
+        "split": 45
+      },
+      {
+        "feature": "rare_name_token_hits",
+        "gain": 99.04670506715775,
+        "split": 54
+      },
+      {
+        "feature": "rare_address_token_hits",
+        "gain": 459.34994806721807,
+        "split": 124
+      },
+      {
+        "feature": "name_tfidf_similarity",
+        "gain": 976.2782368510962,
+        "split": 254
+      },
+      {
+        "feature": "name_tfidf_rank",
+        "gain": 99.80607770383358,
+        "split": 77
+      },
+      {
+        "feature": "legacy_blocking_channel_count",
+        "gain": 4055.627012267709,
+        "split": 34
+      },
+      {
+        "feature": "legacy_rank",
+        "gain": 255.6935994811356,
+        "split": 171
+      },
+      {
+        "feature": "legacy_cheap_score",
+        "gain": 1716.3574071079493,
+        "split": 89
+      },
+      {
+        "feature": "is_tfidf_only",
+        "gain": 4.321300029754639,
+        "split": 1
+      },
+      {
+        "feature": "is_legacy_only",
+        "gain": 10.076330423355103,
+        "split": 2
+      },
+      {
+        "feature": "supported_by_both",
+        "gain": 277.72392320632935,
+        "split": 24
+      },
+      {
+        "feature": "fusion_score",
+        "gain": 12794.218355894089,
+        "split": 319
+      },
+      {
+        "feature": "fusion_rank",
+        "gain": 539.998959897086,
+        "split": 200
+      },
+      {
+        "feature": "candidate_count_for_s1",
+        "gain": 208.7034318894148,
+        "split": 123
+      },
+      {
+        "feature": "cheap_score",
+        "gain": 32.611658081412315,
+        "split": 18
+      },
+      {
+        "feature": "cheap_rank",
+        "gain": 119.8885820955038,
+        "split": 53
+      },
+      {
+        "feature": "cheap_score_margin_to_next",
+        "gain": 218.35850407928228,
+        "split": 122
+      },
+      {
+        "feature": "relative_name_similarity_rank",
+        "gain": 2617.123878169805,
+        "split": 437
+      },
+      {
+        "feature": "relative_address_similarity_rank",
+        "gain": 12500.040127165616,
+        "split": 339
+      },
+      {
+        "feature": "relative_tfidf_similarity_rank",
+        "gain": 1086.9885954037309,
+        "split": 312
+      },
+      {
+        "feature": "relative_fusion_score_rank",
+        "gain": 96.61922824382782,
+        "split": 50
+      },
+      {
+        "feature": "top_name_similarity_margin",
+        "gain": 411.91413002833724,
+        "split": 298
+      },
+      {
+        "feature": "top_address_similarity_margin",
+        "gain": 418.14181791990995,
+        "split": 319
+      },
+      {
+        "feature": "top_tfidf_similarity_margin",
+        "gain": 183.41499380767345,
+        "split": 140
+      },
+      {
+        "feature": "fusion_score_gap_to_best",
+        "gain": 371.95166047103703,
+        "split": 287
+      },
+      {
+        "feature": "close_name_competitor_count",
+        "gain": 105.38993407040834,
+        "split": 94
+      }
+    ],
+    "selected_signal_group_gain_share": {
+      "address_numbers": 0.07579727491114545,
+      "country": 0.0,
+      "exact_name": 3.021309450116573e-05,
+      "tfidf": 0.007374755356732864
+    },
+    "top_20_gain": [
+      {
+        "feature": "address_token_jaccard",
+        "gain": 204898.46021179855,
+        "split": 911
+      },
+      {
+        "feature": "numeric_token_overlap",
+        "gain": 17525.434962384403,
+        "split": 315
+      },
+      {
+        "feature": "fusion_score",
+        "gain": 12794.218355894089,
+        "split": 319
+      },
+      {
+        "feature": "relative_address_similarity_rank",
+        "gain": 12500.040127165616,
+        "split": 339
+      },
+      {
+        "feature": "name_character_similarity",
+        "gain": 9866.85186933726,
+        "split": 748
+      },
+      {
+        "feature": "name_token_jaccard",
+        "gain": 5640.363611057401,
+        "split": 478
+      },
+      {
+        "feature": "address_length_ratio",
+        "gain": 4083.18637291342,
+        "split": 452
+      },
+      {
+        "feature": "legacy_blocking_channel_count",
+        "gain": 4055.627012267709,
+        "split": 34
+      },
+      {
+        "feature": "numeric_token_conflict",
+        "gain": 3452.2109538316727,
+        "split": 190
+      },
+      {
+        "feature": "relative_name_similarity_rank",
+        "gain": 2617.123878169805,
+        "split": 437
+      },
+      {
+        "feature": "name_prefix_ratio",
+        "gain": 2502.833111587912,
+        "split": 457
+      },
+      {
+        "feature": "legacy_cheap_score",
+        "gain": 1716.3574071079493,
+        "split": 89
+      },
+      {
+        "feature": "numeric_token_equal",
+        "gain": 1254.282341485843,
+        "split": 78
+      },
+      {
+        "feature": "relative_tfidf_similarity_rank",
+        "gain": 1086.9885954037309,
+        "split": 312
+      },
+      {
+        "feature": "name_tfidf_similarity",
+        "gain": 976.2782368510962,
+        "split": 254
+      },
+      {
+        "feature": "address_shared_token_count",
+        "gain": 883.5806889738888,
+        "split": 239
+      },
+      {
+        "feature": "address_missing_right",
+        "gain": 736.1841175109148,
+        "split": 45
+      },
+      {
+        "feature": "name_length_ratio",
+        "gain": 698.860088352114,
+        "split": 430
+      },
+      {
+        "feature": "fusion_rank",
+        "gain": 539.998959897086,
+        "split": 200
+      },
+      {
+        "feature": "source_is_s2",
+        "gain": 478.0598635971546,
+        "split": 131
+      }
+    ],
+    "top_20_split": [
+      {
+        "feature": "address_token_jaccard",
+        "gain": 204898.46021179855,
+        "split": 911
+      },
+      {
+        "feature": "name_character_similarity",
+        "gain": 9866.85186933726,
+        "split": 748
+      },
+      {
+        "feature": "name_token_jaccard",
+        "gain": 5640.363611057401,
+        "split": 478
+      },
+      {
+        "feature": "name_prefix_ratio",
+        "gain": 2502.833111587912,
+        "split": 457
+      },
+      {
+        "feature": "address_length_ratio",
+        "gain": 4083.18637291342,
+        "split": 452
+      },
+      {
+        "feature": "relative_name_similarity_rank",
+        "gain": 2617.123878169805,
+        "split": 437
+      },
+      {
+        "feature": "name_length_ratio",
+        "gain": 698.860088352114,
+        "split": 430
+      },
+      {
+        "feature": "relative_address_similarity_rank",
+        "gain": 12500.040127165616,
+        "split": 339
+      },
+      {
+        "feature": "fusion_score",
+        "gain": 12794.218355894089,
+        "split": 319
+      },
+      {
+        "feature": "top_address_similarity_margin",
+        "gain": 418.14181791990995,
+        "split": 319
+      },
+      {
+        "feature": "numeric_token_overlap",
+        "gain": 17525.434962384403,
+        "split": 315
+      },
+      {
+        "feature": "relative_tfidf_similarity_rank",
+        "gain": 1086.9885954037309,
+        "split": 312
+      },
+      {
+        "feature": "top_name_similarity_margin",
+        "gain": 411.91413002833724,
+        "split": 298
+      },
+      {
+        "feature": "fusion_score_gap_to_best",
+        "gain": 371.95166047103703,
+        "split": 287
+      },
+      {
+        "feature": "name_tfidf_similarity",
+        "gain": 976.2782368510962,
+        "split": 254
+      },
+      {
+        "feature": "address_shared_token_count",
+        "gain": 883.5806889738888,
+        "split": 239
+      },
+      {
+        "feature": "fusion_rank",
+        "gain": 539.998959897086,
+        "split": 200
+      },
+      {
+        "feature": "numeric_token_conflict",
+        "gain": 3452.2109538316727,
+        "split": 190
+      },
+      {
+        "feature": "legacy_rank",
+        "gain": 255.6935994811356,
+        "split": 171
+      },
+      {
+        "feature": "name_token_count_difference",
+        "gain": 358.12658554315567,
+        "split": 148
+      }
+    ]
+  },
+  "inputs": {
+    "feed": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/normalized/tier0_validation_s1_2000_b0f777fcc381_feed.parquet",
+    "legacy_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/tier0_validation_s1_2000_b0f777fcc381_candidates.parquet",
+    "source1": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/normalized/tier0_validation_s1_2000_b0f777fcc381_source1.parquet",
+    "tfidf_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e1_name_tfidf_s1_2000_31b482134469_tfidf_only.parquet"
+  },
+  "label_metrics_full_universe": {
+    "missed_positives": 339,
+    "negatives": 84489,
+    "positive_negative_ratio": 0.0778089455432068,
+    "positives_by_country": {},
+    "positives_by_source": {
+      "S2": 3167,
+      "S3": 3407
+    },
+    "recovered_positives": 6574,
+    "total_candidate_pairs": 91063
+  },
+  "lightgbm_breakdowns": {
+    "by_country": {
+      "India": {
+        "average_predicted_matches": 3.131707317073171,
+        "empty_predictions": 12,
+        "entities": 205,
+        "entity_macro_precision": 0.9906039488966318,
+        "entity_macro_recall": 0.9054703832752613,
+        "macro_f0_5": 0.9632887130083762,
+        "nonempty_predictions": 193,
+        "pair_micro_precision": 0.9922118380062306,
+        "pair_micro_recall": 0.9022662889518414,
+        "predicted_pairs": 642,
+        "true_pairs": 706,
+        "true_positive_pairs": 637
+      },
+      "US": {
+        "average_predicted_matches": 3.3356401384083045,
+        "empty_predictions": 19,
+        "entities": 289,
+        "entity_macro_precision": 0.9944636678200691,
+        "entity_macro_recall": 0.9654871752622618,
+        "macro_f0_5": 0.9855880453012674,
+        "nonempty_predictions": 270,
+        "pair_micro_precision": 0.9927385892116183,
+        "pair_micro_recall": 0.9560439560439561,
+        "predicted_pairs": 964,
+        "true_pairs": 1001,
+        "true_positive_pairs": 957
+      }
+    },
+    "by_true_match_count": {
+      "0": {
+        "average_predicted_matches": 0.03125,
+        "empty_predictions": 31,
+        "entities": 32,
+        "entity_macro_precision": 0.96875,
+        "entity_macro_recall": 0.96875,
+        "macro_f0_5": 0.96875,
+        "nonempty_predictions": 1,
+        "pair_micro_precision": 0.0,
+        "pair_micro_recall": 1.0,
+        "predicted_pairs": 1,
+        "true_pairs": 0,
+        "true_positive_pairs": 0
+      },
+      "1": {
+        "average_predicted_matches": 1.0,
+        "empty_predictions": 0,
+        "entities": 17,
+        "entity_macro_precision": 1.0,
+        "entity_macro_recall": 1.0,
+        "macro_f0_5": 1.0,
+        "nonempty_predictions": 17,
+        "pair_micro_precision": 1.0,
+        "pair_micro_recall": 1.0,
+        "predicted_pairs": 17,
+        "true_pairs": 17,
+        "true_positive_pairs": 17
+      },
+      "2": {
+        "average_predicted_matches": 1.9361702127659575,
+        "empty_predictions": 0,
+        "entities": 94,
+        "entity_macro_precision": 0.9893617021276596,
+        "entity_macro_recall": 0.9521276595744681,
+        "macro_f0_5": 0.9749240121580547,
+        "nonempty_predictions": 94,
+        "pair_micro_precision": 0.9835164835164835,
+        "pair_micro_recall": 0.9521276595744681,
+        "predicted_pairs": 182,
+        "true_pairs": 188,
+        "true_positive_pairs": 179
+      },
+      "3+": {
+        "average_predicted_matches": 4.005698005698005,
+        "empty_predictions": 0,
+        "entities": 351,
+        "entity_macro_precision": 0.9956518789852122,
+        "entity_macro_recall": 0.9320433681544793,
+        "macro_f0_5": 0.9762571912134652,
+        "nonempty_predictions": 351,
+        "pair_micro_precision": 0.9943100995732574,
+        "pair_micro_recall": 0.9307589880159787,
+        "predicted_pairs": 1406,
+        "true_pairs": 1502,
+        "true_positive_pairs": 1398
+      }
+    }
+  },
+  "lightgbm_version": "4.6.0",
+  "model_seed": 42,
+  "model_variants": {
+    "all_candidate_negatives": {
+      "best_iteration": 146,
+      "best_probability_threshold": 0.758999999999999,
+      "entity_metrics": {
+        "average_predicted_matches": 3.251012145748988,
+        "empty_predictions": 31,
+        "entities": 494,
+        "entity_macro_precision": 0.9928619625988047,
+        "entity_macro_recall": 0.9405814215024741,
+        "macro_f0_5": 0.9763342738032053,
+        "nonempty_predictions": 463,
+        "pair_micro_precision": 0.9925280199252802,
+        "pair_micro_recall": 0.9338019917984769,
+        "predicted_pairs": 1606,
+        "threshold": 0.758999999999999,
+        "true_pairs": 1707,
+        "true_positive_pairs": 1594
+      },
+      "pair_classification": {
+        "average_precision": 0.9984190066009924,
+        "log_loss": 0.007052671274524898,
+        "negative_probability_distribution": {
+          "count": 20982,
+          "maximum": 0.9966098223071002,
+          "median": 5.648109528708044e-05,
+          "minimum": 4.4244984260899535e-05,
+          "p05": 5.0317441688680225e-05,
+          "p25": 5.1248834613335205e-05,
+          "p75": 7.87033178585187e-05,
+          "p95": 0.00039366510344383045
+        },
+        "positive_probability_distribution": {
+          "count": 1633,
+          "maximum": 0.9994405172078834,
+          "median": 0.9990867124227565,
+          "minimum": 0.0007750923720789231,
+          "p05": 0.9599483254493477,
+          "p25": 0.9977990045515719,
+          "p75": 0.9993387599416688,
+          "p95": 0.9993694545495913
+        },
+        "roc_auc": 0.9998659218764072
+      },
+      "threshold_grid": [
+        0.001,
+        0.002,
+        0.005,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.060000000000000005,
+        0.06999999999999999,
+        0.08,
+        0.09,
+        0.09999999999999999,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15000000000000002,
+        0.16,
+        0.17,
+        0.18000000000000002,
+        0.19,
+        0.2,
+        0.21000000000000002,
+        0.22,
+        0.23,
+        0.24000000000000002,
+        0.25,
+        0.26,
+        0.27,
+        0.28,
+        0.29000000000000004,
+        0.3,
+        0.31,
+        0.32,
+        0.33,
+        0.34,
+        0.35000000000000003,
+        0.36000000000000004,
+        0.37,
+        0.38,
+        0.39,
+        0.4,
+        0.41000000000000003,
+        0.42000000000000004,
+        0.43,
+        0.44,
+        0.45,
+        0.46,
+        0.47000000000000003,
+        0.48000000000000004,
+        0.49,
+        0.5,
+        0.51,
+        0.52,
+        0.53,
+        0.54,
+        0.55,
+        0.56,
+        0.5700000000000001,
+        0.5800000000000001,
+        0.59,
+        0.6,
+        0.61,
+        0.62,
+        0.63,
+        0.64,
+        0.65,
+        0.66,
+        0.67,
+        0.68,
+        0.6900000000000001,
+        0.7000000000000001,
+        0.7100000000000001,
+        0.72,
+        0.73,
+        0.74,
+        0.75,
+        0.7505,
+        0.7509999999999999,
+        0.7514999999999998,
+        0.7519999999999998,
+        0.7524999999999997,
+        0.7529999999999997,
+        0.7534999999999996,
+        0.7539999999999996,
+        0.7544999999999995,
+        0.7549999999999994,
+        0.7554999999999994,
+        0.7559999999999993,
+        0.7564999999999993,
+        0.7569999999999992,
+        0.7574999999999992,
+        0.7579999999999991,
+        0.7584999999999991,
+        0.758999999999999,
+        0.759499999999999,
+        0.76,
+        0.7604999999999988,
+        0.7609999999999988,
+        0.7614999999999987,
+        0.7619999999999987,
+        0.7624999999999986,
+        0.7629999999999986,
+        0.7634999999999985,
+        0.7639999999999985,
+        0.7644999999999984,
+        0.7649999999999983,
+        0.7654999999999983,
+        0.7659999999999982,
+        0.7664999999999982,
+        0.7669999999999981,
+        0.7674999999999981,
+        0.767999999999998,
+        0.768499999999998,
+        0.7689999999999979,
+        0.7694999999999979,
+        0.77,
+        0.7704999999999977,
+        0.7709999999999977,
+        0.7714999999999976,
+        0.7719999999999976,
+        0.7724999999999975,
+        0.7729999999999975,
+        0.7734999999999974,
+        0.7739999999999974,
+        0.7744999999999973,
+        0.7749999999999972,
+        0.7754999999999972,
+        0.7759999999999971,
+        0.7764999999999971,
+        0.776999999999997,
+        0.777499999999997,
+        0.7779999999999969,
+        0.7784999999999969,
+        0.7789999999999968,
+        0.7794999999999968,
+        0.78,
+        0.7804999999999966,
+        0.7809999999999966,
+        0.7814999999999965,
+        0.7819999999999965,
+        0.7824999999999964,
+        0.7829999999999964,
+        0.7834999999999963,
+        0.7839999999999963,
+        0.7844999999999962,
+        0.7849999999999961,
+        0.7854999999999961,
+        0.785999999999996,
+        0.786499999999996,
+        0.7869999999999959,
+        0.7874999999999959,
+        0.7879999999999958,
+        0.7884999999999958,
+        0.7889999999999957,
+        0.7894999999999956,
+        0.79,
+        0.8,
+        0.81,
+        0.8200000000000001,
+        0.8300000000000001,
+        0.8400000000000001,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.9400000000000001,
+        0.9500000000000001,
+        0.9600000000000001,
+        0.97,
+        0.98,
+        0.99,
+        0.995,
+        0.998,
+        0.999
+      ],
+      "threshold_local_results": [
+        {
+          "average_predicted_matches": 3.2550607287449393,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9911750530171582,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9749438513601513,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912935323383084,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1608,
+          "threshold": 0.7539999999999996,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.2550607287449393,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9911750530171582,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9749438513601513,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912935323383084,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1608,
+          "threshold": 0.7544999999999995,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.2550607287449393,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9911750530171582,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9749438513601513,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912935323383084,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1608,
+          "threshold": 0.7549999999999994,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.2550607287449393,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9911750530171582,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9749438513601513,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912935323383084,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1608,
+          "threshold": 0.7554999999999994,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9921871987661461,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9758435364703627,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919103920348475,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1607,
+          "threshold": 0.7559999999999993,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9921871987661461,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9758435364703627,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919103920348475,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1607,
+          "threshold": 0.7564999999999993,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9763342738032053,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925280199252802,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1606,
+          "threshold": 0.7569999999999992,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9763342738032053,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925280199252802,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1606,
+          "threshold": 0.7574999999999992,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9763342738032053,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925280199252802,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1606,
+          "threshold": 0.7579999999999991,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9763342738032053,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925280199252802,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1606,
+          "threshold": 0.7584999999999991,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9405814215024741,
+          "macro_f0_5": 0.9763342738032053,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925280199252802,
+          "pair_micro_recall": 0.9338019917984769,
+          "predicted_pairs": 1606,
+          "threshold": 0.758999999999999,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1594
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.759499999999999,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.76,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7604999999999988,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7609999999999988,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7614999999999987,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7619999999999987,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7624999999999986,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7629999999999986,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7634999999999985,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9928619625988047,
+          "entity_macro_recall": 0.9399066576698155,
+          "macro_f0_5": 0.9761502473033894,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9925233644859813,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1605,
+          "threshold": 0.7639999999999985,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        }
+      ],
+      "threshold_sweep_seconds": 0.7891541090793908,
+      "training_pairs": {
+        "average_pairs_per_s1": 45.45019920318725,
+        "entities": 1506,
+        "negative_pairs": 63507,
+        "pairs": 68448,
+        "pairs_by_source": {
+          "S2": 41155,
+          "S3": 27293
+        },
+        "positive_negative_ratio": 0.07780244697434928,
+        "positive_pairs": 4941,
+        "positives_by_source": {
+          "S2": 2376,
+          "S3": 2565
+        }
+      },
+      "training_performance": {
+        "average_cpu_utilization_percent": 3055.5553755659967,
+        "training_cpu_seconds": 55.213683023,
+        "training_seconds": 1.806993369013071
+      },
+      "validation_inference_seconds": 0.023306106217205524
+    },
+    "hard_negative_5_to_1": {
+      "best_iteration": 169,
+      "best_probability_threshold": 0.8179999999999958,
+      "entity_metrics": {
+        "average_predicted_matches": 3.251012145748988,
+        "empty_predictions": 31,
+        "entities": 494,
+        "entity_macro_precision": 0.9915124349334875,
+        "entity_macro_recall": 0.9389989396568345,
+        "macro_f0_5": 0.9743227455190168,
+        "nonempty_predictions": 463,
+        "pair_micro_precision": 0.9919053549190535,
+        "pair_micro_recall": 0.9332161687170475,
+        "predicted_pairs": 1606,
+        "threshold": 0.8179999999999958,
+        "true_pairs": 1707,
+        "true_positive_pairs": 1593
+      },
+      "pair_classification": {
+        "average_precision": 0.9982697196263833,
+        "log_loss": 0.007278471183411345,
+        "negative_probability_distribution": {
+          "count": 20982,
+          "maximum": 0.9980813772046219,
+          "median": 5.512891448888065e-05,
+          "minimum": 3.267490119292742e-05,
+          "p05": 3.6296128378175304e-05,
+          "p25": 4.1497026641537866e-05,
+          "p75": 0.00011168173685871897,
+          "p95": 0.0012950089533338952
+        },
+        "positive_probability_distribution": {
+          "count": 1633,
+          "maximum": 0.9998234977823015,
+          "median": 0.9996206395549545,
+          "minimum": 0.0004687669294346855,
+          "p05": 0.9727517554114501,
+          "p25": 0.9989563837873815,
+          "p75": 0.9997678165347404,
+          "p95": 0.9998138458657068
+        },
+        "roc_auc": 0.9998296735025495
+      },
+      "threshold_grid": [
+        0.001,
+        0.002,
+        0.005,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.060000000000000005,
+        0.06999999999999999,
+        0.08,
+        0.09,
+        0.09999999999999999,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15000000000000002,
+        0.16,
+        0.17,
+        0.18000000000000002,
+        0.19,
+        0.2,
+        0.21000000000000002,
+        0.22,
+        0.23,
+        0.24000000000000002,
+        0.25,
+        0.26,
+        0.27,
+        0.28,
+        0.29000000000000004,
+        0.3,
+        0.31,
+        0.32,
+        0.33,
+        0.34,
+        0.35000000000000003,
+        0.36000000000000004,
+        0.37,
+        0.38,
+        0.39,
+        0.4,
+        0.41000000000000003,
+        0.42000000000000004,
+        0.43,
+        0.44,
+        0.45,
+        0.46,
+        0.47000000000000003,
+        0.48000000000000004,
+        0.49,
+        0.5,
+        0.51,
+        0.52,
+        0.53,
+        0.54,
+        0.55,
+        0.56,
+        0.5700000000000001,
+        0.5800000000000001,
+        0.59,
+        0.6,
+        0.61,
+        0.62,
+        0.63,
+        0.64,
+        0.65,
+        0.66,
+        0.67,
+        0.68,
+        0.6900000000000001,
+        0.7000000000000001,
+        0.7100000000000001,
+        0.72,
+        0.73,
+        0.74,
+        0.75,
+        0.76,
+        0.77,
+        0.78,
+        0.7805,
+        0.7809999999999999,
+        0.7814999999999999,
+        0.7819999999999998,
+        0.7824999999999998,
+        0.7829999999999997,
+        0.7834999999999996,
+        0.7839999999999996,
+        0.7844999999999995,
+        0.7849999999999995,
+        0.7854999999999994,
+        0.7859999999999994,
+        0.7864999999999993,
+        0.7869999999999993,
+        0.7874999999999992,
+        0.7879999999999991,
+        0.7884999999999991,
+        0.788999999999999,
+        0.789499999999999,
+        0.79,
+        0.7904999999999989,
+        0.7909999999999988,
+        0.7914999999999988,
+        0.7919999999999987,
+        0.7924999999999986,
+        0.7929999999999986,
+        0.7934999999999985,
+        0.7939999999999985,
+        0.7944999999999984,
+        0.7949999999999984,
+        0.7954999999999983,
+        0.7959999999999983,
+        0.7964999999999982,
+        0.7969999999999982,
+        0.7974999999999981,
+        0.797999999999998,
+        0.798499999999998,
+        0.7989999999999979,
+        0.7994999999999979,
+        0.8,
+        0.8004999999999978,
+        0.8009999999999977,
+        0.8014999999999977,
+        0.8019999999999976,
+        0.8024999999999975,
+        0.8029999999999975,
+        0.8034999999999974,
+        0.8039999999999974,
+        0.8044999999999973,
+        0.8049999999999973,
+        0.8054999999999972,
+        0.8059999999999972,
+        0.8064999999999971,
+        0.806999999999997,
+        0.807499999999997,
+        0.8079999999999969,
+        0.8084999999999969,
+        0.8089999999999968,
+        0.8094999999999968,
+        0.81,
+        0.8104999999999967,
+        0.8109999999999966,
+        0.8114999999999966,
+        0.8119999999999965,
+        0.8124999999999964,
+        0.8129999999999964,
+        0.8134999999999963,
+        0.8139999999999963,
+        0.8144999999999962,
+        0.8149999999999962,
+        0.8154999999999961,
+        0.8159999999999961,
+        0.816499999999996,
+        0.816999999999996,
+        0.8174999999999959,
+        0.8179999999999958,
+        0.8184999999999958,
+        0.8189999999999957,
+        0.8194999999999957,
+        0.8200000000000001,
+        0.8300000000000001,
+        0.8400000000000001,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.9400000000000001,
+        0.9500000000000001,
+        0.9600000000000001,
+        0.97,
+        0.98,
+        0.99,
+        0.995,
+        0.998,
+        0.999
+      ],
+      "threshold_local_results": [
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8129999999999964,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8134999999999963,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8139999999999963,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8144999999999962,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8149999999999962,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8154999999999961,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.8159999999999961,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.2530364372469633,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9905002891844996,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9739767127843201,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9912881144990666,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1607,
+          "threshold": 0.816499999999996,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9743227455190168,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919053549190535,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1606,
+          "threshold": 0.816999999999996,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9743227455190168,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919053549190535,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1606,
+          "threshold": 0.8174999999999959,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.251012145748988,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.9389989396568345,
+          "macro_f0_5": 0.9743227455190168,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919053549190535,
+          "pair_micro_recall": 0.9332161687170475,
+          "predicted_pairs": 1606,
+          "threshold": 0.8179999999999958,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1593
+        },
+        {
+          "average_predicted_matches": 3.248987854251012,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.9385940813572392,
+          "macro_f0_5": 0.9741809884113154,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9919003115264797,
+          "pair_micro_recall": 0.9326303456356181,
+          "predicted_pairs": 1605,
+          "threshold": 0.8184999999999958,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1592
+        },
+        {
+          "average_predicted_matches": 3.2469635627530367,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.93825669944091,
+          "macro_f0_5": 0.9741031310460087,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9918952618453866,
+          "pair_micro_recall": 0.9320445225541887,
+          "predicted_pairs": 1604,
+          "threshold": 0.8189999999999957,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1591
+        },
+        {
+          "average_predicted_matches": 3.2469635627530367,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.93825669944091,
+          "macro_f0_5": 0.9741031310460087,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.9918952618453866,
+          "pair_micro_recall": 0.9320445225541887,
+          "predicted_pairs": 1604,
+          "threshold": 0.8194999999999957,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1591
+        },
+        {
+          "average_predicted_matches": 3.2449392712550607,
+          "empty_predictions": 31,
+          "entities": 494,
+          "entity_macro_precision": 0.9915124349334875,
+          "entity_macro_recall": 0.9372445536919222,
+          "macro_f0_5": 0.9737657491296794,
+          "nonempty_predictions": 463,
+          "pair_micro_precision": 0.991890205864005,
+          "pair_micro_recall": 0.9314586994727593,
+          "predicted_pairs": 1603,
+          "threshold": 0.8200000000000001,
+          "true_pairs": 1707,
+          "true_positive_pairs": 1590
+        }
+      ],
+      "threshold_sweep_seconds": 0.7937536831013858,
+      "training_pairs": {
+        "average_pairs_per_s1": 19.862549800796813,
+        "entities": 1506,
+        "negative_pairs": 24972,
+        "pairs": 29913,
+        "pairs_by_source": {
+          "S2": 18504,
+          "S3": 11409
+        },
+        "positive_negative_ratio": 0.1978616049975973,
+        "positive_pairs": 4941,
+        "positives_by_source": {
+          "S2": 2376,
+          "S3": 2565
+        }
+      },
+      "training_performance": {
+        "average_cpu_utilization_percent": 3102.9156773750074,
+        "training_cpu_seconds": 45.909308595,
+        "training_seconds": 1.4795538573525846
+      },
+      "validation_inference_seconds": 0.022243692073971033
+    }
+  },
+  "oracle_gap": 0.012237334811866174,
+  "performance": {
+    "feature_preparation_seconds": 56.53400582913309,
+    "peak_rss_mib": 1218.09375,
+    "total_experiment_seconds": 69.12397825997323
+  },
+  "selected_model_metrics": {
+    "average_predicted_matches": 3.251012145748988,
+    "empty_predictions": 31,
+    "entities": 494,
+    "entity_macro_precision": 0.9928619625988047,
+    "entity_macro_recall": 0.9405814215024741,
+    "macro_f0_5": 0.9763342738032053,
+    "nonempty_predictions": 463,
+    "pair_micro_precision": 0.9925280199252802,
+    "pair_micro_recall": 0.9338019917984769,
+    "predicted_pairs": 1606,
+    "threshold": 0.758999999999999,
+    "true_pairs": 1707,
+    "true_positive_pairs": 1594
+  },
+  "selected_threshold": 0.758999999999999,
+  "selected_variant": "all_candidate_negatives",
+  "train_entities": 1506,
+  "training_pairs_all": {
+    "average_pairs_per_s1": 45.45019920318725,
+    "entities": 1506,
+    "negative_pairs": 63507,
+    "pairs": 68448,
+    "pairs_by_source": {
+      "S2": 41155,
+      "S3": 27293
+    },
+    "positive_negative_ratio": 0.07780244697434928,
+    "positive_pairs": 4941,
+    "positives_by_source": {
+      "S2": 2376,
+      "S3": 2565
+    }
+  },
+  "training_split_seed": 202603,
+  "validation_entities": 494,
+  "validation_pairs": {
+    "average_pairs_per_s1": 45.77935222672065,
+    "entities": 494,
+    "negative_pairs": 20982,
+    "pairs": 22615,
+    "pairs_by_source": {
+      "S2": 13578,
+      "S3": 9037
+    },
+    "positive_negative_ratio": 0.0778286150033362,
+    "positive_pairs": 1633,
+    "positives_by_source": {
+      "S2": 791,
+      "S3": 842
+    }
+  }
+}

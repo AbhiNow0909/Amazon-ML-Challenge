@@ -1,0 +1,8 @@
+# Versions audited in the provided environment. Tier 0 installs no new packages.
+numpy==1.26.4
+pandas==2.3.3
+pyarrow==21.0.0
+scikit-learn==1.6.1
+scipy==1.13.1
+joblib==1.5.3
+lightgbm==4.6.0
