@@ -1,0 +1,16 @@
+{
+  "run": "e23_lgbm_38a0b640f78b",
+  "best_iteration": 261,
+  "validation_auc": 0.9995035887120567,
+  "validation_logloss": 0.011788040674658376,
+  "global_threshold": 0.710751503006012,
+  "global_macro_f0.5": 0.9625940402371292,
+  "country_thresholds": {
+    "India": 0.616002,
+    "US": 0.742335
+  },
+  "country_specific_macro_f0.5": 0.9631308513457403,
+  "e23_feature_gain_pct": 63.509824063518884,
+  "top_feature": "address_tfidf_similarity",
+  "top_feature_gain_pct": 43.014106723338145
+}
