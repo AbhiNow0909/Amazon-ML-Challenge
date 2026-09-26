@@ -1322,6 +1322,9 @@ def build_parser() -> argparse.ArgumentParser:
             "e1",
             "e1.1",
             "e2",
+            "e2.1",
+            "e2.2",
+            "e2.3",
             "submit",
             "validate",
             "smoke",
@@ -1388,6 +1391,36 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
         report = run_e2_experiment(config, persist=args.persist)
         _print_event("e2-complete", report=report)
+        return 0
+    if args.stage == "e2.1":
+        from .stress_test import run_e21_experiment
+
+        report = run_e21_experiment(config, persist=args.persist)
+        _print_event(
+            "e2.1-report",
+            artifact_id=report["artifact_id"],
+            report_path=report.get("artifacts", {}).get("report"),
+        )
+        return 0
+    if args.stage == "e2.2":
+        from .retrieval_repair import run_e22_experiment
+
+        report = run_e22_experiment(config, persist=args.persist)
+        _print_event(
+            "e2.2-report",
+            artifact_id=report["artifact_id"],
+            report_path=report.get("artifacts", {}).get("report"),
+        )
+        return 0
+    if args.stage == "e2.3":
+        from .retrieval_optimization import run_e23_experiment
+
+        report = run_e23_experiment(config, persist=args.persist)
+        _print_event(
+            "e2.3-report",
+            artifact_id=report["artifact_id"],
+            report_path=report.get("artifacts", {}).get("report"),
+        )
         return 0
 
     stop_after = "evaluate" if args.stage in {"baseline", "evaluate"} else args.stage

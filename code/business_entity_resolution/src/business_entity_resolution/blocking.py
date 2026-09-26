@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import time
 from collections import Counter, defaultdict
+from math import ceil
 from typing import DefaultDict, Dict, Iterable, List, Mapping, Optional, Tuple
 
 import numpy as np
@@ -24,6 +25,83 @@ PROVENANCE_COLUMNS = [
     "block_cross_country_exact_name",
     "block_name_tfidf",
 ]
+
+TOKEN_DF_MODES = {"absolute", "relative", "hybrid"}
+
+
+def token_df_eligible(
+    document_frequency: int,
+    shard_size: int,
+    *,
+    absolute_max_df: int,
+    relative_max_df: float,
+    mode: str,
+) -> bool:
+    """Return whether a token qualifies under an explicit DF policy."""
+
+    if mode not in TOKEN_DF_MODES:
+        raise ValueError(f"Unknown rare-token DF mode: {mode}")
+    if document_frequency <= 0 or shard_size <= 0:
+        return False
+    absolute = document_frequency <= absolute_max_df
+    relative = (
+        relative_max_df > 0
+        and document_frequency / shard_size <= relative_max_df
+    )
+    if mode == "absolute":
+        return absolute
+    if mode == "relative":
+        return relative
+    return absolute or relative
+
+
+def effective_rare_posting_cap(config: PipelineConfig, shard_size: int) -> int:
+    """Scale rare-token postings only when the E2.2 option is enabled."""
+
+    cap = config.posting_list_cap
+    if config.rare_posting_cap_fraction > 0:
+        cap = max(cap, ceil(shard_size * config.rare_posting_cap_fraction))
+        cap = min(cap, config.rare_posting_cap_max)
+    return cap
+
+
+def _eligible_query_tokens(
+    tokens: Iterable[str],
+    *,
+    country: str,
+    document_frequencies: Mapping[Tuple[str, str], int],
+    shard_sizes: Mapping[str, int],
+    absolute_max_df: int,
+    relative_max_df: float,
+    config: PipelineConfig,
+    ranked_limit: int = 0,
+) -> List[str]:
+    unique = sorted(set(tokens))
+    shard_size = shard_sizes.get(country, 0)
+    posting_cap = effective_rare_posting_cap(config, shard_size)
+    eligible = {
+        token
+        for token in unique
+        if document_frequencies.get((country, token), 0) <= posting_cap
+        and token_df_eligible(
+            document_frequencies.get((country, token), 0),
+            shard_size,
+            absolute_max_df=absolute_max_df,
+            relative_max_df=relative_max_df,
+            mode=config.rare_token_df_mode,
+        )
+    }
+    if ranked_limit > 0:
+        ranked = sorted(
+            (
+                token
+                for token in unique
+                if 0 < document_frequencies.get((country, token), 0) <= posting_cap
+            ),
+            key=lambda token: (document_frequencies[(country, token)], token),
+        )[:ranked_limit]
+        eligible.update(ranked)
+    return sorted(eligible)
 
 
 def _validate_inputs(source1: pd.DataFrame, feed: pd.DataFrame) -> None:
@@ -61,6 +139,7 @@ def _build_indexes(
     Dict[Tuple[str, str], List[int]],
     Counter,
     Counter,
+    Counter,
 ]:
     """Build every Tier 0 index in two feed passes.
 
@@ -75,6 +154,7 @@ def _build_indexes(
     global_full_count: Counter = Counter()
     name_df: Counter = Counter()
     address_df: Counter = Counter()
+    shard_sizes: Counter = Counter(feed["country_norm"].tolist())
 
     columns = [
         "name_full",
@@ -112,9 +192,6 @@ def _build_indexes(
     global_exact_full: DefaultDict[object, List[int]] = defaultdict(list)
     rare_name: DefaultDict[Tuple[str, str], List[int]] = defaultdict(list)
     rare_address: DefaultDict[Tuple[str, str], List[int]] = defaultdict(list)
-    name_limit = min(config.rare_name_token_max_df, config.posting_list_cap)
-    address_limit = min(config.rare_address_token_max_df, config.posting_list_cap)
-
     for idx, row in enumerate(feed[columns].itertuples(index=False, name=None)):
         name_full, name_core, name_sorted, name_tokens, address_full, address_tokens, country = row
         if name_full:
@@ -139,13 +216,30 @@ def _build_indexes(
             name_tokens, minimum_length=config.minimum_token_length
         ):
             key = (country, token)
-            if name_df[key] <= name_limit:
+            posting_cap = effective_rare_posting_cap(config, shard_sizes[country])
+            eligible = token_df_eligible(
+                name_df[key],
+                shard_sizes[country],
+                absolute_max_df=config.rare_name_token_max_df,
+                relative_max_df=config.rare_name_token_max_df_fraction,
+                mode=config.rare_token_df_mode,
+            )
+            if name_df[key] <= posting_cap and (
+                eligible or config.ranked_name_tokens_per_query > 0
+            ):
                 rare_name[key].append(idx)
         for token in informative_tokens(
             address_tokens, minimum_length=config.minimum_token_length
         ):
             key = (country, token)
-            if address_df[key] <= address_limit:
+            posting_cap = effective_rare_posting_cap(config, shard_sizes[country])
+            if address_df[key] <= posting_cap and token_df_eligible(
+                address_df[key],
+                shard_sizes[country],
+                absolute_max_df=config.rare_address_token_max_df,
+                relative_max_df=config.rare_address_token_max_df_fraction,
+                mode=config.rare_token_df_mode,
+            ):
                 rare_address[key].append(idx)
 
     return (
@@ -158,6 +252,7 @@ def _build_indexes(
         dict(rare_address),
         name_df,
         address_df,
+        shard_sizes,
     )
 
 
@@ -220,6 +315,7 @@ def generate_candidates(
         rare_address,
         name_df,
         address_df,
+        shard_sizes,
     ) = _build_indexes(feed, config)
     feed_position = (
         {entity_id: idx for idx, entity_id in enumerate(feed["entity_id"].tolist())}
@@ -254,17 +350,36 @@ def generate_candidates(
             "block_exact_address",
         )
 
-        for token in informative_tokens(
-            s1.name_tokens, minimum_length=config.minimum_token_length
-        ):
+        name_query_tokens = _eligible_query_tokens(
+            informative_tokens(
+                s1.name_tokens, minimum_length=config.minimum_token_length
+            ),
+            country=country,
+            document_frequencies=name_df,
+            shard_sizes=shard_sizes,
+            absolute_max_df=config.rare_name_token_max_df,
+            relative_max_df=config.rare_name_token_max_df_fraction,
+            config=config,
+            ranked_limit=config.ranked_name_tokens_per_query,
+        )
+        for token in name_query_tokens:
             add(
                 rare_name.get((country, token), ()),
                 "block_rare_name_token",
                 "rare_name_token_hits",
             )
-        for token in informative_tokens(
-            s1.address_tokens, minimum_length=config.minimum_token_length
-        ):
+        address_query_tokens = _eligible_query_tokens(
+            informative_tokens(
+                s1.address_tokens, minimum_length=config.minimum_token_length
+            ),
+            country=country,
+            document_frequencies=address_df,
+            shard_sizes=shard_sizes,
+            absolute_max_df=config.rare_address_token_max_df,
+            relative_max_df=config.rare_address_token_max_df_fraction,
+            config=config,
+        )
+        for token in address_query_tokens:
             add(
                 rare_address.get((country, token), ()),
                 "block_rare_address_token",
@@ -391,6 +506,30 @@ def generate_candidates(
         "feed_entities": len(feed),
         "name_token_vocabulary": len(name_df),
         "address_token_vocabulary": len(address_df),
+        "rare_token_df_mode": config.rare_token_df_mode,
+        "qualifying_name_tokens": sum(
+            token_df_eligible(
+                frequency,
+                shard_sizes[country],
+                absolute_max_df=config.rare_name_token_max_df,
+                relative_max_df=config.rare_name_token_max_df_fraction,
+                mode=config.rare_token_df_mode,
+            )
+            and frequency <= effective_rare_posting_cap(config, shard_sizes[country])
+            for (country, _), frequency in name_df.items()
+        ),
+        "qualifying_address_tokens": sum(
+            token_df_eligible(
+                frequency,
+                shard_sizes[country],
+                absolute_max_df=config.rare_address_token_max_df,
+                relative_max_df=config.rare_address_token_max_df_fraction,
+                mode=config.rare_token_df_mode,
+            )
+            and frequency <= effective_rare_posting_cap(config, shard_sizes[country])
+            for (country, _), frequency in address_df.items()
+        ),
+        "shard_sizes": dict(shard_sizes),
         "maximum_raw_candidates": max(raw_counts.values(), default=0),
         "tfidf_candidate_merge_seconds": tfidf_merge_seconds,
         "tfidf_profile": dict(effective_tfidf_profile),

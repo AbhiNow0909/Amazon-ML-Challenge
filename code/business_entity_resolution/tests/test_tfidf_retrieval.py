@@ -5,7 +5,10 @@ import pandas as pd
 from business_entity_resolution.blocking import generate_candidates
 from business_entity_resolution.config import PipelineConfig
 from business_entity_resolution.normalize import normalize_records
-from business_entity_resolution.tfidf_retrieval import retrieve_name_tfidf
+from business_entity_resolution.tfidf_retrieval import (
+    retrieve_address_tfidf,
+    retrieve_name_tfidf,
+)
 
 
 def _frame(rows):
@@ -115,3 +118,28 @@ def test_blocking_integration_deduplicates_and_records_tfidf_provenance():
     assert exact["name_tfidf_similarity"] > 0
     assert exact["name_tfidf_rank"] >= 1
 
+
+def test_address_tfidf_is_sparse_bounded_and_recovers_format_noise():
+    source1 = normalize_records(
+        _frame([["S1-1", "Unrelated Name", "13818 184th Street, Arlington, WA", "US"]])
+    )
+    feed = normalize_records(
+        _frame(
+            [
+                ["S2-1", "Trade Name", "13816, 184st St Arington Washington", "US"],
+                ["S2-2", "Other", "99 South Road, Miami, FL", "US"],
+                ["S2-3", "Other Two", "88 North Road, Boston, MA", "US"],
+            ]
+        )
+    )
+    config = replace(
+        _config(top_k=2),
+        tfidf_address_top_k=1,
+        tfidf_address_max_features=None,
+    )
+    result, profile = retrieve_address_tfidf(source1, feed, config)
+    assert result.candidate_entity_id.tolist() == ["S2-1"]
+    assert result.address_tfidf_rank.max() == 1
+    assert len(result) <= len(source1)
+    assert profile["dense_similarity_constructed"] is False
+    assert profile["total_index_nnz"] > 0

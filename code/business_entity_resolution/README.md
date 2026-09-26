@@ -83,6 +83,49 @@ E2 requires LightGBM; this workspace uses version 4.6.0. Model artifacts are
 written under `models/lgbm/`, validation probabilities under
 `cache/predictions/`, and metrics under `experiments/`.
 
+E2.1 holds the selected E2 retrieval, feature, and LightGBM configurations
+fixed while testing a larger deterministic universe:
+
+```bash
+python3 -m business_entity_resolution.run_pipeline --stage e2.1 --persist
+```
+
+It selects 10,000 S1 entities, retains all of their truth-linked feed rows, and
+uses one hash-ranked distractor sample to create nested 100,000, 500,000, and
+1,000,000-distractor retrieval tests. The largest universe supplies the frozen
+entity-level training/validation run. E2.1 reports both the previous 0.759
+decision threshold and a threshold retuned on the new held-out entities. It
+does not run test inference.
+
+E2.2 reuses those normalized caches for retrieval-density diagnosis and an
+address character TF-IDF experiment:
+
+```bash
+python3 -m business_entity_resolution.run_pipeline --stage e2.2 --persist
+```
+
+It measures every legacy blocker at the three cached distractor densities,
+tests opt-in relative/hybrid/ranked rare-token policies, and evaluates sparse
+country-sharded address TF-IDF at top-K 5/10/20. Three-channel fusion retains
+legacy, name-TF-IDF, and address-TF-IDF ranks and scores while enforcing final
+K=50. The E2.1 LightGBM model is not loaded or retrained by this stage.
+
+E2.3 keeps the E2.2 full-country address retriever as a reference and tests
+sparse pre-blocked address retrieval on the same cached universe:
+
+```bash
+python3 -m business_entity_resolution.run_pipeline --stage e2.3 --persist
+```
+
+The optimized path unions postcode, useful numeric-token, and rare lexical
+address postings before applying the unchanged character TF-IDF similarity.
+It records candidate route provenance and uses an explicit country fallback
+for addresses without a usable structural key. No classifier is loaded or
+trained by this stage. The selected E2.3 defaults use postcode postings,
+numeric-token DF up to 5,000, the three rarest lexical address tokens with DF
+up to 500, a 15,000-row pool cap, address top-K 20, and the unchanged E2.2
+protected fusion at final K=50.
+
 Individual bounded stages are also available:
 
 ```bash

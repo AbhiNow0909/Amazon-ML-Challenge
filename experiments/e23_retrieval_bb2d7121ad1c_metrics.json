@@ -1,0 +1,1768 @@
+{
+  "artifact_id": "bb2d7121ad1c",
+  "artifacts": {
+    "optimized_address_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e23_retrieval_bb2d7121ad1c_address_tfidf.parquet",
+    "report": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/experiments/e23_retrieval_bb2d7121ad1c_metrics.json",
+    "selected_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e23_retrieval_bb2d7121ad1c_selected.parquet"
+  },
+  "cache_disk_usage_bytes": {
+    "new_candidate_caches_total": 14058910,
+    "optimized_address_candidates": 3347207,
+    "selected_candidates": 10711703,
+    "sparse_index_cached": false
+  },
+  "cache_reuse": {
+    "e21_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e21_lgbm_c449c0c6b281_candidates.parquet",
+    "feed_rows": 1034502,
+    "legacy_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e22_retrieval_e7c71a736237_best_legacy.parquet",
+    "name_tfidf_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e22_retrieval_e7c71a736237_name_tfidf.parquet",
+    "normalization_rerun": false,
+    "normalized_feed": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/normalized/e21_lgbm_c449c0c6b281_feed.parquet",
+    "normalized_source1": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/normalized/e21_lgbm_c449c0c6b281_source1.parquet",
+    "original_address_tfidf_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e22_retrieval_e7c71a736237_address_tfidf.parquet",
+    "original_selected_candidates": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/candidates/e22_retrieval_e7c71a736237_selected.parquet",
+    "source1_rows": 10000,
+    "universe_sampling_rerun": false
+  },
+  "cpu": {
+    "logical_cores": 32,
+    "multiprocessing_used": false,
+    "reason": "shared sparse matrices avoid process-level memory duplication"
+  },
+  "difficult_examples": {
+    "original_address_kept": [
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.8360023498535156,
+        "candidate_address": "Old # 10, New# 19, Thillai Ganga Nagar, Chennai, \u0ba4\u0bae\u0bbf\u0bb4\u0bcd\u0ba8\u0bbe\u0b9f\u0bc1",
+        "candidate_entity_id": "S3-59606543",
+        "candidate_name": "KC Private Limited Services",
+        "country": "india",
+        "failure_category": "address-only evidence",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "Old # 10, New# 19, Thillai Ganga Nagar, Chennai, Tamil Nadu",
+        "source1_entity_id": "S1-10491612",
+        "source1_name": "KC Solution Private Limited"
+      },
+      {
+        "address_tfidf_rank": 8,
+        "address_tfidf_similarity": 0.8173681497573853,
+        "candidate_address": "1453a Dunbar Lane, Syracuse, Utah",
+        "candidate_entity_id": "S3-485197467",
+        "candidate_name": "Mountain Sociemg",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 0,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "1453 Dunbar Lane, Syracuse, UT",
+        "source1_entity_id": "S1-106324796",
+        "source1_name": "Mountain Society"
+      },
+      {
+        "address_tfidf_rank": 4,
+        "address_tfidf_similarity": 0.9435526728630066,
+        "candidate_address": "H.no 2636, Opp Gopal Namkin Kalwad Road, Gidc Metoda, Rajkot, GJ",
+        "candidate_entity_id": "S3-466359507",
+        "candidate_name": "Zetafayesyn",
+        "country": "india",
+        "failure_category": "address-only evidence",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "Plot No 2636, Opp Gopal Namkin Kalwad Road, Gidc Metoda, Rajkot, Gujarat",
+        "source1_entity_id": "S1-106559087",
+        "source1_name": "Thakur Concepts Private Limited"
+      },
+      {
+        "address_tfidf_rank": 1,
+        "address_tfidf_similarity": 0.9999998211860657,
+        "candidate_address": "BANGALORE, NO.22/1, Karnataka, 1ST FLOOR, 11TH CROSS, 1ST 'K' BLOCK, RAJAJINAGAR",
+        "candidate_entity_id": "S2-506174856",
+        "candidate_name": "\u0c97\u0cc1\u0ca1\u0ccd \u0caa\u0cb5\u0cb0\u0ccd \u0c8e\u0cb2\u0ccd\u0c8e\u0cb2\u0ccd\u200c\u0caa\u0cbf",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "No.22/1, 1St Floor, 11Th Cross, 1St 'K' Block, Rajajinagar, Bangalore, Karnataka",
+        "source1_entity_id": "S1-107275338",
+        "source1_name": "Good Power LLP"
+      },
+      {
+        "address_tfidf_rank": 1,
+        "address_tfidf_similarity": 0.940953254699707,
+        "candidate_address": "3-1208/6/2/C/1, Flat No. 603, Pinnacle Towers, Uma Nagar, Secunderabad, Hyderabad, TG",
+        "candidate_entity_id": "S3-198002999",
+        "candidate_name": "LQ Anconsntuirltion Co",
+        "country": "india",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "6-3-1208/6/2/C/1, Flat No. 603, Pinnacle Towers, Uma Nagar, Secunderabad, Hyderabad, Telangana",
+        "source1_entity_id": "S1-107291682",
+        "source1_name": "LQ Andconstruction Co"
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.9659534692764282,
+        "candidate_address": "BUNGALOW NO-2 1ST FLOOR MAIN PATEL ROAD WEST PATEL NAGAR, <NULL>, NEW DELHI, WEST DELHI, Delhi",
+        "candidate_entity_id": "S2-670103418",
+        "candidate_name": "\u0938\u094d\u0935\u0938\u094d\u0924\u093f\u0915 \u092b\u0942\u0921 \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 0,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "Bungalow No-2 1St Floor Main Patel Road West Patel Nagar, New Delhi, West Delhi, Delhi",
+        "source1_entity_id": "S1-108551334",
+        "source1_name": "Swastik Food Private Limited"
+      },
+      {
+        "address_tfidf_rank": 2,
+        "address_tfidf_similarity": 0.9856674671173096,
+        "candidate_address": "West Delhi, Bungalow No-##2 1St Floor Main Patel Road West Patel Nagar, DL, New Delhi",
+        "candidate_entity_id": "S3-563552022",
+        "candidate_name": "Pervre Swastik Food Limited",
+        "country": "india",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 0,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "Bungalow No-2 1St Floor Main Patel Road West Patel Nagar, New Delhi, West Delhi, Delhi",
+        "source1_entity_id": "S1-108551334",
+        "source1_name": "Swastik Food Private Limited"
+      },
+      {
+        "address_tfidf_rank": 1,
+        "address_tfidf_similarity": 0.9470493197441101,
+        "candidate_address": "425. River Crossing Trail, Round Rock, Texas",
+        "candidate_entity_id": "S3-333258916",
+        "candidate_name": "Cdtoy Of",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 0
+        },
+        "source1_address": "425 River Crossing Trail, Round Rock, TX",
+        "source1_entity_id": "S1-11166434",
+        "source1_name": "County Of"
+      },
+      {
+        "address_tfidf_rank": 1,
+        "address_tfidf_similarity": 0.7106380462646484,
+        "candidate_address": "NEW DELHI, WEST DELHI, 27, 28&29 GROUND FL, GALI 12 SAINIK ENCLAVE, POT6-26, \u0926\u093f\u0932\u094d\u0932\u0940",
+        "candidate_entity_id": "S2-826223570",
+        "candidate_name": "\u092e\u0949\u0921\u0930\u094d\u0928 \u092a\u094d\u0930\u0949\u092a\u0930\u094d\u091f\u0940\u091c \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "Plot26, 27, 28&29 Ground Fl, Gali 12 Sainik Enclave, New Delhi, West Delhi, Delhi",
+        "source1_entity_id": "S1-111707068",
+        "source1_name": "Modern Properties Limited"
+      },
+      {
+        "address_tfidf_rank": 1,
+        "address_tfidf_similarity": 0.987114429473877,
+        "candidate_address": "CHADWICK, MO, 8456 State Highway 125, N/A",
+        "candidate_entity_id": "S2-301677428",
+        "candidate_name": "Foot & Ankle Medicine Inc. Services",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "8456 State Highway 125, Chadwick, MO",
+        "source1_entity_id": "S1-112043815",
+        "source1_name": "Foot & Ankle Harbor Medicine Inc."
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.736706018447876,
+        "candidate_address": "D, Snyder, Texas",
+        "candidate_entity_id": "S3-265304902",
+        "candidate_name": "-- Historical (Institute) (ID: 95760)",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 0,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "2809 D, Snyder, TX",
+        "source1_entity_id": "S1-120231082",
+        "source1_name": "Historical Institute"
+      },
+      {
+        "address_tfidf_rank": 2,
+        "address_tfidf_similarity": 0.8208342790603638,
+        "candidate_address": "Texas, Snyder, 2809-2811 D",
+        "candidate_entity_id": "S3-276546939",
+        "candidate_name": "Historical  Insgtuet",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {
+          "address_route_country_fallback": 0,
+          "address_route_numeric": 1,
+          "address_route_postcode": 0,
+          "address_route_postcode_prefix": 0,
+          "address_route_rare_token": 1
+        },
+        "source1_address": "2809 D, Snyder, TX",
+        "source1_entity_id": "S1-120231082",
+        "source1_name": "Historical Institute"
+      }
+    ],
+    "original_address_lost": [
+      {
+        "address_tfidf_rank": 6,
+        "address_tfidf_similarity": 0.8353123664855957,
+        "candidate_address": "ORANGE STREET, MARLBORO, NY",
+        "candidate_entity_id": "S2-850699573",
+        "candidate_name": "Pinnacle Center",
+        "country": "us",
+        "failure_category": "abbreviation/domain/trade-name",
+        "routes": {},
+        "source1_address": "20 Orange Street, Marlborough, NY",
+        "source1_entity_id": "S1-125954089",
+        "source1_name": "Pinnacle"
+      },
+      {
+        "address_tfidf_rank": 8,
+        "address_tfidf_similarity": 0.640446126461029,
+        "candidate_address": "Door No 2. Basement Floor, New Delhi West, West Delhi, DL",
+        "candidate_entity_id": "S3-172235329",
+        "candidate_name": "Services New Holdings LLP",
+        "country": "india",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "H No 2 Basement Floor, Blk-3-B Single Storey, New Delhi, West Delhi, Delhi",
+        "source1_entity_id": "S1-147804629",
+        "source1_name": "New Delhi Holdings LLP"
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.7197195291519165,
+        "candidate_address": "0555 Massachusetts Avenue, Indianapolis, Indiana",
+        "candidate_entity_id": "S3-709919894",
+        "candidate_name": "Wildlife Pegmr",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "555 Massachusetts Avenue, Unit APT 1913, Indianapolis, IN",
+        "source1_entity_id": "S1-173968792",
+        "source1_name": "Wildlife Program"
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.6305367946624756,
+        "candidate_address": "RAJ BHAVAN, KOLLAM, Kerala",
+        "candidate_entity_id": "S2-150135583",
+        "candidate_name": "Vantagetavo",
+        "country": "india",
+        "failure_category": "address-only evidence",
+        "routes": {},
+        "source1_address": "Raj Bhavan, Kuttikkadu, 3/406 (4/156) Kadakkal, Kollam, Kollam, Kerala",
+        "source1_entity_id": "S1-179427125",
+        "source1_name": "Limelite Solutions Private Limited"
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.5651123523712158,
+        "candidate_address": "C/o Shyam Lal Ray, Darbhanga, BR",
+        "candidate_entity_id": "S3-466570359",
+        "candidate_name": "\u0930\u093e\u092e \u0915\u0902\u0938\u0932\u094d\u091f\u0947\u0902\u091f\u094d\u0938",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {},
+        "source1_address": "C/O Shyam Lal Ray, Darbhanga, Vill-Andama Tola Andama, Panchnanaura Block Keotiranway, Bihar, Darbhanga",
+        "source1_entity_id": "S1-183855959",
+        "source1_name": "Ram Consultants"
+      },
+      {
+        "address_tfidf_rank": 5,
+        "address_tfidf_similarity": 0.5651123523712158,
+        "candidate_address": "C/o Shyam Lal Ray, Darbhanga, BR",
+        "candidate_entity_id": "S3-925966710",
+        "candidate_name": "Smt Ram Cosiltsnts",
+        "country": "india",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "C/O Shyam Lal Ray, Darbhanga, Vill-Andama Tola Andama, Panchnanaura Block Keotiranway, Bihar, Darbhanga",
+        "source1_entity_id": "S1-183855959",
+        "source1_name": "Ram Consultants"
+      },
+      {
+        "address_tfidf_rank": 3,
+        "address_tfidf_similarity": 0.7367059588432312,
+        "candidate_address": "IL, WOOD RIVER, 198D GRAND VIEW HILLS LN",
+        "candidate_entity_id": "S2-575319309",
+        "candidate_name": "T0MI'S CAFE",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "198 Grand View Hills Lane, Wood River, IL",
+        "source1_entity_id": "S1-244563834",
+        "source1_name": "Tomi's Cafe"
+      },
+      {
+        "address_tfidf_rank": 5,
+        "address_tfidf_similarity": 0.5820066928863525,
+        "candidate_address": "77 SECTOR - A, INDORE, Madhya Pradesh",
+        "candidate_entity_id": "S2-247158673",
+        "candidate_name": "\u091f\u0947\u0915 \u0938\u0930\u094d\u0935\u093f\u0938\u0947\u091c \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {},
+        "source1_address": "Sector - A, Bakhtawarram Nagar, Indore, Madhya Pradesh",
+        "source1_entity_id": "S1-244997914",
+        "source1_name": "Tech Services Private Limited"
+      },
+      {
+        "address_tfidf_rank": 2,
+        "address_tfidf_similarity": 0.8196661472320557,
+        "candidate_address": "301 COUNTRY CLUB TER, PHOENIX, AZ",
+        "candidate_entity_id": "S2-407450312",
+        "candidate_name": "Congregation Zicn",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "3013 Country Club Terrace, Phoenix, AZ",
+        "source1_entity_id": "S1-35525878",
+        "source1_name": "Congregation Zion"
+      },
+      {
+        "address_tfidf_rank": 9,
+        "address_tfidf_similarity": 0.7342166900634766,
+        "candidate_address": "Sacramento, 07916 Valley Green Dr, California",
+        "candidate_entity_id": "S3-638659610",
+        "candidate_name": "Bexi Lng",
+        "country": "us",
+        "failure_category": "other",
+        "routes": {},
+        "source1_address": "7916 Valley Green Drive, Sacramento, CA",
+        "source1_entity_id": "S1-369212908",
+        "source1_name": "Beix Lng"
+      },
+      {
+        "address_tfidf_rank": 4,
+        "address_tfidf_similarity": 0.7456730604171753,
+        "candidate_address": "TX, 3318A 3RD PL, LUBBOCK",
+        "candidate_entity_id": "S2-304851629",
+        "candidate_name": "setechnologies.com",
+        "country": "us",
+        "failure_category": "abbreviation/domain/trade-name",
+        "routes": {},
+        "source1_address": "3318 3rd Place, Lubbock, TX",
+        "source1_entity_id": "S1-407188232",
+        "source1_name": "S/E Technologies"
+      },
+      {
+        "address_tfidf_rank": 9,
+        "address_tfidf_similarity": 0.47945162653923035,
+        "candidate_address": "7, NAGPUR, Maharashtra",
+        "candidate_entity_id": "S2-802065787",
+        "candidate_name": "\u0939\u0930\u093f \u092c\u093f\u091c\u0928\u0947\u0938 \u092a\u094d\u0930\u093e. \u0932\u093f.",
+        "country": "india",
+        "failure_category": "transliteration/script mismatch",
+        "routes": {},
+        "source1_address": "Plot No 7, 54/Th/7, Ambazari Block, Hiltop, Nagpur, Maharashtra",
+        "source1_entity_id": "S1-431048347",
+        "source1_name": "Hari Business Pvt Ltd"
+      }
+    ]
+  },
+  "experiment": "E2.3_address_tfidf_preblock_optimization",
+  "fusion": {
+    "address_weight": 1.0,
+    "final_k": 50,
+    "legacy_weight": 2.0,
+    "name_weight": 1.0,
+    "protected_legacy_quota": 35,
+    "rrf_constant": 20.0
+  },
+  "optimized_index_profile": {
+    "dense_similarity_constructed": false,
+    "peak_rss_mib": 4388.5625,
+    "posting_index_seconds": 14.243706432636827,
+    "posting_payload_bytes_lower_bound": 12122388,
+    "shards": {
+      "india": {
+        "fit_seconds": 25.181480932049453,
+        "index_nnz": 33250482,
+        "index_rows": 414014,
+        "index_sparse_bytes": 267659916,
+        "matrix_seconds": 26.262868964113295,
+        "matrix_shape": [
+          414014,
+          137887
+        ],
+        "numeric_token_count": 12604,
+        "postcode_count": 1997,
+        "postcode_prefix_count": 372,
+        "posting_entries": 1392498,
+        "posting_seconds": 6.976719950791448,
+        "rare_token_count": 160816,
+        "total_seconds": 58.835889033041894,
+        "vocabulary_size": 137887
+      },
+      "us": {
+        "fit_seconds": 22.431446554139256,
+        "index_nnz": 30796324,
+        "index_rows": 620488,
+        "index_sparse_bytes": 248852548,
+        "matrix_seconds": 23.74616750702262,
+        "matrix_shape": [
+          620488,
+          107101
+        ],
+        "numeric_token_count": 50156,
+        "postcode_count": 29424,
+        "postcode_prefix_count": 938,
+        "posting_entries": 1638099,
+        "posting_seconds": 7.266986481845379,
+        "rare_token_count": 100316,
+        "total_seconds": 53.95084731094539,
+        "vocabulary_size": 107101
+      }
+    },
+    "sparse_matrix_construction_seconds": 50.009036471135914,
+    "total_build_seconds": 112.8661849917844,
+    "total_index_nnz": 64046806,
+    "total_index_sparse_bytes": 516512464,
+    "total_posting_entries": 3030597,
+    "total_vocabulary_across_shards": 244988,
+    "vectorizer_fit_seconds": 47.61292748618871
+  },
+  "original_address_metrics": {
+    "heldout": {
+      "average_candidate_count": 20.0,
+      "entity_candidate_recall": 0.9021822133458646,
+      "maximum_candidate_count": 20,
+      "median_candidate_count": 20.0,
+      "missed_true_pairs": 854,
+      "oracle_macro_f0_5": 0.9592176293787901,
+      "p95_candidate_count": 20.0,
+      "pair_candidate_recall": 0.899161648364624,
+      "recovered_true_pairs": 7615,
+      "total_candidate_pairs": 48640,
+      "true_pairs": 8469
+    },
+    "heldout_by_country": {
+      "india": {
+        "average_candidate_count": 20.0,
+        "entity_candidate_recall": 0.8632734555872017,
+        "maximum_candidate_count": 20,
+        "median_candidate_count": 20.0,
+        "missed_true_pairs": 469,
+        "oracle_macro_f0_5": 0.9430069843014873,
+        "p95_candidate_count": 20.0,
+        "pair_candidate_recall": 0.8580508474576272,
+        "recovered_true_pairs": 2835,
+        "total_candidate_pairs": 19060,
+        "true_pairs": 3304
+      },
+      "us": {
+        "average_candidate_count": 20.0,
+        "entity_candidate_recall": 0.927253238460135,
+        "maximum_candidate_count": 20,
+        "median_candidate_count": 20.0,
+        "missed_true_pairs": 385,
+        "oracle_macro_f0_5": 0.9696630281338068,
+        "p95_candidate_count": 20.0,
+        "pair_candidate_recall": 0.925459825750242,
+        "recovered_true_pairs": 4780,
+        "total_candidate_pairs": 29580,
+        "true_pairs": 5165
+      }
+    },
+    "heldout_incremental_true_links_vs_legacy_name": 763,
+    "heldout_true_links_retrieved": 7615,
+    "incremental_true_links_vs_legacy_name": 3103,
+    "overall": {
+      "average_candidate_count": 20.0,
+      "entity_candidate_recall": 0.8987520238095238,
+      "maximum_candidate_count": 20,
+      "median_candidate_count": 20.0,
+      "missed_true_pairs": 3686,
+      "oracle_macro_f0_5": 0.9587804226559652,
+      "p95_candidate_count": 20.0,
+      "pair_candidate_recall": 0.8931656135876181,
+      "recovered_true_pairs": 30816,
+      "total_candidate_pairs": 200000,
+      "true_pairs": 34502
+    },
+    "true_links_retrieved": 30816
+  },
+  "original_e22_profile": {
+    "analyzer": "char_wb",
+    "candidate_pairs": 200000,
+    "channel": "address",
+    "dense_similarity_constructed": false,
+    "dtype": "float32",
+    "field": "address_core",
+    "index_transform_seconds": 49.7367984210141,
+    "max_features": 300000,
+    "maximum_similarity_chunk_nnz": 11376005,
+    "min_df": 1,
+    "ngram_range": [
+      3,
+      4
+    ],
+    "peak_rss_mib": 4071.80859375,
+    "query_chunk_size": 32,
+    "query_transform_seconds": 0.9150364357046783,
+    "shards": {
+      "india": {
+        "index_nnz": 33250482,
+        "index_rows": 414014,
+        "index_sparse_bytes": 267659916,
+        "index_transform_seconds": 26.384088210295886,
+        "matrix_shape": [
+          414014,
+          137887
+        ],
+        "maximum_similarity_chunk_nnz": 11376005,
+        "query_nnz": 395728,
+        "query_rows": 3962,
+        "similarity_nnz": 1364229680,
+        "skipped": false,
+        "vectorizer_fit_seconds": 25.0690987133421,
+        "vocabulary_size": 137887
+      },
+      "us": {
+        "index_nnz": 30796324,
+        "index_rows": 620488,
+        "index_sparse_bytes": 248852548,
+        "index_transform_seconds": 23.352710210718215,
+        "matrix_shape": [
+          620488,
+          107101
+        ],
+        "maximum_similarity_chunk_nnz": 10369773,
+        "query_nnz": 298599,
+        "query_rows": 6038,
+        "similarity_nnz": 1769668616,
+        "skipped": false,
+        "vectorizer_fit_seconds": 22.446604832075536,
+        "vocabulary_size": 107101
+      }
+    },
+    "similarity_query_seconds": 292.0388806518167,
+    "top_k": 20,
+    "top_k_extraction_seconds": 33.80929048359394,
+    "total_index_nnz": 64046806,
+    "total_index_sparse_bytes": 516512464,
+    "total_runtime_seconds": 424.8509681993164,
+    "total_vocabulary_across_shards": 244988,
+    "vectorizer_fit_seconds": 47.51570354541764
+  },
+  "original_final_metrics": {
+    "heldout": {
+      "average_candidate_count": 49.0719572368421,
+      "entity_candidate_recall": 0.976016212406015,
+      "maximum_candidate_count": 50,
+      "median_candidate_count": 50.0,
+      "missed_true_pairs": 218,
+      "oracle_macro_f0_5": 0.9909483189347782,
+      "p95_candidate_count": 50.0,
+      "pair_candidate_recall": 0.9742590624631007,
+      "recovered_true_pairs": 8251,
+      "total_candidate_pairs": 119343,
+      "true_pairs": 8469
+    },
+    "heldout_by_country": {
+      "india": {
+        "average_candidate_count": 49.479538300104934,
+        "entity_candidate_recall": 0.9572253035526908,
+        "maximum_candidate_count": 50,
+        "median_candidate_count": 50.0,
+        "missed_true_pairs": 147,
+        "oracle_macro_f0_5": 0.9827046698253623,
+        "p95_candidate_count": 50.0,
+        "pair_candidate_recall": 0.9555084745762712,
+        "recovered_true_pairs": 3157,
+        "total_candidate_pairs": 47154,
+        "true_pairs": 3304
+      },
+      "us": {
+        "average_candidate_count": 48.809330628803245,
+        "entity_candidate_recall": 0.9881242152033227,
+        "maximum_candidate_count": 50,
+        "median_candidate_count": 50.0,
+        "missed_true_pairs": 71,
+        "oracle_macro_f0_5": 0.9962601496320559,
+        "p95_candidate_count": 50.0,
+        "pair_candidate_recall": 0.9862536302032914,
+        "recovered_true_pairs": 5094,
+        "total_candidate_pairs": 72189,
+        "true_pairs": 5165
+      }
+    },
+    "overall": {
+      "average_candidate_count": 49.1193,
+      "entity_candidate_recall": 0.9762421825396824,
+      "maximum_candidate_count": 50,
+      "median_candidate_count": 50.0,
+      "missed_true_pairs": 861,
+      "oracle_macro_f0_5": 0.9912072894735223,
+      "p95_candidate_count": 50.0,
+      "pair_candidate_recall": 0.975044924931888,
+      "recovered_true_pairs": 33641,
+      "total_candidate_pairs": 491193,
+      "true_pairs": 34502
+    }
+  },
+  "performance": {
+    "cache_load_seconds": 4.949987541884184,
+    "full_test_projection": {
+      "feed_scale": 9.637090116790494,
+      "note": "Projection uses measured build throughput and per-query scoped retrieval. Production should process country shards sequentially to bound dataframe, matrix, and posting-list residency.",
+      "projected_build_seconds_linear_observed": 1087.701595904173,
+      "projected_posting_payload_bytes_lower_bound": 116824545,
+      "projected_query_seconds_observed_throughput": 8500.207823775077,
+      "projected_sparse_matrix_bytes": 4977677162,
+      "projected_total_hours": 2.663308172133125,
+      "projected_total_seconds": 9587.90941967925,
+      "query_scale": 173.2544,
+      "test_feed_rows": 9969589,
+      "test_source1_rows": 1732544
+    },
+    "optimized_address_total_seconds": 161.92818759474903,
+    "optimized_index_build_seconds": 112.8661849917844,
+    "optimized_query_seconds": 49.06200260296464,
+    "original_address_retrieval_seconds": 424.8509681993164,
+    "peak_rss_mib": 5759.3203125,
+    "persistence_seconds": 1.0860651889815927,
+    "speedup_vs_original_including_build": 2.6236998913529086,
+    "speedup_vs_original_query_stage": 8.605653808798573,
+    "total_wall_seconds": 654.2882752390578,
+    "total_wall_seconds_before_persistence": 653.2021700600162,
+    "truth_load_seconds": 6.934554119128734
+  },
+  "preblock_pool_diagnostics": {
+    "balanced_prefix_union": {
+      "average_pool_size": 5944.8663,
+      "candidate_comparisons": 59448663,
+      "diagnostic_seconds": 4.7811827952973545,
+      "fallback_fraction": 0.0125,
+      "fallback_queries": 125,
+      "maximum_pool_size": 620488,
+      "median_pool_size": 292.0,
+      "p95_pool_size": 1964.0499999999993,
+      "queries_with_candidates": 10000,
+      "queries_with_no_candidates": 0,
+      "query_rows": 10000,
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "balanced_prefix_union",
+        "numeric_max_df": 2000,
+        "pool_cap": 10000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 250,
+        "rare_tokens_per_query": 2,
+        "use_postcode": true,
+        "use_postcode_prefix": true
+      }
+    },
+    "balanced_union": {
+      "average_pool_size": 6107.5497,
+      "candidate_comparisons": 61075497,
+      "diagnostic_seconds": 4.650277367793024,
+      "fallback_fraction": 0.0128,
+      "fallback_queries": 128,
+      "maximum_pool_size": 620488,
+      "median_pool_size": 251.0,
+      "p95_pool_size": 1965.199999999997,
+      "queries_with_candidates": 10000,
+      "queries_with_no_candidates": 0,
+      "query_rows": 10000,
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "balanced_union",
+        "numeric_max_df": 2000,
+        "pool_cap": 10000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 250,
+        "rare_tokens_per_query": 2,
+        "use_postcode": true,
+        "use_postcode_prefix": false
+      }
+    },
+    "broad_union": {
+      "average_pool_size": 2349.3503,
+      "candidate_comparisons": 23493503,
+      "diagnostic_seconds": 10.46773384977132,
+      "fallback_fraction": 0.0033,
+      "fallback_queries": 33,
+      "maximum_pool_size": 620488,
+      "median_pool_size": 473.0,
+      "p95_pool_size": 3470.0,
+      "queries_with_candidates": 10000,
+      "queries_with_no_candidates": 0,
+      "query_rows": 10000,
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "broad_union",
+        "numeric_max_df": 5000,
+        "pool_cap": 15000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 500,
+        "rare_tokens_per_query": 3,
+        "use_postcode": true,
+        "use_postcode_prefix": false
+      }
+    },
+    "postcode_numeric": {
+      "average_pool_size": 68278.7575,
+      "candidate_comparisons": 682787575,
+      "diagnostic_seconds": 4.2936466839164495,
+      "fallback_fraction": 0.1598,
+      "fallback_queries": 1598,
+      "maximum_pool_size": 620488,
+      "median_pool_size": 372.0,
+      "p95_pool_size": 414014.0,
+      "queries_with_candidates": 10000,
+      "queries_with_no_candidates": 0,
+      "query_rows": 10000,
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "postcode_numeric",
+        "numeric_max_df": 2000,
+        "pool_cap": 10000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 250,
+        "rare_tokens_per_query": 0,
+        "use_postcode": true,
+        "use_postcode_prefix": false
+      }
+    }
+  },
+  "recall_accounting": {
+    "address_true_links_recovered_differently": 630,
+    "e22_address_true_links": 30816,
+    "e22_address_true_links_lost": 630,
+    "e22_address_true_links_preserved": 30186,
+    "e22_final_heldout_true_links": 8251,
+    "e22_final_heldout_true_links_lost": 30,
+    "e22_final_heldout_true_links_preserved": 8221,
+    "net_address_true_link_change": 0,
+    "net_final_heldout_true_link_change": 12,
+    "new_final_heldout_true_links": 42,
+    "optimized_address_recovered_from_e21_failures": 773,
+    "optimized_final_recovered_from_e21_failures": 765,
+    "original_address_recovered_from_e21_failures": 763,
+    "original_e21_heldout_failures": 966,
+    "recovery_by_original_failure_category": {
+      "abbreviation/domain/trade-name": {
+        "optimized_address_recovered": 151,
+        "optimized_final_recovered": 148,
+        "original_address_recovered": 147,
+        "previous_failures": 189
+      },
+      "address-only evidence": {
+        "optimized_address_recovered": 63,
+        "optimized_final_recovered": 62,
+        "original_address_recovered": 64,
+        "previous_failures": 66
+      },
+      "generic/short name": {
+        "optimized_address_recovered": 3,
+        "optimized_final_recovered": 3,
+        "original_address_recovered": 3,
+        "previous_failures": 4
+      },
+      "other": {
+        "optimized_address_recovered": 330,
+        "optimized_final_recovered": 328,
+        "original_address_recovered": 328,
+        "previous_failures": 398
+      },
+      "severe spelling corruption": {
+        "optimized_address_recovered": 31,
+        "optimized_final_recovered": 31,
+        "original_address_recovered": 30,
+        "previous_failures": 35
+      },
+      "transliteration/script mismatch": {
+        "optimized_address_recovered": 195,
+        "optimized_final_recovered": 193,
+        "original_address_recovered": 191,
+        "previous_failures": 274
+      }
+    },
+    "remaining_e21_failures": 201,
+    "remaining_failure_categories": {
+      "abbreviation/domain/trade-name": {
+        "count": 41,
+        "percentage": 20.398009950248756
+      },
+      "address-only evidence": {
+        "count": 4,
+        "percentage": 1.9900497512437811
+      },
+      "generic/short name": {
+        "count": 1,
+        "percentage": 0.4975124378109453
+      },
+      "other": {
+        "count": 70,
+        "percentage": 34.82587064676617
+      },
+      "severe spelling corruption": {
+        "count": 4,
+        "percentage": 1.9900497512437811
+      },
+      "transliteration/script mismatch": {
+        "count": 81,
+        "percentage": 40.298507462686565
+      }
+    }
+  },
+  "selected_configuration": "broad_union_top20",
+  "selected_metrics": {
+    "heldout": {
+      "average_candidate_count": 48.69202302631579,
+      "entity_candidate_recall": 0.9780138823621554,
+      "maximum_candidate_count": 50,
+      "median_candidate_count": 50.0,
+      "missed_true_pairs": 206,
+      "oracle_macro_f0_5": 0.9919369678726461,
+      "p95_candidate_count": 50.0,
+      "pair_candidate_recall": 0.9756759948045814,
+      "recovered_true_pairs": 8263,
+      "total_candidate_pairs": 118419,
+      "true_pairs": 8469
+    },
+    "heldout_by_country": {
+      "india": {
+        "average_candidate_count": 48.907660020986356,
+        "entity_candidate_recall": 0.9611789836606205,
+        "maximum_candidate_count": 50,
+        "median_candidate_count": 50.0,
+        "missed_true_pairs": 140,
+        "oracle_macro_f0_5": 0.9847941392230773,
+        "p95_candidate_count": 50.0,
+        "pair_candidate_recall": 0.9576271186440678,
+        "recovered_true_pairs": 3164,
+        "total_candidate_pairs": 46609,
+        "true_pairs": 3304
+      },
+      "us": {
+        "average_candidate_count": 48.55307640297498,
+        "entity_candidate_recall": 0.9888615216201424,
+        "maximum_candidate_count": 50,
+        "median_candidate_count": 50.0,
+        "missed_true_pairs": 66,
+        "oracle_macro_f0_5": 0.9965394801803127,
+        "p95_candidate_count": 50.0,
+        "pair_candidate_recall": 0.9872216844143272,
+        "recovered_true_pairs": 5099,
+        "total_candidate_pairs": 71810,
+        "true_pairs": 5165
+      }
+    },
+    "overall": {
+      "average_candidate_count": 48.8091,
+      "entity_candidate_recall": 0.977041746031746,
+      "maximum_candidate_count": 50,
+      "median_candidate_count": 50.0,
+      "missed_true_pairs": 835,
+      "oracle_macro_f0_5": 0.9913340449902438,
+      "p95_candidate_count": 50.0,
+      "pair_candidate_recall": 0.9757985044345255,
+      "recovered_true_pairs": 33667,
+      "total_candidate_pairs": 488091,
+      "true_pairs": 34502
+    }
+  },
+  "source_e22_artifact": "e7c71a736237",
+  "split": {
+    "seed": 202603,
+    "training_entities": 7568,
+    "validation_entities": 2432
+  },
+  "strategies": [
+    {
+      "fallback_if_empty": true,
+      "name": "postcode_numeric",
+      "numeric_max_df": 2000,
+      "pool_cap": 10000,
+      "postcode_prefix_length": 3,
+      "postcode_prefix_max_df": 2000,
+      "rare_token_max_df": 250,
+      "rare_tokens_per_query": 0,
+      "use_postcode": true,
+      "use_postcode_prefix": false
+    },
+    {
+      "fallback_if_empty": true,
+      "name": "balanced_union",
+      "numeric_max_df": 2000,
+      "pool_cap": 10000,
+      "postcode_prefix_length": 3,
+      "postcode_prefix_max_df": 2000,
+      "rare_token_max_df": 250,
+      "rare_tokens_per_query": 2,
+      "use_postcode": true,
+      "use_postcode_prefix": false
+    },
+    {
+      "fallback_if_empty": true,
+      "name": "balanced_prefix_union",
+      "numeric_max_df": 2000,
+      "pool_cap": 10000,
+      "postcode_prefix_length": 3,
+      "postcode_prefix_max_df": 2000,
+      "rare_token_max_df": 250,
+      "rare_tokens_per_query": 2,
+      "use_postcode": true,
+      "use_postcode_prefix": true
+    },
+    {
+      "fallback_if_empty": true,
+      "name": "broad_union",
+      "numeric_max_df": 5000,
+      "pool_cap": 15000,
+      "postcode_prefix_length": 3,
+      "postcode_prefix_max_df": 2000,
+      "rare_token_max_df": 500,
+      "rare_tokens_per_query": 3,
+      "use_postcode": true,
+      "use_postcode_prefix": false
+    }
+  ],
+  "strategy_results": {
+    "balanced_prefix_union": {
+      "address_channel_top20": {
+        "heldout": {
+          "average_candidate_count": 19.07689144736842,
+          "entity_candidate_recall": 0.890358056599833,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 980,
+          "oracle_macro_f0_5": 0.953200192428706,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8842838587790767,
+          "recovered_true_pairs": 7489,
+          "total_candidate_pairs": 46395,
+          "true_pairs": 8469
+        },
+        "heldout_by_country": {
+          "india": {
+            "average_candidate_count": 17.912906610703043,
+            "entity_candidate_recall": 0.870621179566615,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 452,
+            "oracle_macro_f0_5": 0.9458522689619377,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.8631961259079903,
+            "recovered_true_pairs": 2852,
+            "total_candidate_pairs": 17071,
+            "true_pairs": 3304
+          },
+          "us": {
+            "average_candidate_count": 19.826910074374577,
+            "entity_candidate_recall": 0.9030755980553141,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 528,
+            "oracle_macro_f0_5": 0.9579348584623977,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.8977734753146176,
+            "recovered_true_pairs": 4637,
+            "total_candidate_pairs": 29324,
+            "true_pairs": 5165
+          }
+        },
+        "heldout_incremental_true_links_vs_legacy_name": 741,
+        "heldout_true_links_retrieved": 7489,
+        "incremental_true_links_vs_legacy_name": 3006,
+        "overall": {
+          "average_candidate_count": 19.1258,
+          "entity_candidate_recall": 0.8869421428571428,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 4158,
+          "oracle_macro_f0_5": 0.951905492780083,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8794852472320445,
+          "recovered_true_pairs": 30344,
+          "total_candidate_pairs": 191258,
+          "true_pairs": 34502
+        },
+        "true_links_retrieved": 30344
+      },
+      "final_fusion_by_address_top_k": {
+        "10": {
+          "e22_heldout_true_links_lost": 78,
+          "e22_heldout_true_links_preserved": 8173,
+          "fusion_seconds": 40.795948242768645,
+          "heldout_true_links_recovered_differently": 44,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 43.86307565789474,
+              "entity_candidate_recall": 0.9737023222117795,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 44.0,
+              "missed_true_pairs": 252,
+              "oracle_macro_f0_5": 0.9900591666624374,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9702444208289054,
+              "recovered_true_pairs": 8217,
+              "total_candidate_pairs": 106675,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 44.747114375655826,
+                "entity_candidate_recall": 0.9566369359916054,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 49.0,
+                "missed_true_pairs": 158,
+                "oracle_macro_f0_5": 0.9817151551979337,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9521791767554479,
+                "recovered_true_pairs": 3146,
+                "total_candidate_pairs": 42644,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 43.29344151453685,
+                "entity_candidate_recall": 0.9846984770919861,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 41.0,
+                "missed_true_pairs": 94,
+                "oracle_macro_f0_5": 0.9954356662741154,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9818005808325266,
+                "recovered_true_pairs": 5071,
+                "total_candidate_pairs": 64031,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 44.0549,
+              "entity_candidate_recall": 0.9726474999999999,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 45.0,
+              "missed_true_pairs": 1008,
+              "oracle_macro_f0_5": 0.9894985245951741,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9707843023592835,
+              "recovered_true_pairs": 33494,
+              "total_candidate_pairs": 440549,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 717
+        },
+        "20": {
+          "e22_heldout_true_links_lost": 68,
+          "e22_heldout_true_links_preserved": 8183,
+          "fusion_seconds": 39.64970189286396,
+          "heldout_true_links_recovered_differently": 52,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 48.49177631578947,
+              "entity_candidate_recall": 0.975259927161654,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 234,
+              "oracle_macro_f0_5": 0.9907539114202777,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9723698193411264,
+              "recovered_true_pairs": 8235,
+              "total_candidate_pairs": 117932,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 48.249737670514165,
+                "entity_candidate_recall": 0.9591153250387249,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 147,
+                "oracle_macro_f0_5": 0.9830974710783503,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9555084745762712,
+                "recovered_true_pairs": 3157,
+                "total_candidate_pairs": 45982,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 48.64773495605139,
+                "entity_candidate_recall": 0.9856627708554685,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 87,
+                "oracle_macro_f0_5": 0.9956873716270772,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9831558567279768,
+                "recovered_true_pairs": 5078,
+                "total_candidate_pairs": 71950,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 48.6208,
+              "entity_candidate_recall": 0.9741317857142858,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 944,
+              "oracle_macro_f0_5": 0.9900713240568745,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9726392672888529,
+              "recovered_true_pairs": 33558,
+              "total_candidate_pairs": 486208,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 735
+        }
+      },
+      "query_profile": {
+        "average_pool_size": 5944.8663,
+        "candidate_comparisons": 59448663,
+        "dense_similarity_constructed": false,
+        "fallback_fraction": 0.0125,
+        "fallback_queries": 125,
+        "maximum_pool_size": 620488,
+        "median_pool_size": 292.0,
+        "p95_pool_size": 1964.0499999999993,
+        "peak_rss_mib": 5270.30859375,
+        "preblock_pool_seconds": 5.457642801571637,
+        "queries_per_second": 117.75484027101224,
+        "query_rows": 10000,
+        "query_transform_seconds": 0.553765048738569,
+        "result_pairs": 191258,
+        "shards": {
+          "india": {
+            "average_pool_size": 12532.342503785967,
+            "candidate_comparisons": 49653141,
+            "fallback_queries": 114,
+            "index_rows": 414014,
+            "maximum_pool_size": 414014,
+            "p95_pool_size": 2886.449999999998,
+            "query_rows": 3962,
+            "query_transform_seconds": 0.32172598969191313,
+            "similarity_nnz": 39419896,
+            "skipped": false
+          },
+          "us": {
+            "average_pool_size": 1622.312355084465,
+            "candidate_comparisons": 9795522,
+            "fallback_queries": 11,
+            "index_rows": 620488,
+            "maximum_pool_size": 620488,
+            "p95_pool_size": 1668.5999999999985,
+            "query_rows": 6038,
+            "query_transform_seconds": 0.2320390590466559,
+            "similarity_nnz": 6360048,
+            "skipped": false
+          }
+        },
+        "similarity_multiplication_seconds": 76.50058674998581,
+        "similarity_nnz": 45779944,
+        "strategy": {
+          "fallback_if_empty": true,
+          "name": "balanced_prefix_union",
+          "numeric_max_df": 2000,
+          "pool_cap": 10000,
+          "postcode_prefix_length": 3,
+          "postcode_prefix_max_df": 2000,
+          "rare_token_max_df": 250,
+          "rare_tokens_per_query": 2,
+          "use_postcode": true,
+          "use_postcode_prefix": true
+        },
+        "top_k_extraction_seconds": 1.111053304746747,
+        "total_query_seconds": 84.92219918081537
+      },
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "balanced_prefix_union",
+        "numeric_max_df": 2000,
+        "pool_cap": 10000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 250,
+        "rare_tokens_per_query": 2,
+        "use_postcode": true,
+        "use_postcode_prefix": true
+      }
+    },
+    "balanced_union": {
+      "address_channel_top20": {
+        "heldout": {
+          "average_candidate_count": 18.831003289473685,
+          "entity_candidate_recall": 0.8895562473893066,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 985,
+          "oracle_macro_f0_5": 0.9526751983027659,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8836934703034597,
+          "recovered_true_pairs": 7484,
+          "total_candidate_pairs": 45797,
+          "true_pairs": 8469
+        },
+        "heldout_by_country": {
+          "india": {
+            "average_candidate_count": 17.908709338929697,
+            "entity_candidate_recall": 0.870621179566615,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 452,
+            "oracle_macro_f0_5": 0.9458522689619377,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.8631961259079903,
+            "recovered_true_pairs": 2852,
+            "total_candidate_pairs": 17067,
+            "true_pairs": 3304
+          },
+          "us": {
+            "average_candidate_count": 19.42528735632184,
+            "entity_candidate_recall": 0.9017571396374641,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 533,
+            "oracle_macro_f0_5": 0.9570715821173769,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.8968054211035817,
+            "recovered_true_pairs": 4632,
+            "total_candidate_pairs": 28730,
+            "true_pairs": 5165
+          }
+        },
+        "heldout_incremental_true_links_vs_legacy_name": 740,
+        "heldout_true_links_retrieved": 7484,
+        "incremental_true_links_vs_legacy_name": 3004,
+        "overall": {
+          "average_candidate_count": 18.9174,
+          "entity_candidate_recall": 0.8867721428571427,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 4164,
+          "oracle_macro_f0_5": 0.9518548975419877,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8793113442698974,
+          "recovered_true_pairs": 30338,
+          "total_candidate_pairs": 189174,
+          "true_pairs": 34502
+        },
+        "true_links_retrieved": 30338
+      },
+      "final_fusion_by_address_top_k": {
+        "10": {
+          "e22_heldout_true_links_lost": 78,
+          "e22_heldout_true_links_preserved": 8173,
+          "fusion_seconds": 40.15427569486201,
+          "heldout_true_links_recovered_differently": 44,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 43.813322368421055,
+              "entity_candidate_recall": 0.9735554707080201,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 44.0,
+              "missed_true_pairs": 252,
+              "oracle_macro_f0_5": 0.9900038999674742,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9702444208289054,
+              "recovered_true_pairs": 8217,
+              "total_candidate_pairs": 106554,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 44.742917103882476,
+                "entity_candidate_recall": 0.9566369359916054,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 49.0,
+                "missed_true_pairs": 158,
+                "oracle_macro_f0_5": 0.9817151551979337,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9521791767554479,
+                "recovered_true_pairs": 3146,
+                "total_candidate_pairs": 42640,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 43.21433400946586,
+                "entity_candidate_recall": 0.984457001191281,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 41.0,
+                "missed_true_pairs": 94,
+                "oracle_macro_f0_5": 0.9953447882469684,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9818005808325266,
+                "recovered_true_pairs": 5071,
+                "total_candidate_pairs": 63914,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 44.0139,
+              "entity_candidate_recall": 0.9725867857142857,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 45.0,
+              "missed_true_pairs": 1009,
+              "oracle_macro_f0_5": 0.9894788337349589,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.970755318532259,
+              "recovered_true_pairs": 33493,
+              "total_candidate_pairs": 440139,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 717
+        },
+        "20": {
+          "e22_heldout_true_links_lost": 68,
+          "e22_heldout_true_links_preserved": 8183,
+          "fusion_seconds": 39.64034589705989,
+          "heldout_true_links_recovered_differently": 51,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 48.3063322368421,
+              "entity_candidate_recall": 0.9750543350563908,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 235,
+              "oracle_macro_f0_5": 0.9906853807185232,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.972251741646003,
+              "recovered_true_pairs": 8234,
+              "total_candidate_pairs": 117481,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 48.24554039874082,
+                "entity_candidate_recall": 0.9591153250387249,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 147,
+                "oracle_macro_f0_5": 0.9830974710783503,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9555084745762712,
+                "recovered_true_pairs": 3157,
+                "total_candidate_pairs": 45978,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 48.34550371872887,
+                "entity_candidate_recall": 0.9853247045944813,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 88,
+                "oracle_macro_f0_5": 0.9955746828734147,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9829622458857696,
+                "recovered_true_pairs": 5077,
+                "total_candidate_pairs": 71503,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 48.475,
+              "entity_candidate_recall": 0.9740567857142858,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 946,
+              "oracle_macro_f0_5": 0.9900484073902076,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9725812996348038,
+              "recovered_true_pairs": 33556,
+              "total_candidate_pairs": 484750,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 734
+        }
+      },
+      "query_profile": {
+        "average_pool_size": 6107.5497,
+        "candidate_comparisons": 61075497,
+        "dense_similarity_constructed": false,
+        "fallback_fraction": 0.0128,
+        "fallback_queries": 128,
+        "maximum_pool_size": 620488,
+        "median_pool_size": 251.0,
+        "p95_pool_size": 1965.199999999997,
+        "peak_rss_mib": 4498.38671875,
+        "preblock_pool_seconds": 5.032929773442447,
+        "queries_per_second": 115.03944917928034,
+        "query_rows": 10000,
+        "query_transform_seconds": 0.5405159532092512,
+        "result_pairs": 189174,
+        "shards": {
+          "india": {
+            "average_pool_size": 12532.131751640585,
+            "candidate_comparisons": 49652306,
+            "fallback_queries": 114,
+            "index_rows": 414014,
+            "maximum_pool_size": 414014,
+            "p95_pool_size": 2886.449999999998,
+            "query_rows": 3962,
+            "query_transform_seconds": 0.3145047086291015,
+            "similarity_nnz": 39419061,
+            "skipped": false
+          },
+          "us": {
+            "average_pool_size": 1891.8832394832725,
+            "candidate_comparisons": 11423191,
+            "fallback_queries": 14,
+            "index_rows": 620488,
+            "maximum_pool_size": 620488,
+            "p95_pool_size": 1663.1499999999996,
+            "query_rows": 6038,
+            "query_transform_seconds": 0.22601124458014965,
+            "similarity_nnz": 6886263,
+            "skipped": false
+          }
+        },
+        "similarity_multiplication_seconds": 79.01211741706356,
+        "similarity_nnz": 46305324,
+        "strategy": {
+          "fallback_if_empty": true,
+          "name": "balanced_union",
+          "numeric_max_df": 2000,
+          "pool_cap": 10000,
+          "postcode_prefix_length": 3,
+          "postcode_prefix_max_df": 2000,
+          "rare_token_max_df": 250,
+          "rare_tokens_per_query": 2,
+          "use_postcode": true,
+          "use_postcode_prefix": false
+        },
+        "top_k_extraction_seconds": 1.0894526159390807,
+        "total_query_seconds": 86.92670272104442
+      },
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "balanced_union",
+        "numeric_max_df": 2000,
+        "pool_cap": 10000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 250,
+        "rare_tokens_per_query": 2,
+        "use_postcode": true,
+        "use_postcode_prefix": false
+      }
+    },
+    "broad_union": {
+      "address_channel_top20": {
+        "heldout": {
+          "average_candidate_count": 19.5,
+          "entity_candidate_recall": 0.9057972078634086,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 850,
+          "oracle_macro_f0_5": 0.9618610539476798,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8996339591451175,
+          "recovered_true_pairs": 7619,
+          "total_candidate_pairs": 47424,
+          "true_pairs": 8469
+        },
+        "heldout_by_country": {
+          "india": {
+            "average_candidate_count": 19.196222455403987,
+            "entity_candidate_recall": 0.8818751145089024,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 420,
+            "oracle_macro_f0_5": 0.9534085817347495,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.8728813559322034,
+            "recovered_true_pairs": 2884,
+            "total_candidate_pairs": 18294,
+            "true_pairs": 3304
+          },
+          "us": {
+            "average_candidate_count": 19.69574036511156,
+            "entity_candidate_recall": 0.9212115114244931,
+            "maximum_candidate_count": 20,
+            "median_candidate_count": 20.0,
+            "missed_true_pairs": 430,
+            "oracle_macro_f0_5": 0.9673074407082766,
+            "p95_candidate_count": 20.0,
+            "pair_candidate_recall": 0.9167473378509197,
+            "recovered_true_pairs": 4735,
+            "total_candidate_pairs": 29130,
+            "true_pairs": 5165
+          }
+        },
+        "heldout_incremental_true_links_vs_legacy_name": 773,
+        "heldout_true_links_retrieved": 7619,
+        "incremental_true_links_vs_legacy_name": 3124,
+        "overall": {
+          "average_candidate_count": 19.5616,
+          "entity_candidate_recall": 0.9001197222222223,
+          "maximum_candidate_count": 20,
+          "median_candidate_count": 20.0,
+          "missed_true_pairs": 3686,
+          "oracle_macro_f0_5": 0.958989320031917,
+          "p95_candidate_count": 20.0,
+          "pair_candidate_recall": 0.8931656135876181,
+          "recovered_true_pairs": 30816,
+          "total_candidate_pairs": 195616,
+          "true_pairs": 34502
+        },
+        "true_links_retrieved": 30816
+      },
+      "final_fusion_by_address_top_k": {
+        "10": {
+          "e22_heldout_true_links_lost": 45,
+          "e22_heldout_true_links_preserved": 8206,
+          "fusion_seconds": 40.232511220965534,
+          "heldout_true_links_recovered_differently": 31,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 43.96217105263158,
+              "entity_candidate_recall": 0.9752775493421053,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 44.0,
+              "missed_true_pairs": 232,
+              "oracle_macro_f0_5": 0.9904947292274366,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9726059747313732,
+              "recovered_true_pairs": 8237,
+              "total_candidate_pairs": 106916,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 45.031479538300104,
+                "entity_candidate_recall": 0.956129765652326,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 158,
+                "oracle_macro_f0_5": 0.9817338994415715,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9521791767554479,
+                "recovered_true_pairs": 3146,
+                "total_candidate_pairs": 42915,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 43.27315753887762,
+                "entity_candidate_recall": 0.987615505972504,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 41.0,
+                "missed_true_pairs": 74,
+                "oracle_macro_f0_5": 0.9961398075140694,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9856727976766699,
+                "recovered_true_pairs": 5091,
+                "total_candidate_pairs": 64001,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 44.1647,
+              "entity_candidate_recall": 0.9747839682539683,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 45.0,
+              "missed_true_pairs": 921,
+              "oracle_macro_f0_5": 0.990446490132195,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9733058953104168,
+              "recovered_true_pairs": 33581,
+              "total_candidate_pairs": 441647,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 737
+        },
+        "20": {
+          "e22_heldout_true_links_lost": 30,
+          "e22_heldout_true_links_preserved": 8221,
+          "fusion_seconds": 41.15121439192444,
+          "heldout_true_links_recovered_differently": 42,
+          "metrics": {
+            "heldout": {
+              "average_candidate_count": 48.69202302631579,
+              "entity_candidate_recall": 0.9780138823621554,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 206,
+              "oracle_macro_f0_5": 0.9919369678726461,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9756759948045814,
+              "recovered_true_pairs": 8263,
+              "total_candidate_pairs": 118419,
+              "true_pairs": 8469
+            },
+            "heldout_by_country": {
+              "india": {
+                "average_candidate_count": 48.907660020986356,
+                "entity_candidate_recall": 0.9611789836606205,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 140,
+                "oracle_macro_f0_5": 0.9847941392230773,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9576271186440678,
+                "recovered_true_pairs": 3164,
+                "total_candidate_pairs": 46609,
+                "true_pairs": 3304
+              },
+              "us": {
+                "average_candidate_count": 48.55307640297498,
+                "entity_candidate_recall": 0.9888615216201424,
+                "maximum_candidate_count": 50,
+                "median_candidate_count": 50.0,
+                "missed_true_pairs": 66,
+                "oracle_macro_f0_5": 0.9965394801803127,
+                "p95_candidate_count": 50.0,
+                "pair_candidate_recall": 0.9872216844143272,
+                "recovered_true_pairs": 5099,
+                "total_candidate_pairs": 71810,
+                "true_pairs": 5165
+              }
+            },
+            "overall": {
+              "average_candidate_count": 48.8091,
+              "entity_candidate_recall": 0.977041746031746,
+              "maximum_candidate_count": 50,
+              "median_candidate_count": 50.0,
+              "missed_true_pairs": 835,
+              "oracle_macro_f0_5": 0.9913340449902438,
+              "p95_candidate_count": 50.0,
+              "pair_candidate_recall": 0.9757985044345255,
+              "recovered_true_pairs": 33667,
+              "total_candidate_pairs": 488091,
+              "true_pairs": 34502
+            }
+          },
+          "original_966_e21_failures_recovered": 765
+        }
+      },
+      "query_profile": {
+        "average_pool_size": 2349.3503,
+        "candidate_comparisons": 23493503,
+        "dense_similarity_constructed": false,
+        "fallback_fraction": 0.0033,
+        "fallback_queries": 33,
+        "maximum_pool_size": 620488,
+        "median_pool_size": 473.0,
+        "p95_pool_size": 3470.0,
+        "peak_rss_mib": 5523.8125,
+        "preblock_pool_seconds": 12.404582391493022,
+        "queries_per_second": 203.8237224217125,
+        "query_rows": 10000,
+        "query_transform_seconds": 0.5570396869443357,
+        "result_pairs": 195616,
+        "shards": {
+          "india": {
+            "average_pool_size": 4537.724129227663,
+            "candidate_comparisons": 17978463,
+            "fallback_queries": 30,
+            "index_rows": 414014,
+            "maximum_pool_size": 414014,
+            "p95_pool_size": 4890.0,
+            "query_rows": 3962,
+            "query_transform_seconds": 0.3212943868711591,
+            "similarity_nnz": 15014909,
+            "skipped": false
+          },
+          "us": {
+            "average_pool_size": 913.3885392514078,
+            "candidate_comparisons": 5515040,
+            "fallback_queries": 3,
+            "index_rows": 620488,
+            "maximum_pool_size": 620488,
+            "p95_pool_size": 1945.1499999999996,
+            "query_rows": 6038,
+            "query_transform_seconds": 0.23574530007317662,
+            "similarity_nnz": 4633627,
+            "skipped": false
+          }
+        },
+        "similarity_multiplication_seconds": 33.935699383262545,
+        "similarity_nnz": 19648536,
+        "strategy": {
+          "fallback_if_empty": true,
+          "name": "broad_union",
+          "numeric_max_df": 5000,
+          "pool_cap": 15000,
+          "postcode_prefix_length": 3,
+          "postcode_prefix_max_df": 2000,
+          "rare_token_max_df": 500,
+          "rare_tokens_per_query": 3,
+          "use_postcode": true,
+          "use_postcode_prefix": false
+        },
+        "top_k_extraction_seconds": 0.8320753136649728,
+        "total_query_seconds": 49.06200260296464
+      },
+      "strategy": {
+        "fallback_if_empty": true,
+        "name": "broad_union",
+        "numeric_max_df": 5000,
+        "pool_cap": 15000,
+        "postcode_prefix_length": 3,
+        "postcode_prefix_max_df": 2000,
+        "rare_token_max_df": 500,
+        "rare_tokens_per_query": 3,
+        "use_postcode": true,
+        "use_postcode_prefix": false
+      }
+    }
+  }
+}

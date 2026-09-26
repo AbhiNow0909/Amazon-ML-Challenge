@@ -44,6 +44,14 @@ class PipelineConfig:
     posting_list_cap: int = 250
     minimum_token_length: int = 3
 
+    # E2.2 density-aware rare-token options. The defaults reproduce Tier 0.
+    rare_token_df_mode: str = "absolute"
+    rare_name_token_max_df_fraction: float = 0.0
+    rare_address_token_max_df_fraction: float = 0.0
+    ranked_name_tokens_per_query: int = 0
+    rare_posting_cap_fraction: float = 0.0
+    rare_posting_cap_max: int = 250
+
     # Optional E1 name character TF-IDF retrieval. Disabled by default so E0
     # candidate behavior remains unchanged.
     use_name_tfidf: bool = False
@@ -53,6 +61,30 @@ class PipelineConfig:
     tfidf_query_chunk_size: int = 128
     tfidf_max_features: Optional[int] = 300_000
     tfidf_min_df: int = 1
+
+    # E2.2 address retrieval is opt-in and does not affect E1/E2 defaults.
+    use_address_tfidf: bool = False
+    tfidf_address_top_k: int = 20
+    tfidf_address_query_chunk_size: int = 32
+    tfidf_address_ngram_min: int = 3
+    tfidf_address_ngram_max: int = 4
+    tfidf_address_max_features: Optional[int] = 300_000
+    tfidf_address_min_df: int = 1
+
+    # E2.3 sparse address retrieval pre-blocking. Disabled by default so the
+    # E2.2 full-country reference path remains exactly reproducible.
+    use_preblocked_address_tfidf: bool = False
+    address_preblock_use_postcode: bool = True
+    address_preblock_use_postcode_prefix: bool = False
+    address_preblock_postcode_prefix_length: int = 3
+    address_preblock_postcode_prefix_max_df: int = 2_000
+    address_preblock_numeric_max_df: int = 5_000
+    address_preblock_rare_token_max_df: int = 500
+    address_preblock_rare_tokens_per_query: int = 3
+    address_preblock_pool_cap: int = 15_000
+    address_preblock_fallback_if_empty: bool = True
+    address_preblock_fallback_char_features: int = 3
+    address_preblock_fallback_char_max_df: int = 5_000
 
     # E1.1 validation search space. These settings only affect the explicit
     # E1.1 stage; default Tier 0 and E1 behavior remains unchanged.
@@ -103,6 +135,12 @@ class PipelineConfig:
     lgbm_min_data_in_leaf: int = 50
     lgbm_max_rounds: int = 2000
     lgbm_early_stopping_rounds: int = 100
+
+    # E2.1 scale stress test. Counts are total distractors across S2 and S3;
+    # each density is a nested prefix of one deterministic hash-ranked sample.
+    e21_s1_limit: int = 10_000
+    e21_distractor_totals: Tuple[int, ...] = (100_000, 500_000, 1_000_000)
+    e21_distractor_seed: int = 202604
 
     # Cheap blocking score weights.
     weight_exact_full_name: float = 5.0
