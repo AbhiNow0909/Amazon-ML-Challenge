@@ -59,6 +59,7 @@ class PipelineConfig:
     tfidf_ngram_min: int = 3
     tfidf_ngram_max: int = 4
     tfidf_query_chunk_size: int = 128
+    tfidf_name_query_workers: int = 1
     tfidf_max_features: Optional[int] = 300_000
     tfidf_min_df: int = 1
 

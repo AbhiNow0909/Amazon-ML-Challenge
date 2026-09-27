@@ -1,0 +1,13 @@
+{
+  "country": "france",
+  "source1_rows": 259452,
+  "candidate_pairs": 19964316,
+  "predicted_pairs": 1399877,
+  "empty_predictions": 5316,
+  "seconds": 34.76215648651123,
+  "ids": "PASS",
+  "subset": "PASS",
+  "duplicates": "PASS",
+  "row_alignment": "PASS",
+  "note": "Checkpoint audit only; official full-test validation remains pending."
+}

@@ -1,0 +1,11 @@
+{
+  "model": "intfloat/multilingual-e5-base",
+  "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "license": "MIT",
+  "license_evidence": "Cached upstream README.md front matter line 6776: license: mit",
+  "cross_encoder_parameters": 278044417,
+  "max_seq_length": 128,
+  "compatibility": "Existing successful training and full France inference on torch 2.8.0 and transformers 4.57.6, V100",
+  "clean_holdout_evaluations_logged": 1,
+  "tests": "61 passed"
+}

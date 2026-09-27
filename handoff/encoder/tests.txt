@@ -1,0 +1,11 @@
+Command:
+PYTHONPATH=code/business_entity_resolution/src OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 python -m pytest code/business_entity_resolution/tests -q
+
+Result at handoff:
+61 passed in 29.20s
+
+Source/handoff whitespace check: PASS.
+Official student_resource Markdown is preserved verbatim, including intentional
+Markdown hard breaks and trailing tabs in empty-match TSV examples.
+Credential-pattern scan of source, notebook, logs and handoff snapshot: no matches.
+The delivery module compiles, but full production validation/packaging remains pending.

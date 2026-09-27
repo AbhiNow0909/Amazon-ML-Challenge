@@ -1,0 +1,5734 @@
+{
+  "captured_at": "2026-09-27 08:56:19 IST",
+  "captured_epoch": 1790479579.8060942,
+  "repo_root": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge",
+  "state": {
+    "next_step": "continue checkpointed shards",
+    "stage": "full_test_inference",
+    "pid": 1328767,
+    "updated": "2026-09-27 08:56:13",
+    "latest_clean_holdout_score": 0.9665124399102869,
+    "best_calibration_score": 0.967616211546784,
+    "validator": "NOT RUN",
+    "id_check": "NOT RUN",
+    "failures": [
+      "Prior PID 1308325 absent on host at 2026-09-27 01:01; log stopped without traceback at 2026-09-26 22:50:26. Cause unconfirmed. Resuming completed and partial checkpoints."
+    ],
+    "output_paths": [
+      "output/matching_results.tsv",
+      "output/candidate_pairs.tsv"
+    ],
+    "log": "logs/encoder_pipeline.log",
+    "state_path": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/encoder_native_v1/state.json",
+    "best_model": "e5_structural_xgb_cross_encoder",
+    "cross_encoder": "intfloat/multilingual-e5-base pair classifier",
+    "reached_0_98_clean_holdout": false,
+    "current_embedding": "/home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/encoder_native_v1/full/india/address_feed.npy",
+    "embedding_rows": "4717565/4717565",
+    "country": "india",
+    "source1_rows": 809986,
+    "feed_rows": 4717565,
+    "completed_source1_in_country": 590000,
+    "country_source1": 809986,
+    "checkpoints_completed": "Frozen model and clean holdout; all 52 France shards (259452 Source1); India Source1 embeddings; India feed 3194880/4717565",
+    "best_architecture": "E5 structured top40 + address E5 top20 + structural recovery; GPU XGBoost and E5 pair classifier 50:50",
+    "current_bottleneck": "Remaining India/US embeddings and inference",
+    "started_at_epoch": 1790451610.3702362,
+    "baseline": 0.965614,
+    "target": 0.98,
+    "beat_baseline": true,
+    "submission_archive": "not created"
+  },
+  "country_progress": {
+    "france": {
+      "completed_shards": 52,
+      "source1_rows": 259452,
+      "candidate_pairs": 19964316,
+      "predicted_pairs": 1399877
+    },
+    "india": {
+      "completed_shards": 118,
+      "source1_rows": 590000,
+      "candidate_pairs": 47192358,
+      "predicted_pairs": 2205522
+    }
+  },
+  "completed_source1": 849452,
+  "full_test_source1": 1732544,
+  "pids": {
+    "encoder_supervisor": "1328808",
+    "encoder_launcher": "1328765",
+    "benchmark_encoder_features": "1309087",
+    "encoder_pipeline": "1328767",
+    "encoder_activity": "1328895"
+  },
+  "artifacts_local_only": [
+    {
+      "path": "cache/encoder_native_v1/address_view/feed.json",
+      "bytes": 436
+    },
+    {
+      "path": "cache/encoder_native_v1/address_view/feed.npy",
+      "bytes": 1588995200
+    },
+    {
+      "path": "cache/encoder_native_v1/address_view/source1.json",
+      "bytes": 431
+    },
+    {
+      "path": "cache/encoder_native_v1/address_view/source1.npy",
+      "bytes": 15360128
+    },
+    {
+      "path": "cache/encoder_native_v1/clean_holdout_metrics.json",
+      "bytes": 3989
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/best/config.json",
+      "bytes": 754
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/best/model.safetensors",
+      "bytes": 1112201932,
+      "sha256": "eaee333182a96d0772440a8b3b5549979161762ddbe78e949d845dacfcc9bca0"
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/best/special_tokens_map.json",
+      "bytes": 964
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/best/tokenizer.json",
+      "bytes": 17082987
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/best/tokenizer_config.json",
+      "bytes": 1177
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/calibration_probabilities.npy",
+      "bytes": 2891268
+    },
+    {
+      "path": "cache/encoder_native_v1/cross_encoder/selection.json",
+      "bytes": 309,
+      "sha256": "15debfced083243df363335058e5a303fd771fc0eb195078e087d29b34fc7947"
+    },
+    {
+      "path": "cache/encoder_native_v1/development_candidates.parquet",
+      "bytes": 10795087
+    },
+    {
+      "path": "cache/encoder_native_v1/development_candidates_address.parquet",
+      "bytes": 14504675
+    },
+    {
+      "path": "cache/encoder_native_v1/development_features.parquet",
+      "bytes": 14769091
+    },
+    {
+      "path": "cache/encoder_native_v1/development_features_address.parquet",
+      "bytes": 20170526
+    },
+    {
+      "path": "cache/encoder_native_v1/development_probabilities.parquet",
+      "bytes": 6061421
+    },
+    {
+      "path": "cache/encoder_native_v1/encoder_xgb.json",
+      "bytes": 3389425
+    },
+    {
+      "path": "cache/encoder_native_v1/encoder_xgb.metadata.json",
+      "bytes": 1716
+    },
+    {
+      "path": "cache/encoder_native_v1/encoder_xgb_address.json",
+      "bytes": 4140614,
+      "sha256": "3c761e71639f96586e41060dfdbb0e4b525d68a48171059f9537cab0f6686491"
+    },
+    {
+      "path": "cache/encoder_native_v1/encoder_xgb_address.metadata.json",
+      "bytes": 1767
+    },
+    {
+      "path": "cache/encoder_native_v1/entity_split.parquet",
+      "bytes": 115785
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/address_feed.json",
+      "bytes": 437,
+      "marker": {
+        "identity": {
+          "ids_sha256": "e89ecf3e1c8bca21ea31cfa6e892785ad5c1ad0af9ef9ce175a6f0c8bdd99d32",
+          "shape": [
+            1434993,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "passage",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 1434993,
+        "complete": true,
+        "seconds": 279.67792534828186
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/address_feed.npy",
+      "bytes": 2204149376
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/address_source1.json",
+      "bytes": 433,
+      "marker": {
+        "identity": {
+          "ids_sha256": "77441f3a16c03c772cf3be9736505f97636420a9f8871569366f5937e13da65a",
+          "shape": [
+            259452,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "query",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 259452,
+        "complete": true,
+        "seconds": 54.596919775009155
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/address_source1.npy",
+      "bytes": 398518400
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/feed.json",
+      "bytes": 437,
+      "marker": {
+        "identity": {
+          "ids_sha256": "e89ecf3e1c8bca21ea31cfa6e892785ad5c1ad0af9ef9ce175a6f0c8bdd99d32",
+          "shape": [
+            1434993,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "passage",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 1434993,
+        "complete": true,
+        "seconds": 330.12085604667664
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/feed.npy",
+      "bytes": 2204149376
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00000000.candidates.parquet",
+      "bytes": 7846244
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00000000.features.parquet",
+      "bytes": 10288623
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00000000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 380956,
+        "predicted_pairs": 26902,
+        "empty_predictions": 122,
+        "seconds": 112.66460394859314
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00000000.outputs.parquet",
+      "bytes": 3900673
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00000000.probabilities.parquet",
+      "bytes": 5991153
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00005000.candidates.parquet",
+      "bytes": 7926000
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00005000.features.parquet",
+      "bytes": 10440316
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00005000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385427,
+        "predicted_pairs": 26777,
+        "empty_predictions": 107,
+        "seconds": 113.36921954154968
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00005000.outputs.parquet",
+      "bytes": 3942853
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00005000.probabilities.parquet",
+      "bytes": 6052201
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00010000.candidates.parquet",
+      "bytes": 7905353
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00010000.features.parquet",
+      "bytes": 10388587
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00010000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384175,
+        "predicted_pairs": 27564,
+        "empty_predictions": 119,
+        "seconds": 111.58138966560364
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00010000.outputs.parquet",
+      "bytes": 3936990
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00010000.probabilities.parquet",
+      "bytes": 6033216
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00015000.candidates.parquet",
+      "bytes": 7910167
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00015000.features.parquet",
+      "bytes": 10417646
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00015000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384371,
+        "predicted_pairs": 26820,
+        "empty_predictions": 129,
+        "seconds": 112.73062658309937
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00015000.outputs.parquet",
+      "bytes": 3932534
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00015000.probabilities.parquet",
+      "bytes": 6042797
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00020000.candidates.parquet",
+      "bytes": 7896304
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00020000.features.parquet",
+      "bytes": 10450457
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00020000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384375,
+        "predicted_pairs": 27146,
+        "empty_predictions": 110,
+        "seconds": 112.47808885574341
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00020000.outputs.parquet",
+      "bytes": 3938048
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00020000.probabilities.parquet",
+      "bytes": 6038574
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00025000.candidates.parquet",
+      "bytes": 7936221
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00025000.features.parquet",
+      "bytes": 10455797
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00025000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386059,
+        "predicted_pairs": 27100,
+        "empty_predictions": 105,
+        "seconds": 113.64261770248413
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00025000.outputs.parquet",
+      "bytes": 3952878
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00025000.probabilities.parquet",
+      "bytes": 6060199
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00030000.candidates.parquet",
+      "bytes": 7984633
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00030000.features.parquet",
+      "bytes": 10593283
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00030000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 387740,
+        "predicted_pairs": 27325,
+        "empty_predictions": 108,
+        "seconds": 114.12413382530212
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00030000.outputs.parquet",
+      "bytes": 3970359
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00030000.probabilities.parquet",
+      "bytes": 6083915
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00035000.candidates.parquet",
+      "bytes": 7871655
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00035000.features.parquet",
+      "bytes": 10378902
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00035000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383170,
+        "predicted_pairs": 26833,
+        "empty_predictions": 107,
+        "seconds": 112.46429419517517
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00035000.outputs.parquet",
+      "bytes": 3920784
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00035000.probabilities.parquet",
+      "bytes": 6022928
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00040000.candidates.parquet",
+      "bytes": 7919272
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00040000.features.parquet",
+      "bytes": 10502056
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00040000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385068,
+        "predicted_pairs": 26861,
+        "empty_predictions": 106,
+        "seconds": 113.13464784622192
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00040000.outputs.parquet",
+      "bytes": 3939506
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00040000.probabilities.parquet",
+      "bytes": 6051898
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00045000.candidates.parquet",
+      "bytes": 7945787
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00045000.features.parquet",
+      "bytes": 10429546
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00045000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386801,
+        "predicted_pairs": 27024,
+        "empty_predictions": 89,
+        "seconds": 113.77165150642395
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00045000.outputs.parquet",
+      "bytes": 3960556
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00045000.probabilities.parquet",
+      "bytes": 6072736
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00050000.candidates.parquet",
+      "bytes": 7884828
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00050000.features.parquet",
+      "bytes": 10417368
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00050000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383624,
+        "predicted_pairs": 26841,
+        "empty_predictions": 106,
+        "seconds": 112.80699229240417
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00050000.outputs.parquet",
+      "bytes": 3927538
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00050000.probabilities.parquet",
+      "bytes": 6028253
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00055000.candidates.parquet",
+      "bytes": 7923079
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00055000.features.parquet",
+      "bytes": 10382970
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00055000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385647,
+        "predicted_pairs": 26577,
+        "empty_predictions": 113,
+        "seconds": 112.8104796409607
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00055000.outputs.parquet",
+      "bytes": 3944165
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00055000.probabilities.parquet",
+      "bytes": 6054636
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00060000.candidates.parquet",
+      "bytes": 7917072
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00060000.features.parquet",
+      "bytes": 10474674
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00060000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383646,
+        "predicted_pairs": 26833,
+        "empty_predictions": 109,
+        "seconds": 112.63729333877563
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00060000.outputs.parquet",
+      "bytes": 3927269
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00060000.probabilities.parquet",
+      "bytes": 6032124
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00065000.candidates.parquet",
+      "bytes": 7931695
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00065000.features.parquet",
+      "bytes": 10514354
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00065000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385332,
+        "predicted_pairs": 27399,
+        "empty_predictions": 83,
+        "seconds": 112.91822624206543
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00065000.outputs.parquet",
+      "bytes": 3945046
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00065000.probabilities.parquet",
+      "bytes": 6052996
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00070000.candidates.parquet",
+      "bytes": 7861136
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00070000.features.parquet",
+      "bytes": 10401445
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00070000.json",
+      "bytes": 162,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 382116,
+        "predicted_pairs": 27077,
+        "empty_predictions": 94,
+        "seconds": 111.2936384677887
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00070000.outputs.parquet",
+      "bytes": 3915417
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00070000.probabilities.parquet",
+      "bytes": 6012117
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00075000.candidates.parquet",
+      "bytes": 7905419
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00075000.features.parquet",
+      "bytes": 10437528
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00075000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384270,
+        "predicted_pairs": 27210,
+        "empty_predictions": 129,
+        "seconds": 113.06960654258728
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00075000.outputs.parquet",
+      "bytes": 3935382
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00075000.probabilities.parquet",
+      "bytes": 6039500
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00080000.candidates.parquet",
+      "bytes": 7910751
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00080000.features.parquet",
+      "bytes": 10520566
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00080000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385141,
+        "predicted_pairs": 26645,
+        "empty_predictions": 111,
+        "seconds": 113.18920612335205
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00080000.outputs.parquet",
+      "bytes": 3938494
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00080000.probabilities.parquet",
+      "bytes": 6049749
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00085000.candidates.parquet",
+      "bytes": 7948017
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00085000.features.parquet",
+      "bytes": 10514525
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00085000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386086,
+        "predicted_pairs": 26642,
+        "empty_predictions": 121,
+        "seconds": 113.26080513000488
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00085000.outputs.parquet",
+      "bytes": 3948044
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00085000.probabilities.parquet",
+      "bytes": 6065097
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00090000.candidates.parquet",
+      "bytes": 7920600
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00090000.features.parquet",
+      "bytes": 10487394
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00090000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385678,
+        "predicted_pairs": 26790,
+        "empty_predictions": 88,
+        "seconds": 112.65598845481873
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00090000.outputs.parquet",
+      "bytes": 3945936
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00090000.probabilities.parquet",
+      "bytes": 6054634
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00095000.candidates.parquet",
+      "bytes": 7906025
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00095000.features.parquet",
+      "bytes": 10409975
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00095000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383704,
+        "predicted_pairs": 26753,
+        "empty_predictions": 111,
+        "seconds": 112.44086766242981
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00095000.outputs.parquet",
+      "bytes": 3929414
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00095000.probabilities.parquet",
+      "bytes": 6033080
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00100000.candidates.parquet",
+      "bytes": 7942313
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00100000.features.parquet",
+      "bytes": 10553205
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00100000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386363,
+        "predicted_pairs": 27557,
+        "empty_predictions": 102,
+        "seconds": 113.53638696670532
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00100000.outputs.parquet",
+      "bytes": 3960846
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00100000.probabilities.parquet",
+      "bytes": 6063272
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00105000.candidates.parquet",
+      "bytes": 7934518
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00105000.features.parquet",
+      "bytes": 10525916
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00105000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385816,
+        "predicted_pairs": 26905,
+        "empty_predictions": 111,
+        "seconds": 113.85554790496826
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00105000.outputs.parquet",
+      "bytes": 3947259
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00105000.probabilities.parquet",
+      "bytes": 6058302
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00110000.candidates.parquet",
+      "bytes": 7919806
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00110000.features.parquet",
+      "bytes": 10536654
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00110000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385301,
+        "predicted_pairs": 26801,
+        "empty_predictions": 90,
+        "seconds": 113.00551843643188
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00110000.outputs.parquet",
+      "bytes": 3941179
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00110000.probabilities.parquet",
+      "bytes": 6051717
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00115000.candidates.parquet",
+      "bytes": 7886127
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00115000.features.parquet",
+      "bytes": 10430324
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00115000.json",
+      "bytes": 162,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383670,
+        "predicted_pairs": 27381,
+        "empty_predictions": 89,
+        "seconds": 113.3302960395813
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00115000.outputs.parquet",
+      "bytes": 3931040
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00115000.probabilities.parquet",
+      "bytes": 6029208
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00120000.candidates.parquet",
+      "bytes": 7890821
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00120000.features.parquet",
+      "bytes": 10371539
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00120000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384268,
+        "predicted_pairs": 27504,
+        "empty_predictions": 113,
+        "seconds": 112.99230980873108
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00120000.outputs.parquet",
+      "bytes": 3940713
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00120000.probabilities.parquet",
+      "bytes": 6038229
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00125000.candidates.parquet",
+      "bytes": 7948125
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00125000.features.parquet",
+      "bytes": 10541851
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00125000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385890,
+        "predicted_pairs": 26910,
+        "empty_predictions": 111,
+        "seconds": 113.35631847381592
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00125000.outputs.parquet",
+      "bytes": 3947370
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00125000.probabilities.parquet",
+      "bytes": 6059209
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00130000.candidates.parquet",
+      "bytes": 7919396
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00130000.features.parquet",
+      "bytes": 10480264
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00130000.json",
+      "bytes": 162,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385330,
+        "predicted_pairs": 26731,
+        "empty_predictions": 85,
+        "seconds": 112.5349326133728
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00130000.outputs.parquet",
+      "bytes": 3943787
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00130000.probabilities.parquet",
+      "bytes": 6047757
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00135000.candidates.parquet",
+      "bytes": 7896242
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00135000.features.parquet",
+      "bytes": 10452141
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00135000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384057,
+        "predicted_pairs": 27479,
+        "empty_predictions": 94,
+        "seconds": 113.29517698287964
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00135000.outputs.parquet",
+      "bytes": 3934501
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00135000.probabilities.parquet",
+      "bytes": 6037293
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00140000.candidates.parquet",
+      "bytes": 7926761
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00140000.features.parquet",
+      "bytes": 10482002
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00140000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385303,
+        "predicted_pairs": 26706,
+        "empty_predictions": 101,
+        "seconds": 113.60293507575989
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00140000.outputs.parquet",
+      "bytes": 3942288
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00140000.probabilities.parquet",
+      "bytes": 6053567
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00145000.candidates.parquet",
+      "bytes": 7906873
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00145000.features.parquet",
+      "bytes": 10492931
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00145000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383973,
+        "predicted_pairs": 27291,
+        "empty_predictions": 103,
+        "seconds": 113.05819606781006
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00145000.outputs.parquet",
+      "bytes": 3934256
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00145000.probabilities.parquet",
+      "bytes": 6033576
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00150000.candidates.parquet",
+      "bytes": 7896543
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00150000.features.parquet",
+      "bytes": 10488077
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00150000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384602,
+        "predicted_pairs": 26752,
+        "empty_predictions": 100,
+        "seconds": 113.37632608413696
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00150000.outputs.parquet",
+      "bytes": 3934156
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00150000.probabilities.parquet",
+      "bytes": 6038699
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00155000.candidates.parquet",
+      "bytes": 7888329
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00155000.features.parquet",
+      "bytes": 10454695
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00155000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383377,
+        "predicted_pairs": 27482,
+        "empty_predictions": 88,
+        "seconds": 112.46214246749878
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00155000.outputs.parquet",
+      "bytes": 3928878
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00155000.probabilities.parquet",
+      "bytes": 6026414
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00160000.candidates.parquet",
+      "bytes": 7864984
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00160000.features.parquet",
+      "bytes": 10434691
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00160000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383067,
+        "predicted_pairs": 27179,
+        "empty_predictions": 93,
+        "seconds": 111.72962880134583
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00160000.outputs.parquet",
+      "bytes": 3922755
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00160000.probabilities.parquet",
+      "bytes": 6021796
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00165000.candidates.parquet",
+      "bytes": 7939852
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00165000.features.parquet",
+      "bytes": 10429830
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00165000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386139,
+        "predicted_pairs": 26679,
+        "empty_predictions": 96,
+        "seconds": 112.65877532958984
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00165000.outputs.parquet",
+      "bytes": 3950450
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00165000.probabilities.parquet",
+      "bytes": 6064324
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00170000.candidates.parquet",
+      "bytes": 7848215
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00170000.features.parquet",
+      "bytes": 10423436
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00170000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 382249,
+        "predicted_pairs": 27152,
+        "empty_predictions": 94,
+        "seconds": 112.06129789352417
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00170000.outputs.parquet",
+      "bytes": 3917649
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00170000.probabilities.parquet",
+      "bytes": 6005246
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00175000.candidates.parquet",
+      "bytes": 7913921
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00175000.features.parquet",
+      "bytes": 10474529
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00175000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384604,
+        "predicted_pairs": 26900,
+        "empty_predictions": 102,
+        "seconds": 112.29426074028015
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00175000.outputs.parquet",
+      "bytes": 3936233
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00175000.probabilities.parquet",
+      "bytes": 6047445
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00180000.candidates.parquet",
+      "bytes": 7929777
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00180000.features.parquet",
+      "bytes": 10541144
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00180000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385736,
+        "predicted_pairs": 26952,
+        "empty_predictions": 86,
+        "seconds": 113.30149579048157
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00180000.outputs.parquet",
+      "bytes": 3946057
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00180000.probabilities.parquet",
+      "bytes": 6057391
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00185000.candidates.parquet",
+      "bytes": 7970849
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00185000.features.parquet",
+      "bytes": 10540126
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00185000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 386888,
+        "predicted_pairs": 27237,
+        "empty_predictions": 87,
+        "seconds": 113.35117149353027
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00185000.outputs.parquet",
+      "bytes": 3960955
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00185000.probabilities.parquet",
+      "bytes": 6078467
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00190000.candidates.parquet",
+      "bytes": 7979973
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00190000.features.parquet",
+      "bytes": 10536019
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00190000.json",
+      "bytes": 162,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 388108,
+        "predicted_pairs": 27064,
+        "empty_predictions": 106,
+        "seconds": 113.274245262146
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00190000.outputs.parquet",
+      "bytes": 3972431
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00190000.probabilities.parquet",
+      "bytes": 6088929
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00195000.candidates.parquet",
+      "bytes": 7895915
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00195000.features.parquet",
+      "bytes": 10420956
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00195000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384597,
+        "predicted_pairs": 27087,
+        "empty_predictions": 94,
+        "seconds": 112.34887647628784
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00195000.outputs.parquet",
+      "bytes": 3937450
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00195000.probabilities.parquet",
+      "bytes": 6038603
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00200000.candidates.parquet",
+      "bytes": 7918523
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00200000.features.parquet",
+      "bytes": 10363118
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00200000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384485,
+        "predicted_pairs": 26823,
+        "empty_predictions": 121,
+        "seconds": 112.21761059761047
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00200000.outputs.parquet",
+      "bytes": 3933956
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00200000.probabilities.parquet",
+      "bytes": 6043548
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00205000.candidates.parquet",
+      "bytes": 7915175
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00205000.features.parquet",
+      "bytes": 10458789
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00205000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384574,
+        "predicted_pairs": 27000,
+        "empty_predictions": 80,
+        "seconds": 112.39543199539185
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00205000.outputs.parquet",
+      "bytes": 3936593
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00205000.probabilities.parquet",
+      "bytes": 6041223
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00210000.candidates.parquet",
+      "bytes": 7888104
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00210000.features.parquet",
+      "bytes": 10441523
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00210000.json",
+      "bytes": 162,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384002,
+        "predicted_pairs": 27032,
+        "empty_predictions": 96,
+        "seconds": 112.5858428478241
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00210000.outputs.parquet",
+      "bytes": 3932461
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00210000.probabilities.parquet",
+      "bytes": 6031232
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00215000.candidates.parquet",
+      "bytes": 7892164
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00215000.features.parquet",
+      "bytes": 10412067
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00215000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384168,
+        "predicted_pairs": 26811,
+        "empty_predictions": 111,
+        "seconds": 112.2484359741211
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00215000.outputs.parquet",
+      "bytes": 3932125
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00215000.probabilities.parquet",
+      "bytes": 6034596
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00220000.candidates.parquet",
+      "bytes": 7932189
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00220000.features.parquet",
+      "bytes": 10482439
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00220000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385838,
+        "predicted_pairs": 27075,
+        "empty_predictions": 80,
+        "seconds": 112.80097007751465
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00220000.outputs.parquet",
+      "bytes": 3949608
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00220000.probabilities.parquet",
+      "bytes": 6059277
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00225000.candidates.parquet",
+      "bytes": 7880540
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00225000.features.parquet",
+      "bytes": 10352492
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00225000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 382955,
+        "predicted_pairs": 26863,
+        "empty_predictions": 119,
+        "seconds": 112.06040978431702
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00225000.outputs.parquet",
+      "bytes": 3920711
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00225000.probabilities.parquet",
+      "bytes": 6021219
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00230000.candidates.parquet",
+      "bytes": 7920443
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00230000.features.parquet",
+      "bytes": 10522528
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00230000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384759,
+        "predicted_pairs": 26819,
+        "empty_predictions": 95,
+        "seconds": 112.65275597572327
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00230000.outputs.parquet",
+      "bytes": 3938519
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00230000.probabilities.parquet",
+      "bytes": 6047923
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00235000.candidates.parquet",
+      "bytes": 7929314
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00235000.features.parquet",
+      "bytes": 10459253
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00235000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 385805,
+        "predicted_pairs": 26538,
+        "empty_predictions": 96,
+        "seconds": 112.18415403366089
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00235000.outputs.parquet",
+      "bytes": 3946064
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00235000.probabilities.parquet",
+      "bytes": 6057367
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00240000.candidates.parquet",
+      "bytes": 7890867
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00240000.features.parquet",
+      "bytes": 10438527
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00240000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383648,
+        "predicted_pairs": 26382,
+        "empty_predictions": 102,
+        "seconds": 112.30622029304504
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00240000.outputs.parquet",
+      "bytes": 3921795
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00240000.probabilities.parquet",
+      "bytes": 6033653
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00245000.candidates.parquet",
+      "bytes": 7888604
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00245000.features.parquet",
+      "bytes": 10457798
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00245000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 383339,
+        "predicted_pairs": 26979,
+        "empty_predictions": 103,
+        "seconds": 111.76255631446838
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00245000.outputs.parquet",
+      "bytes": 3925245
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00245000.probabilities.parquet",
+      "bytes": 6026302
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00250000.candidates.parquet",
+      "bytes": 7902401
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00250000.features.parquet",
+      "bytes": 10407511
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00250000.json",
+      "bytes": 164,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 384291,
+        "predicted_pairs": 26825,
+        "empty_predictions": 111,
+        "seconds": 112.78135538101196
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00250000.outputs.parquet",
+      "bytes": 3933881
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00250000.probabilities.parquet",
+      "bytes": 6038886
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00255000.candidates.parquet",
+      "bytes": 7132989
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00255000.features.parquet",
+      "bytes": 9486188
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00255000.json",
+      "bytes": 163,
+      "marker": {
+        "complete": true,
+        "source1_rows": 4452,
+        "candidate_pairs": 343728,
+        "predicted_pairs": 23862,
+        "empty_predictions": 90,
+        "seconds": 101.17904996871948
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00255000.outputs.parquet",
+      "bytes": 3517824
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/shard_00255000.probabilities.parquet",
+      "bytes": 5478969
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/source1.json",
+      "bytes": 432,
+      "marker": {
+        "identity": {
+          "ids_sha256": "77441f3a16c03c772cf3be9736505f97636420a9f8871569366f5937e13da65a",
+          "shape": [
+            259452,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "query",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 259452,
+        "complete": true,
+        "seconds": 62.49333047866821
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/france/source1.npy",
+      "bytes": 398518400
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/address_feed.json",
+      "bytes": 437,
+      "marker": {
+        "identity": {
+          "ids_sha256": "18c2b42cc0dddf9521c8d10716ee716dae952622b1869fa3ccebf925a19190d7",
+          "shape": [
+            4717565,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "passage",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 4717565,
+        "complete": true,
+        "seconds": 1141.6934111118317
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/address_feed.npy",
+      "bytes": 7246179968
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/address_source1.json",
+      "bytes": 433,
+      "marker": {
+        "identity": {
+          "ids_sha256": "10222f263d9c8fcbb55075f825bdf3d58b6e9b20976bcca85addc881faeecb30",
+          "shape": [
+            809986,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "query",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 809986,
+        "complete": true,
+        "seconds": 205.96804022789001
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/address_source1.npy",
+      "bytes": 1244138624
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/feed.json",
+      "bytes": 437,
+      "marker": {
+        "identity": {
+          "ids_sha256": "18c2b42cc0dddf9521c8d10716ee716dae952622b1869fa3ccebf925a19190d7",
+          "shape": [
+            4717565,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "passage",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 4717565,
+        "complete": true,
+        "seconds": 476.08289885520935
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/feed.npy",
+      "bytes": 7246179968
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00000000.candidates.parquet",
+      "bytes": 8437040
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00000000.features.parquet",
+      "bytes": 12450969
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00000000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402607,
+        "predicted_pairs": 18736,
+        "empty_predictions": 208,
+        "seconds": 60.41685366630554,
+        "retrieval_seconds": 21.541431665420532,
+        "feature_seconds": 19.225595712661743,
+        "inference_seconds": 19.029296159744263,
+        "peak_ram_gib": 42.876495361328125,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00000000.outputs.parquet",
+      "bytes": 4033164
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00000000.probabilities.parquet",
+      "bytes": 6317798
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00005000.candidates.parquet",
+      "bytes": 8396519
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00005000.features.parquet",
+      "bytes": 12365891
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00005000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400051,
+        "predicted_pairs": 18572,
+        "empty_predictions": 204,
+        "seconds": 53.22899150848389,
+        "retrieval_seconds": 19.68938660621643,
+        "feature_seconds": 14.23404049873352,
+        "inference_seconds": 18.711451053619385,
+        "peak_ram_gib": 43.220481872558594,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00005000.outputs.parquet",
+      "bytes": 4008262
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00005000.probabilities.parquet",
+      "bytes": 6282789
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00010000.candidates.parquet",
+      "bytes": 8414087
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00010000.features.parquet",
+      "bytes": 12322992
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00010000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401475,
+        "predicted_pairs": 18538,
+        "empty_predictions": 181,
+        "seconds": 53.35948324203491,
+        "retrieval_seconds": 20.114086151123047,
+        "feature_seconds": 13.84681510925293,
+        "inference_seconds": 18.788373470306396,
+        "peak_ram_gib": 43.269168853759766,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00010000.outputs.parquet",
+      "bytes": 4020361
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00010000.probabilities.parquet",
+      "bytes": 6303722
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00015000.candidates.parquet",
+      "bytes": 8381377
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00015000.features.parquet",
+      "bytes": 12366638
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00015000.json",
+      "bytes": 367,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399983,
+        "predicted_pairs": 18751,
+        "empty_predictions": 168,
+        "seconds": 53.096394062042236,
+        "retrieval_seconds": 19.666465759277344,
+        "feature_seconds": 14.190908432006836,
+        "inference_seconds": 18.639272451400757,
+        "peak_ram_gib": 43.283721923828125,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00015000.outputs.parquet",
+      "bytes": 4007381
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00015000.probabilities.parquet",
+      "bytes": 6280869
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00020000.candidates.parquet",
+      "bytes": 8407218
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00020000.features.parquet",
+      "bytes": 12329115
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00020000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400920,
+        "predicted_pairs": 18778,
+        "empty_predictions": 199,
+        "seconds": 53.3357310295105,
+        "retrieval_seconds": 19.71834921836853,
+        "feature_seconds": 14.17131233215332,
+        "inference_seconds": 18.84166193008423,
+        "peak_ram_gib": 43.360660552978516,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00020000.outputs.parquet",
+      "bytes": 4016542
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00020000.probabilities.parquet",
+      "bytes": 6293578
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00025000.candidates.parquet",
+      "bytes": 8345254
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00025000.features.parquet",
+      "bytes": 12221755
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00025000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398404,
+        "predicted_pairs": 18825,
+        "empty_predictions": 183,
+        "seconds": 53.118613719940186,
+        "retrieval_seconds": 19.916515827178955,
+        "feature_seconds": 13.922465801239014,
+        "inference_seconds": 18.678558826446533,
+        "peak_ram_gib": 43.4030876159668,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00025000.outputs.parquet",
+      "bytes": 3995992
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00025000.probabilities.parquet",
+      "bytes": 6261640
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00030000.candidates.parquet",
+      "bytes": 8371184
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00030000.features.parquet",
+      "bytes": 12320676
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00030000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399665,
+        "predicted_pairs": 18525,
+        "empty_predictions": 198,
+        "seconds": 53.66608452796936,
+        "retrieval_seconds": 20.018067121505737,
+        "feature_seconds": 14.19718337059021,
+        "inference_seconds": 18.902734756469727,
+        "peak_ram_gib": 43.45070266723633,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00030000.outputs.parquet",
+      "bytes": 4003638
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00030000.probabilities.parquet",
+      "bytes": 6278099
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00035000.candidates.parquet",
+      "bytes": 8408057
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00035000.features.parquet",
+      "bytes": 12413212
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00035000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401043,
+        "predicted_pairs": 18822,
+        "empty_predictions": 174,
+        "seconds": 53.257004737854004,
+        "retrieval_seconds": 19.71314263343811,
+        "feature_seconds": 14.165318489074707,
+        "inference_seconds": 18.83304262161255,
+        "peak_ram_gib": 43.48277282714844,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00035000.outputs.parquet",
+      "bytes": 4019852
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00035000.probabilities.parquet",
+      "bytes": 6293503
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00040000.candidates.parquet",
+      "bytes": 8381930
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00040000.features.parquet",
+      "bytes": 12264555
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00040000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399870,
+        "predicted_pairs": 18893,
+        "empty_predictions": 178,
+        "seconds": 53.2883505821228,
+        "retrieval_seconds": 19.995030879974365,
+        "feature_seconds": 13.961180686950684,
+        "inference_seconds": 18.71735668182373,
+        "peak_ram_gib": 43.48277282714844,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00040000.outputs.parquet",
+      "bytes": 4011964
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00040000.probabilities.parquet",
+      "bytes": 6281030
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00045000.candidates.parquet",
+      "bytes": 8391131
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00045000.features.parquet",
+      "bytes": 12264102
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00045000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399326,
+        "predicted_pairs": 18563,
+        "empty_predictions": 192,
+        "seconds": 53.22049570083618,
+        "retrieval_seconds": 19.70809268951416,
+        "feature_seconds": 14.100929260253906,
+        "inference_seconds": 18.802470684051514,
+        "peak_ram_gib": 43.51665115356445,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00045000.outputs.parquet",
+      "bytes": 4000804
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00045000.probabilities.parquet",
+      "bytes": 6273231
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00050000.candidates.parquet",
+      "bytes": 8365526
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00050000.features.parquet",
+      "bytes": 12261084
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00050000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398568,
+        "predicted_pairs": 18657,
+        "empty_predictions": 197,
+        "seconds": 52.875773906707764,
+        "retrieval_seconds": 19.624165058135986,
+        "feature_seconds": 13.897085428237915,
+        "inference_seconds": 18.74249792098999,
+        "peak_ram_gib": 43.52998733520508,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00050000.outputs.parquet",
+      "bytes": 3992711
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00050000.probabilities.parquet",
+      "bytes": 6262786
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00055000.candidates.parquet",
+      "bytes": 8398475
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00055000.features.parquet",
+      "bytes": 12370472
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00055000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400310,
+        "predicted_pairs": 18750,
+        "empty_predictions": 204,
+        "seconds": 53.47115635871887,
+        "retrieval_seconds": 20.199605226516724,
+        "feature_seconds": 14.151369333267212,
+        "inference_seconds": 18.548483848571777,
+        "peak_ram_gib": 43.52998733520508,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00055000.outputs.parquet",
+      "bytes": 4011239
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00055000.probabilities.parquet",
+      "bytes": 6288514
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00060000.candidates.parquet",
+      "bytes": 8432376
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00060000.features.parquet",
+      "bytes": 12314567
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00060000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401881,
+        "predicted_pairs": 18789,
+        "empty_predictions": 185,
+        "seconds": 53.53786277770996,
+        "retrieval_seconds": 20.113422632217407,
+        "feature_seconds": 14.064218044281006,
+        "inference_seconds": 18.817806720733643,
+        "peak_ram_gib": 43.52998733520508,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00060000.outputs.parquet",
+      "bytes": 4026021
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00060000.probabilities.parquet",
+      "bytes": 6307973
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00065000.candidates.parquet",
+      "bytes": 8385586
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00065000.features.parquet",
+      "bytes": 12305251
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00065000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399674,
+        "predicted_pairs": 18602,
+        "empty_predictions": 199,
+        "seconds": 52.63770890235901,
+        "retrieval_seconds": 19.60261845588684,
+        "feature_seconds": 13.95766282081604,
+        "inference_seconds": 18.52849054336548,
+        "peak_ram_gib": 43.54296112060547,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00065000.outputs.parquet",
+      "bytes": 4006051
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00065000.probabilities.parquet",
+      "bytes": 6280236
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00070000.candidates.parquet",
+      "bytes": 8274997
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00070000.features.parquet",
+      "bytes": 12150940
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00070000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 394822,
+        "predicted_pairs": 18691,
+        "empty_predictions": 211,
+        "seconds": 52.74961042404175,
+        "retrieval_seconds": 19.721949100494385,
+        "feature_seconds": 13.718069791793823,
+        "inference_seconds": 18.69202733039856,
+        "peak_ram_gib": 43.60767364501953,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00070000.outputs.parquet",
+      "bytes": 3956868
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00070000.probabilities.parquet",
+      "bytes": 6212746
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00075000.candidates.parquet",
+      "bytes": 8410461
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00075000.features.parquet",
+      "bytes": 12277717
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00075000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400570,
+        "predicted_pairs": 18793,
+        "empty_predictions": 176,
+        "seconds": 53.45391654968262,
+        "retrieval_seconds": 19.657184839248657,
+        "feature_seconds": 14.1969895362854,
+        "inference_seconds": 18.976434469223022,
+        "peak_ram_gib": 43.61604690551758,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00075000.outputs.parquet",
+      "bytes": 4015500
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00075000.probabilities.parquet",
+      "bytes": 6291368
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00080000.candidates.parquet",
+      "bytes": 8377630
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00080000.features.parquet",
+      "bytes": 12223969
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00080000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399559,
+        "predicted_pairs": 18802,
+        "empty_predictions": 192,
+        "seconds": 53.410539865493774,
+        "retrieval_seconds": 19.837390899658203,
+        "feature_seconds": 13.986295223236084,
+        "inference_seconds": 18.96620273590088,
+        "peak_ram_gib": 43.61604690551758,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00080000.outputs.parquet",
+      "bytes": 4007884
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00080000.probabilities.parquet",
+      "bytes": 6276276
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00085000.candidates.parquet",
+      "bytes": 8377784
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00085000.features.parquet",
+      "bytes": 12328051
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00085000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399344,
+        "predicted_pairs": 18694,
+        "empty_predictions": 195,
+        "seconds": 53.31994104385376,
+        "retrieval_seconds": 19.62580633163452,
+        "feature_seconds": 14.09354043006897,
+        "inference_seconds": 19.009093284606934,
+        "peak_ram_gib": 43.61604690551758,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00085000.outputs.parquet",
+      "bytes": 3999716
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00085000.probabilities.parquet",
+      "bytes": 6276022
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00090000.candidates.parquet",
+      "bytes": 8427794
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00090000.features.parquet",
+      "bytes": 12387262
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00090000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401504,
+        "predicted_pairs": 18745,
+        "empty_predictions": 192,
+        "seconds": 53.62051725387573,
+        "retrieval_seconds": 20.045294523239136,
+        "feature_seconds": 14.117773294448853,
+        "inference_seconds": 18.873091459274292,
+        "peak_ram_gib": 43.685691833496094,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00090000.outputs.parquet",
+      "bytes": 4026103
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00090000.probabilities.parquet",
+      "bytes": 6303525
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00095000.candidates.parquet",
+      "bytes": 8389255
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00095000.features.parquet",
+      "bytes": 12421152
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00095000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400443,
+        "predicted_pairs": 18590,
+        "empty_predictions": 197,
+        "seconds": 53.404449224472046,
+        "retrieval_seconds": 19.737744331359863,
+        "feature_seconds": 14.09824824333191,
+        "inference_seconds": 18.994067430496216,
+        "peak_ram_gib": 43.685691833496094,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00095000.outputs.parquet",
+      "bytes": 4010685
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00095000.probabilities.parquet",
+      "bytes": 6286581
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00100000.candidates.parquet",
+      "bytes": 8364150
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00100000.features.parquet",
+      "bytes": 12268863
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00100000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399269,
+        "predicted_pairs": 18675,
+        "empty_predictions": 195,
+        "seconds": 53.01677846908569,
+        "retrieval_seconds": 19.60569953918457,
+        "feature_seconds": 13.80758786201477,
+        "inference_seconds": 19.00765371322632,
+        "peak_ram_gib": 43.69257354736328,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00100000.outputs.parquet",
+      "bytes": 4001221
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00100000.probabilities.parquet",
+      "bytes": 6271573
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00105000.candidates.parquet",
+      "bytes": 8357404
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00105000.features.parquet",
+      "bytes": 12317763
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00105000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398379,
+        "predicted_pairs": 18491,
+        "empty_predictions": 196,
+        "seconds": 53.34062623977661,
+        "retrieval_seconds": 20.029624462127686,
+        "feature_seconds": 13.97399377822876,
+        "inference_seconds": 18.74754786491394,
+        "peak_ram_gib": 43.748619079589844,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00105000.outputs.parquet",
+      "bytes": 3985568
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00105000.probabilities.parquet",
+      "bytes": 6261019
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00110000.candidates.parquet",
+      "bytes": 8398435
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00110000.features.parquet",
+      "bytes": 12305358
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00110000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399753,
+        "predicted_pairs": 18605,
+        "empty_predictions": 208,
+        "seconds": 53.115683794021606,
+        "retrieval_seconds": 19.585325717926025,
+        "feature_seconds": 14.030498027801514,
+        "inference_seconds": 18.883329391479492,
+        "peak_ram_gib": 43.76371765136719,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00110000.outputs.parquet",
+      "bytes": 4007550
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00110000.probabilities.parquet",
+      "bytes": 6279819
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00115000.candidates.parquet",
+      "bytes": 8448522
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00115000.features.parquet",
+      "bytes": 12368159
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00115000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402954,
+        "predicted_pairs": 18810,
+        "empty_predictions": 198,
+        "seconds": 53.19388270378113,
+        "retrieval_seconds": 19.75693106651306,
+        "feature_seconds": 13.955651998519897,
+        "inference_seconds": 18.874160766601562,
+        "peak_ram_gib": 43.79289627075195,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00115000.outputs.parquet",
+      "bytes": 4039701
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00115000.probabilities.parquet",
+      "bytes": 6322661
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00120000.candidates.parquet",
+      "bytes": 8438724
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00120000.features.parquet",
+      "bytes": 12359561
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00120000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402804,
+        "predicted_pairs": 18772,
+        "empty_predictions": 207,
+        "seconds": 53.51199412345886,
+        "retrieval_seconds": 19.82353401184082,
+        "feature_seconds": 14.15696406364441,
+        "inference_seconds": 18.923585414886475,
+        "peak_ram_gib": 43.79289627075195,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00120000.outputs.parquet",
+      "bytes": 4032310
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00120000.probabilities.parquet",
+      "bytes": 6320962
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00125000.candidates.parquet",
+      "bytes": 8402513
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00125000.features.parquet",
+      "bytes": 12307729
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00125000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400317,
+        "predicted_pairs": 18879,
+        "empty_predictions": 181,
+        "seconds": 53.36140036582947,
+        "retrieval_seconds": 19.730289220809937,
+        "feature_seconds": 14.110843181610107,
+        "inference_seconds": 18.897429943084717,
+        "peak_ram_gib": 43.79289627075195,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00125000.outputs.parquet",
+      "bytes": 4014279
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00125000.probabilities.parquet",
+      "bytes": 6287745
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00130000.candidates.parquet",
+      "bytes": 8363273
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00130000.features.parquet",
+      "bytes": 12209803
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00130000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398217,
+        "predicted_pairs": 18553,
+        "empty_predictions": 200,
+        "seconds": 52.60998511314392,
+        "retrieval_seconds": 19.55819058418274,
+        "feature_seconds": 13.829109191894531,
+        "inference_seconds": 18.624016046524048,
+        "peak_ram_gib": 43.797847747802734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00130000.outputs.parquet",
+      "bytes": 3987170
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00130000.probabilities.parquet",
+      "bytes": 6259132
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00135000.candidates.parquet",
+      "bytes": 8362271
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00135000.features.parquet",
+      "bytes": 12266346
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00135000.json",
+      "bytes": 367,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398550,
+        "predicted_pairs": 18623,
+        "empty_predictions": 217,
+        "seconds": 53.309102058410645,
+        "retrieval_seconds": 20.036515712738037,
+        "feature_seconds": 13.857892036437988,
+        "inference_seconds": 18.718089818954468,
+        "peak_ram_gib": 43.797847747802734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00135000.outputs.parquet",
+      "bytes": 3991228
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00135000.probabilities.parquet",
+      "bytes": 6266019
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00140000.candidates.parquet",
+      "bytes": 8384877
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00140000.features.parquet",
+      "bytes": 12359348
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00140000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399868,
+        "predicted_pairs": 18824,
+        "empty_predictions": 174,
+        "seconds": 53.3843777179718,
+        "retrieval_seconds": 19.640952348709106,
+        "feature_seconds": 14.106536388397217,
+        "inference_seconds": 19.03574013710022,
+        "peak_ram_gib": 43.797847747802734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00140000.outputs.parquet",
+      "bytes": 4008762
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00140000.probabilities.parquet",
+      "bytes": 6280823
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00145000.candidates.parquet",
+      "bytes": 8410085
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00145000.features.parquet",
+      "bytes": 12389029
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00145000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401345,
+        "predicted_pairs": 18634,
+        "empty_predictions": 200,
+        "seconds": 53.39314007759094,
+        "retrieval_seconds": 20.02992033958435,
+        "feature_seconds": 14.051464557647705,
+        "inference_seconds": 18.706743955612183,
+        "peak_ram_gib": 43.853302001953125,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00145000.outputs.parquet",
+      "bytes": 4020270
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00145000.probabilities.parquet",
+      "bytes": 6300742
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00150000.candidates.parquet",
+      "bytes": 8383940
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00150000.features.parquet",
+      "bytes": 12230166
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00150000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399904,
+        "predicted_pairs": 18482,
+        "empty_predictions": 196,
+        "seconds": 52.959065198898315,
+        "retrieval_seconds": 19.729544162750244,
+        "feature_seconds": 14.003235816955566,
+        "inference_seconds": 18.599813222885132,
+        "peak_ram_gib": 43.89437484741211,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00150000.outputs.parquet",
+      "bytes": 4004556
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00150000.probabilities.parquet",
+      "bytes": 6282419
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00155000.candidates.parquet",
+      "bytes": 8411067
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00155000.features.parquet",
+      "bytes": 12299072
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00155000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401130,
+        "predicted_pairs": 18680,
+        "empty_predictions": 187,
+        "seconds": 53.51949906349182,
+        "retrieval_seconds": 19.773113250732422,
+        "feature_seconds": 13.929383993148804,
+        "inference_seconds": 19.250826835632324,
+        "peak_ram_gib": 43.898414611816406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00155000.outputs.parquet",
+      "bytes": 4017723
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00155000.probabilities.parquet",
+      "bytes": 6298719
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00160000.candidates.parquet",
+      "bytes": 8380357
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00160000.features.parquet",
+      "bytes": 12248838
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00160000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399046,
+        "predicted_pairs": 18782,
+        "empty_predictions": 187,
+        "seconds": 53.07448172569275,
+        "retrieval_seconds": 19.64452838897705,
+        "feature_seconds": 13.9764084815979,
+        "inference_seconds": 18.836785078048706,
+        "peak_ram_gib": 43.94354248046875,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00160000.outputs.parquet",
+      "bytes": 4000919
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00160000.probabilities.parquet",
+      "bytes": 6269788
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00165000.candidates.parquet",
+      "bytes": 8392431
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00165000.features.parquet",
+      "bytes": 12455486
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00165000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399606,
+        "predicted_pairs": 18840,
+        "empty_predictions": 194,
+        "seconds": 53.9298357963562,
+        "retrieval_seconds": 20.105698585510254,
+        "feature_seconds": 14.05804705619812,
+        "inference_seconds": 19.16957950592041,
+        "peak_ram_gib": 43.99974822998047,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00165000.outputs.parquet",
+      "bytes": 4004814
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00165000.probabilities.parquet",
+      "bytes": 6274252
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00170000.candidates.parquet",
+      "bytes": 8349149
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00170000.features.parquet",
+      "bytes": 12311257
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00170000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398700,
+        "predicted_pairs": 18620,
+        "empty_predictions": 185,
+        "seconds": 53.009838819503784,
+        "retrieval_seconds": 19.845873832702637,
+        "feature_seconds": 13.839368343353271,
+        "inference_seconds": 18.716367721557617,
+        "peak_ram_gib": 43.99974822998047,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00170000.outputs.parquet",
+      "bytes": 3994186
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00170000.probabilities.parquet",
+      "bytes": 6264040
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00175000.candidates.parquet",
+      "bytes": 8369202
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00175000.features.parquet",
+      "bytes": 12289349
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00175000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399358,
+        "predicted_pairs": 18754,
+        "empty_predictions": 183,
+        "seconds": 52.92626881599426,
+        "retrieval_seconds": 19.609009504318237,
+        "feature_seconds": 13.930827379226685,
+        "inference_seconds": 18.799697160720825,
+        "peak_ram_gib": 43.99974822998047,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00175000.outputs.parquet",
+      "bytes": 4000615
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00175000.probabilities.parquet",
+      "bytes": 6272805
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00180000.candidates.parquet",
+      "bytes": 8349557
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00180000.features.parquet",
+      "bytes": 12164443
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00180000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397624,
+        "predicted_pairs": 18758,
+        "empty_predictions": 172,
+        "seconds": 53.24380302429199,
+        "retrieval_seconds": 19.902504920959473,
+        "feature_seconds": 13.88779902458191,
+        "inference_seconds": 18.79146695137024,
+        "peak_ram_gib": 44.00587844848633,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00180000.outputs.parquet",
+      "bytes": 3984186
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00180000.probabilities.parquet",
+      "bytes": 6251996
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00185000.candidates.parquet",
+      "bytes": 8339860
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00185000.features.parquet",
+      "bytes": 12204765
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00185000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397987,
+        "predicted_pairs": 18679,
+        "empty_predictions": 168,
+        "seconds": 52.9167742729187,
+        "retrieval_seconds": 19.90896773338318,
+        "feature_seconds": 13.882519483566284,
+        "inference_seconds": 18.52234983444214,
+        "peak_ram_gib": 44.00587844848633,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00185000.outputs.parquet",
+      "bytes": 3991355
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00185000.probabilities.parquet",
+      "bytes": 6254532
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00190000.candidates.parquet",
+      "bytes": 8401910
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00190000.features.parquet",
+      "bytes": 12253117
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00190000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400423,
+        "predicted_pairs": 18811,
+        "empty_predictions": 199,
+        "seconds": 53.45312428474426,
+        "retrieval_seconds": 19.912747621536255,
+        "feature_seconds": 14.177858352661133,
+        "inference_seconds": 18.76009964942932,
+        "peak_ram_gib": 44.11210250854492,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00190000.outputs.parquet",
+      "bytes": 4009598
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00190000.probabilities.parquet",
+      "bytes": 6288747
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00195000.candidates.parquet",
+      "bytes": 8432229
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00195000.features.parquet",
+      "bytes": 12292466
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00195000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402482,
+        "predicted_pairs": 18665,
+        "empty_predictions": 189,
+        "seconds": 53.28727412223816,
+        "retrieval_seconds": 19.73851180076599,
+        "feature_seconds": 13.916333436965942,
+        "inference_seconds": 19.00522255897522,
+        "peak_ram_gib": 44.11210250854492,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00195000.outputs.parquet",
+      "bytes": 4032164
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00195000.probabilities.parquet",
+      "bytes": 6314107
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00200000.candidates.parquet",
+      "bytes": 8393216
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00200000.features.parquet",
+      "bytes": 12326005
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00200000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400288,
+        "predicted_pairs": 18767,
+        "empty_predictions": 193,
+        "seconds": 53.01827311515808,
+        "retrieval_seconds": 19.688416719436646,
+        "feature_seconds": 14.048314332962036,
+        "inference_seconds": 18.738951206207275,
+        "peak_ram_gib": 44.12239456176758,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00200000.outputs.parquet",
+      "bytes": 4010632
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00200000.probabilities.parquet",
+      "bytes": 6285800
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00205000.candidates.parquet",
+      "bytes": 8385304
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00205000.features.parquet",
+      "bytes": 12253961
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00205000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400101,
+        "predicted_pairs": 18639,
+        "empty_predictions": 207,
+        "seconds": 53.438329458236694,
+        "retrieval_seconds": 19.83707046508789,
+        "feature_seconds": 13.9793221950531,
+        "inference_seconds": 19.016282320022583,
+        "peak_ram_gib": 44.14668273925781,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00205000.outputs.parquet",
+      "bytes": 4006692
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00205000.probabilities.parquet",
+      "bytes": 6285907
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00210000.candidates.parquet",
+      "bytes": 8393600
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00210000.features.parquet",
+      "bytes": 12223527
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00210000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400253,
+        "predicted_pairs": 18685,
+        "empty_predictions": 222,
+        "seconds": 53.39537262916565,
+        "retrieval_seconds": 20.020251512527466,
+        "feature_seconds": 14.00878119468689,
+        "inference_seconds": 18.823891639709473,
+        "peak_ram_gib": 44.16865539550781,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00210000.outputs.parquet",
+      "bytes": 4013650
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00210000.probabilities.parquet",
+      "bytes": 6286200
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00215000.candidates.parquet",
+      "bytes": 8437102
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00215000.features.parquet",
+      "bytes": 12387897
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00215000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402538,
+        "predicted_pairs": 18555,
+        "empty_predictions": 216,
+        "seconds": 52.96414637565613,
+        "retrieval_seconds": 19.670034170150757,
+        "feature_seconds": 13.920379161834717,
+        "inference_seconds": 18.77160120010376,
+        "peak_ram_gib": 44.192344665527344,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00215000.outputs.parquet",
+      "bytes": 4032449
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00215000.probabilities.parquet",
+      "bytes": 6320217
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00220000.candidates.parquet",
+      "bytes": 8353886
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00220000.features.parquet",
+      "bytes": 12251585
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00220000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398662,
+        "predicted_pairs": 18601,
+        "empty_predictions": 220,
+        "seconds": 52.85270929336548,
+        "retrieval_seconds": 19.6080219745636,
+        "feature_seconds": 13.918521404266357,
+        "inference_seconds": 18.765122413635254,
+        "peak_ram_gib": 44.21096420288086,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00220000.outputs.parquet",
+      "bytes": 3992342
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00220000.probabilities.parquet",
+      "bytes": 6265296
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00225000.candidates.parquet",
+      "bytes": 8394211
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00225000.features.parquet",
+      "bytes": 12215964
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00225000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400622,
+        "predicted_pairs": 18635,
+        "empty_predictions": 189,
+        "seconds": 53.259522438049316,
+        "retrieval_seconds": 20.01601791381836,
+        "feature_seconds": 14.082200527191162,
+        "inference_seconds": 18.61353874206543,
+        "peak_ram_gib": 44.26599884033203,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00225000.outputs.parquet",
+      "bytes": 4013797
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00225000.probabilities.parquet",
+      "bytes": 6290205
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00230000.candidates.parquet",
+      "bytes": 8388141
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00230000.features.parquet",
+      "bytes": 12323786
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00230000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399201,
+        "predicted_pairs": 18377,
+        "empty_predictions": 216,
+        "seconds": 52.82417631149292,
+        "retrieval_seconds": 19.826051712036133,
+        "feature_seconds": 13.845752954483032,
+        "inference_seconds": 18.53910803794861,
+        "peak_ram_gib": 44.26599884033203,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00230000.outputs.parquet",
+      "bytes": 3998184
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00230000.probabilities.parquet",
+      "bytes": 6271527
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00235000.candidates.parquet",
+      "bytes": 8370440
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00235000.features.parquet",
+      "bytes": 12324502
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00235000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398803,
+        "predicted_pairs": 18691,
+        "empty_predictions": 193,
+        "seconds": 52.83250451087952,
+        "retrieval_seconds": 19.753971815109253,
+        "feature_seconds": 13.852029800415039,
+        "inference_seconds": 18.676362991333008,
+        "peak_ram_gib": 44.26599884033203,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00235000.outputs.parquet",
+      "bytes": 3998624
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00235000.probabilities.parquet",
+      "bytes": 6269757
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00240000.candidates.parquet",
+      "bytes": 8421811
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00240000.features.parquet",
+      "bytes": 12375067
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00240000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401928,
+        "predicted_pairs": 18847,
+        "empty_predictions": 188,
+        "seconds": 53.60385274887085,
+        "retrieval_seconds": 19.88198494911194,
+        "feature_seconds": 14.149414539337158,
+        "inference_seconds": 19.032227516174316,
+        "peak_ram_gib": 44.26599884033203,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00240000.outputs.parquet",
+      "bytes": 4031110
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00240000.probabilities.parquet",
+      "bytes": 6307014
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00245000.candidates.parquet",
+      "bytes": 8368287
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00245000.features.parquet",
+      "bytes": 12279892
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00245000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398972,
+        "predicted_pairs": 18752,
+        "empty_predictions": 194,
+        "seconds": 52.80039620399475,
+        "retrieval_seconds": 19.776933193206787,
+        "feature_seconds": 13.768014669418335,
+        "inference_seconds": 18.647229194641113,
+        "peak_ram_gib": 44.290775299072266,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00245000.outputs.parquet",
+      "bytes": 3998504
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00245000.probabilities.parquet",
+      "bytes": 6267903
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00250000.candidates.parquet",
+      "bytes": 8409516
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00250000.features.parquet",
+      "bytes": 12400679
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00250000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400881,
+        "predicted_pairs": 18758,
+        "empty_predictions": 183,
+        "seconds": 53.234549045562744,
+        "retrieval_seconds": 19.505614280700684,
+        "feature_seconds": 14.053595304489136,
+        "inference_seconds": 19.064576864242554,
+        "peak_ram_gib": 44.29913330078125,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00250000.outputs.parquet",
+      "bytes": 4018400
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00250000.probabilities.parquet",
+      "bytes": 6293513
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00255000.candidates.parquet",
+      "bytes": 8326042
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00255000.features.parquet",
+      "bytes": 12187110
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00255000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397316,
+        "predicted_pairs": 18880,
+        "empty_predictions": 194,
+        "seconds": 52.62415814399719,
+        "retrieval_seconds": 19.490509271621704,
+        "feature_seconds": 13.74611759185791,
+        "inference_seconds": 18.797489166259766,
+        "peak_ram_gib": 44.33948516845703,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00255000.outputs.parquet",
+      "bytes": 3981495
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00255000.probabilities.parquet",
+      "bytes": 6246758
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00260000.candidates.parquet",
+      "bytes": 8325861
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00260000.features.parquet",
+      "bytes": 12257709
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00260000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397381,
+        "predicted_pairs": 18849,
+        "empty_predictions": 183,
+        "seconds": 52.509791135787964,
+        "retrieval_seconds": 19.448418378829956,
+        "feature_seconds": 13.777731895446777,
+        "inference_seconds": 18.631957292556763,
+        "peak_ram_gib": 44.33948516845703,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00260000.outputs.parquet",
+      "bytes": 3979814
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00260000.probabilities.parquet",
+      "bytes": 6244071
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00265000.candidates.parquet",
+      "bytes": 8359122
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00265000.features.parquet",
+      "bytes": 12253753
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00265000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398621,
+        "predicted_pairs": 18758,
+        "empty_predictions": 204,
+        "seconds": 53.08787798881531,
+        "retrieval_seconds": 19.46525764465332,
+        "feature_seconds": 14.058347463607788,
+        "inference_seconds": 18.94723081588745,
+        "peak_ram_gib": 44.33948516845703,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00265000.outputs.parquet",
+      "bytes": 3997724
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00265000.probabilities.parquet",
+      "bytes": 6264320
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00270000.candidates.parquet",
+      "bytes": 8385652
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00270000.features.parquet",
+      "bytes": 12365529
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00270000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400416,
+        "predicted_pairs": 18751,
+        "empty_predictions": 181,
+        "seconds": 52.74537205696106,
+        "retrieval_seconds": 19.527233600616455,
+        "feature_seconds": 13.959462404251099,
+        "inference_seconds": 18.66141939163208,
+        "peak_ram_gib": 44.42153549194336,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00270000.outputs.parquet",
+      "bytes": 4010798
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00270000.probabilities.parquet",
+      "bytes": 6287625
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00275000.candidates.parquet",
+      "bytes": 8437694
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00275000.features.parquet",
+      "bytes": 12358082
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00275000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402349,
+        "predicted_pairs": 18631,
+        "empty_predictions": 195,
+        "seconds": 53.5713369846344,
+        "retrieval_seconds": 20.04340696334839,
+        "feature_seconds": 14.075979232788086,
+        "inference_seconds": 18.91511106491089,
+        "peak_ram_gib": 44.42153549194336,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00275000.outputs.parquet",
+      "bytes": 4029325
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00275000.probabilities.parquet",
+      "bytes": 6314211
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00280000.candidates.parquet",
+      "bytes": 8387938
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00280000.features.parquet",
+      "bytes": 12252844
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00280000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400057,
+        "predicted_pairs": 18727,
+        "empty_predictions": 201,
+        "seconds": 52.813884973526,
+        "retrieval_seconds": 19.511205434799194,
+        "feature_seconds": 14.044452428817749,
+        "inference_seconds": 18.722965478897095,
+        "peak_ram_gib": 44.434017181396484,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00280000.outputs.parquet",
+      "bytes": 4011154
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00280000.probabilities.parquet",
+      "bytes": 6283503
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00285000.candidates.parquet",
+      "bytes": 8408024
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00285000.features.parquet",
+      "bytes": 12336070
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00285000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400242,
+        "predicted_pairs": 18743,
+        "empty_predictions": 195,
+        "seconds": 52.608919620513916,
+        "retrieval_seconds": 19.557724237442017,
+        "feature_seconds": 13.856275081634521,
+        "inference_seconds": 18.601051807403564,
+        "peak_ram_gib": 44.45232009887695,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00285000.outputs.parquet",
+      "bytes": 4009973
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00285000.probabilities.parquet",
+      "bytes": 6287558
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00290000.candidates.parquet",
+      "bytes": 8375456
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00290000.features.parquet",
+      "bytes": 12256726
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00290000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399559,
+        "predicted_pairs": 18815,
+        "empty_predictions": 177,
+        "seconds": 53.11561870574951,
+        "retrieval_seconds": 19.77822470664978,
+        "feature_seconds": 14.030744791030884,
+        "inference_seconds": 18.769617080688477,
+        "peak_ram_gib": 44.46802520751953,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00290000.outputs.parquet",
+      "bytes": 4006034
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00290000.probabilities.parquet",
+      "bytes": 6274445
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00295000.candidates.parquet",
+      "bytes": 8377076
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00295000.features.parquet",
+      "bytes": 12272183
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00295000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399735,
+        "predicted_pairs": 18809,
+        "empty_predictions": 189,
+        "seconds": 53.023120641708374,
+        "retrieval_seconds": 19.604533672332764,
+        "feature_seconds": 13.943054676055908,
+        "inference_seconds": 18.867650270462036,
+        "peak_ram_gib": 44.46802520751953,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00295000.outputs.parquet",
+      "bytes": 4003944
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00295000.probabilities.parquet",
+      "bytes": 6280133
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00300000.candidates.parquet",
+      "bytes": 8363429
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00300000.features.parquet",
+      "bytes": 12234378
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00300000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398960,
+        "predicted_pairs": 18460,
+        "empty_predictions": 206,
+        "seconds": 52.91324281692505,
+        "retrieval_seconds": 19.718428373336792,
+        "feature_seconds": 13.896281957626343,
+        "inference_seconds": 18.689636945724487,
+        "peak_ram_gib": 44.48228073120117,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00300000.outputs.parquet",
+      "bytes": 3993527
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00300000.probabilities.parquet",
+      "bytes": 6268376
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00305000.candidates.parquet",
+      "bytes": 8425635
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00305000.features.parquet",
+      "bytes": 12359829
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00305000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401641,
+        "predicted_pairs": 18537,
+        "empty_predictions": 198,
+        "seconds": 52.76089930534363,
+        "retrieval_seconds": 19.664435386657715,
+        "feature_seconds": 14.010074377059937,
+        "inference_seconds": 18.551269054412842,
+        "peak_ram_gib": 44.49374008178711,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00305000.outputs.parquet",
+      "bytes": 4021601
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00305000.probabilities.parquet",
+      "bytes": 6306300
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00310000.candidates.parquet",
+      "bytes": 8368431
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00310000.features.parquet",
+      "bytes": 12332551
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00310000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399188,
+        "predicted_pairs": 18588,
+        "empty_predictions": 197,
+        "seconds": 52.46031999588013,
+        "retrieval_seconds": 19.471718788146973,
+        "feature_seconds": 13.84351634979248,
+        "inference_seconds": 18.613612174987793,
+        "peak_ram_gib": 44.534141540527344,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00310000.outputs.parquet",
+      "bytes": 3997240
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00310000.probabilities.parquet",
+      "bytes": 6270873
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00315000.candidates.parquet",
+      "bytes": 8369754
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00315000.features.parquet",
+      "bytes": 12340686
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00315000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399533,
+        "predicted_pairs": 18914,
+        "empty_predictions": 196,
+        "seconds": 52.98411417007446,
+        "retrieval_seconds": 19.88053822517395,
+        "feature_seconds": 13.973543643951416,
+        "inference_seconds": 18.606316804885864,
+        "peak_ram_gib": 44.591041564941406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00315000.outputs.parquet",
+      "bytes": 4005346
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00315000.probabilities.parquet",
+      "bytes": 6273806
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00320000.candidates.parquet",
+      "bytes": 8390952
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00320000.features.parquet",
+      "bytes": 12303913
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00320000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399854,
+        "predicted_pairs": 18521,
+        "empty_predictions": 214,
+        "seconds": 53.08486723899841,
+        "retrieval_seconds": 20.072239637374878,
+        "feature_seconds": 13.748431205749512,
+        "inference_seconds": 18.65099310874939,
+        "peak_ram_gib": 44.591041564941406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00320000.outputs.parquet",
+      "bytes": 4003903
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00320000.probabilities.parquet",
+      "bytes": 6281012
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00325000.candidates.parquet",
+      "bytes": 8362955
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00325000.features.parquet",
+      "bytes": 12267757
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00325000.json",
+      "bytes": 367,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398890,
+        "predicted_pairs": 18508,
+        "empty_predictions": 194,
+        "seconds": 52.575010776519775,
+        "retrieval_seconds": 19.492512226104736,
+        "feature_seconds": 13.822631359100342,
+        "inference_seconds": 18.657785177230835,
+        "peak_ram_gib": 44.591041564941406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00325000.outputs.parquet",
+      "bytes": 3994892
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00325000.probabilities.parquet",
+      "bytes": 6267643
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00330000.candidates.parquet",
+      "bytes": 8419080
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00330000.features.parquet",
+      "bytes": 12304190
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00330000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400595,
+        "predicted_pairs": 18585,
+        "empty_predictions": 207,
+        "seconds": 52.58401417732239,
+        "retrieval_seconds": 19.566049337387085,
+        "feature_seconds": 14.043499231338501,
+        "inference_seconds": 18.399788856506348,
+        "peak_ram_gib": 44.591041564941406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00330000.outputs.parquet",
+      "bytes": 4011677
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00330000.probabilities.parquet",
+      "bytes": 6289470
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00335000.candidates.parquet",
+      "bytes": 8426904
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00335000.features.parquet",
+      "bytes": 12426604
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00335000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401361,
+        "predicted_pairs": 18761,
+        "empty_predictions": 179,
+        "seconds": 53.247527837753296,
+        "retrieval_seconds": 19.56337332725525,
+        "feature_seconds": 13.974390268325806,
+        "inference_seconds": 19.07987642288208,
+        "peak_ram_gib": 44.61602020263672,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00335000.outputs.parquet",
+      "bytes": 4023237
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00335000.probabilities.parquet",
+      "bytes": 6300449
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00340000.candidates.parquet",
+      "bytes": 8381023
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00340000.features.parquet",
+      "bytes": 12346105
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00340000.json",
+      "bytes": 360,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400094,
+        "predicted_pairs": 18883,
+        "empty_predictions": 179,
+        "seconds": 53.10064506530762,
+        "retrieval_seconds": 19.829542875289917,
+        "feature_seconds": 13.9384765625,
+        "inference_seconds": 18.746763229370117,
+        "peak_ram_gib": 44.63392639160156,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00340000.outputs.parquet",
+      "bytes": 4010553
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00340000.probabilities.parquet",
+      "bytes": 6283158
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00345000.candidates.parquet",
+      "bytes": 8346001
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00345000.features.parquet",
+      "bytes": 12181850
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00345000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397792,
+        "predicted_pairs": 18794,
+        "empty_predictions": 189,
+        "seconds": 52.72946882247925,
+        "retrieval_seconds": 19.41142988204956,
+        "feature_seconds": 13.827510833740234,
+        "inference_seconds": 18.950767993927002,
+        "peak_ram_gib": 44.6507453918457,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00345000.outputs.parquet",
+      "bytes": 3989540
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00345000.probabilities.parquet",
+      "bytes": 6251921
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00350000.candidates.parquet",
+      "bytes": 8435842
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00350000.features.parquet",
+      "bytes": 12405137
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00350000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401878,
+        "predicted_pairs": 18830,
+        "empty_predictions": 203,
+        "seconds": 53.289904832839966,
+        "retrieval_seconds": 19.598947763442993,
+        "feature_seconds": 13.947545289993286,
+        "inference_seconds": 19.135684728622437,
+        "peak_ram_gib": 44.6507453918457,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00350000.outputs.parquet",
+      "bytes": 4026536
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00350000.probabilities.parquet",
+      "bytes": 6308000
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00355000.candidates.parquet",
+      "bytes": 8372956
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00355000.features.parquet",
+      "bytes": 12200386
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00355000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399694,
+        "predicted_pairs": 18875,
+        "empty_predictions": 191,
+        "seconds": 53.39661240577698,
+        "retrieval_seconds": 20.010436058044434,
+        "feature_seconds": 13.889299392700195,
+        "inference_seconds": 18.79180598258972,
+        "peak_ram_gib": 44.67891311645508,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00355000.outputs.parquet",
+      "bytes": 4007661
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00355000.probabilities.parquet",
+      "bytes": 6276888
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00360000.candidates.parquet",
+      "bytes": 8383029
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00360000.features.parquet",
+      "bytes": 12336929
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00360000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399159,
+        "predicted_pairs": 18525,
+        "empty_predictions": 209,
+        "seconds": 52.884907484054565,
+        "retrieval_seconds": 19.75081968307495,
+        "feature_seconds": 13.823771238327026,
+        "inference_seconds": 18.696725368499756,
+        "peak_ram_gib": 44.7445182800293,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00360000.outputs.parquet",
+      "bytes": 3998060
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00360000.probabilities.parquet",
+      "bytes": 6269650
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00365000.candidates.parquet",
+      "bytes": 8460137
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00365000.features.parquet",
+      "bytes": 12435810
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00365000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402305,
+        "predicted_pairs": 18729,
+        "empty_predictions": 187,
+        "seconds": 53.29605507850647,
+        "retrieval_seconds": 20.037172555923462,
+        "feature_seconds": 13.949143409729004,
+        "inference_seconds": 18.710368394851685,
+        "peak_ram_gib": 44.76532745361328,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00365000.outputs.parquet",
+      "bytes": 4032684
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00365000.probabilities.parquet",
+      "bytes": 6315084
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00370000.candidates.parquet",
+      "bytes": 8412883
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00370000.features.parquet",
+      "bytes": 12369344
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00370000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400324,
+        "predicted_pairs": 18761,
+        "empty_predictions": 202,
+        "seconds": 52.63580393791199,
+        "retrieval_seconds": 19.48602032661438,
+        "feature_seconds": 13.951233625411987,
+        "inference_seconds": 18.58577847480774,
+        "peak_ram_gib": 44.76532745361328,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00370000.outputs.parquet",
+      "bytes": 4011942
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00370000.probabilities.parquet",
+      "bytes": 6287295
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00375000.candidates.parquet",
+      "bytes": 8352496
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00375000.features.parquet",
+      "bytes": 12329002
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00375000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397623,
+        "predicted_pairs": 18827,
+        "empty_predictions": 191,
+        "seconds": 52.574031591415405,
+        "retrieval_seconds": 19.504197597503662,
+        "feature_seconds": 13.681037664413452,
+        "inference_seconds": 18.796644687652588,
+        "peak_ram_gib": 44.76532745361328,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00375000.outputs.parquet",
+      "bytes": 3990009
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00375000.probabilities.parquet",
+      "bytes": 6253610
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00380000.candidates.parquet",
+      "bytes": 8370596
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00380000.features.parquet",
+      "bytes": 12286774
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00380000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399412,
+        "predicted_pairs": 18455,
+        "empty_predictions": 240,
+        "seconds": 52.62705039978027,
+        "retrieval_seconds": 19.500492811203003,
+        "feature_seconds": 13.96410584449768,
+        "inference_seconds": 18.570574045181274,
+        "peak_ram_gib": 44.76532745361328,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00380000.outputs.parquet",
+      "bytes": 4001766
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00380000.probabilities.parquet",
+      "bytes": 6274451
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00385000.candidates.parquet",
+      "bytes": 8439180
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00385000.features.parquet",
+      "bytes": 12301273
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00385000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402440,
+        "predicted_pairs": 18625,
+        "empty_predictions": 185,
+        "seconds": 53.173585414886475,
+        "retrieval_seconds": 19.980602741241455,
+        "feature_seconds": 13.9167959690094,
+        "inference_seconds": 18.68058156967163,
+        "peak_ram_gib": 44.76771545410156,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00385000.outputs.parquet",
+      "bytes": 4027961
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00385000.probabilities.parquet",
+      "bytes": 6314272
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00390000.candidates.parquet",
+      "bytes": 8425580
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00390000.features.parquet",
+      "bytes": 12450077
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00390000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 402205,
+        "predicted_pairs": 18613,
+        "empty_predictions": 205,
+        "seconds": 52.88075375556946,
+        "retrieval_seconds": 19.836588859558105,
+        "feature_seconds": 13.865295648574829,
+        "inference_seconds": 18.56856346130371,
+        "peak_ram_gib": 44.80592346191406,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00390000.outputs.parquet",
+      "bytes": 4030825
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00390000.probabilities.parquet",
+      "bytes": 6311703
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00395000.candidates.parquet",
+      "bytes": 8349309
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00395000.features.parquet",
+      "bytes": 12319215
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00395000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398286,
+        "predicted_pairs": 18719,
+        "empty_predictions": 207,
+        "seconds": 52.96249341964722,
+        "retrieval_seconds": 19.89943790435791,
+        "feature_seconds": 13.666953325271606,
+        "inference_seconds": 18.856155395507812,
+        "peak_ram_gib": 44.82939910888672,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00395000.outputs.parquet",
+      "bytes": 3990784
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00395000.probabilities.parquet",
+      "bytes": 6259248
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00400000.candidates.parquet",
+      "bytes": 8416272
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00400000.features.parquet",
+      "bytes": 12418687
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00400000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401377,
+        "predicted_pairs": 18520,
+        "empty_predictions": 198,
+        "seconds": 53.031529903411865,
+        "retrieval_seconds": 19.82021188735962,
+        "feature_seconds": 14.03576946258545,
+        "inference_seconds": 18.595985412597656,
+        "peak_ram_gib": 44.82939910888672,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00400000.outputs.parquet",
+      "bytes": 4019371
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00400000.probabilities.parquet",
+      "bytes": 6299900
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00405000.candidates.parquet",
+      "bytes": 8331375
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00405000.features.parquet",
+      "bytes": 12322774
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00405000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397721,
+        "predicted_pairs": 18495,
+        "empty_predictions": 202,
+        "seconds": 52.44655895233154,
+        "retrieval_seconds": 19.450052976608276,
+        "feature_seconds": 13.668372869491577,
+        "inference_seconds": 18.73440670967102,
+        "peak_ram_gib": 44.859615325927734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00405000.outputs.parquet",
+      "bytes": 3984017
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00405000.probabilities.parquet",
+      "bytes": 6250556
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00410000.candidates.parquet",
+      "bytes": 8381177
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00410000.features.parquet",
+      "bytes": 12281347
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00410000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399765,
+        "predicted_pairs": 18765,
+        "empty_predictions": 176,
+        "seconds": 52.7195200920105,
+        "retrieval_seconds": 19.418376922607422,
+        "feature_seconds": 14.08493947982788,
+        "inference_seconds": 18.67076301574707,
+        "peak_ram_gib": 44.859615325927734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00410000.outputs.parquet",
+      "bytes": 4003967
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00410000.probabilities.parquet",
+      "bytes": 6279254
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00415000.candidates.parquet",
+      "bytes": 8348315
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00415000.features.parquet",
+      "bytes": 12300006
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00415000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398814,
+        "predicted_pairs": 18596,
+        "empty_predictions": 217,
+        "seconds": 52.99881410598755,
+        "retrieval_seconds": 19.90976309776306,
+        "feature_seconds": 13.964524745941162,
+        "inference_seconds": 18.551087379455566,
+        "peak_ram_gib": 44.90612030029297,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00415000.outputs.parquet",
+      "bytes": 3996122
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00415000.probabilities.parquet",
+      "bytes": 6265190
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00420000.candidates.parquet",
+      "bytes": 8393835
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00420000.features.parquet",
+      "bytes": 12416081
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00420000.json",
+      "bytes": 361,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400608,
+        "predicted_pairs": 18738,
+        "empty_predictions": 203,
+        "seconds": 52.7381854057312,
+        "retrieval_seconds": 19.48958420753479,
+        "feature_seconds": 13.97630500793457,
+        "inference_seconds": 18.67700505256653,
+        "peak_ram_gib": 44.94505310058594,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00420000.outputs.parquet",
+      "bytes": 4014339
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00420000.probabilities.parquet",
+      "bytes": 6289474
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00425000.candidates.parquet",
+      "bytes": 8422289
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00425000.features.parquet",
+      "bytes": 12471769
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00425000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401177,
+        "predicted_pairs": 18562,
+        "empty_predictions": 198,
+        "seconds": 53.14919996261597,
+        "retrieval_seconds": 19.93537712097168,
+        "feature_seconds": 13.868932008743286,
+        "inference_seconds": 18.811033010482788,
+        "peak_ram_gib": 44.94505310058594,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00425000.outputs.parquet",
+      "bytes": 4018357
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00425000.probabilities.parquet",
+      "bytes": 6298657
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00430000.candidates.parquet",
+      "bytes": 8349851
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00430000.features.parquet",
+      "bytes": 12215594
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00430000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398816,
+        "predicted_pairs": 18734,
+        "empty_predictions": 193,
+        "seconds": 52.54485583305359,
+        "retrieval_seconds": 19.5399968624115,
+        "feature_seconds": 13.764284610748291,
+        "inference_seconds": 18.627894163131714,
+        "peak_ram_gib": 44.94725036621094,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00430000.outputs.parquet",
+      "bytes": 3999529
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00430000.probabilities.parquet",
+      "bytes": 6264492
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00435000.candidates.parquet",
+      "bytes": 8362541
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00435000.features.parquet",
+      "bytes": 12324127
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00435000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398517,
+        "predicted_pairs": 18610,
+        "empty_predictions": 199,
+        "seconds": 52.81397986412048,
+        "retrieval_seconds": 19.78183650970459,
+        "feature_seconds": 13.9649178981781,
+        "inference_seconds": 18.456793546676636,
+        "peak_ram_gib": 44.94725036621094,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00435000.outputs.parquet",
+      "bytes": 3994110
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00435000.probabilities.parquet",
+      "bytes": 6261117
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00440000.candidates.parquet",
+      "bytes": 8362045
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00440000.features.parquet",
+      "bytes": 12209557
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00440000.json",
+      "bytes": 367,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398345,
+        "predicted_pairs": 18772,
+        "empty_predictions": 165,
+        "seconds": 21.0722758769989,
+        "retrieval_seconds": 1.2133488655090332,
+        "feature_seconds": 0.04654812812805176,
+        "inference_seconds": 19.291425704956055,
+        "peak_ram_gib": 19.181411743164062,
+        "peak_vram_gib": 2.0717368125915527
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00440000.outputs.parquet",
+      "bytes": 3995429
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00440000.probabilities.parquet",
+      "bytes": 6258514
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00445000.candidates.parquet",
+      "bytes": 8403037
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00445000.features.parquet",
+      "bytes": 12464722
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00445000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400777,
+        "predicted_pairs": 18693,
+        "empty_predictions": 179,
+        "seconds": 58.405444860458374,
+        "retrieval_seconds": 20.236342430114746,
+        "feature_seconds": 18.567562580108643,
+        "inference_seconds": 19.007121086120605,
+        "peak_ram_gib": 43.08718490600586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00445000.outputs.parquet",
+      "bytes": 4015241
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00445000.probabilities.parquet",
+      "bytes": 6292748
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00450000.candidates.parquet",
+      "bytes": 8407648
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00450000.features.parquet",
+      "bytes": 12365608
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00450000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401073,
+        "predicted_pairs": 18776,
+        "empty_predictions": 199,
+        "seconds": 53.078717947006226,
+        "retrieval_seconds": 19.517744302749634,
+        "feature_seconds": 14.043219804763794,
+        "inference_seconds": 18.909693717956543,
+        "peak_ram_gib": 43.27329635620117,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00450000.outputs.parquet",
+      "bytes": 4019151
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00450000.probabilities.parquet",
+      "bytes": 6295370
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00455000.candidates.parquet",
+      "bytes": 8415417
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00455000.features.parquet",
+      "bytes": 12383727
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00455000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401652,
+        "predicted_pairs": 18945,
+        "empty_predictions": 173,
+        "seconds": 52.99185824394226,
+        "retrieval_seconds": 19.419087171554565,
+        "feature_seconds": 13.991888999938965,
+        "inference_seconds": 18.98939323425293,
+        "peak_ram_gib": 43.29829025268555,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00455000.outputs.parquet",
+      "bytes": 4027458
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00455000.probabilities.parquet",
+      "bytes": 6306176
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00460000.candidates.parquet",
+      "bytes": 8372975
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00460000.features.parquet",
+      "bytes": 12353851
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00460000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398925,
+        "predicted_pairs": 18585,
+        "empty_predictions": 201,
+        "seconds": 52.903576135635376,
+        "retrieval_seconds": 19.387660264968872,
+        "feature_seconds": 13.901920080184937,
+        "inference_seconds": 19.06884455680847,
+        "peak_ram_gib": 43.33817672729492,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00460000.outputs.parquet",
+      "bytes": 3999050
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00460000.probabilities.parquet",
+      "bytes": 6269112
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00465000.candidates.parquet",
+      "bytes": 8378383
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00465000.features.parquet",
+      "bytes": 12383033
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00465000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399825,
+        "predicted_pairs": 18624,
+        "empty_predictions": 166,
+        "seconds": 53.00260353088379,
+        "retrieval_seconds": 19.529706239700317,
+        "feature_seconds": 14.084958553314209,
+        "inference_seconds": 18.78340458869934,
+        "peak_ram_gib": 43.37589645385742,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00465000.outputs.parquet",
+      "bytes": 4003572
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00465000.probabilities.parquet",
+      "bytes": 6280204
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00470000.candidates.parquet",
+      "bytes": 8385356
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00470000.features.parquet",
+      "bytes": 12319869
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00470000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399390,
+        "predicted_pairs": 18689,
+        "empty_predictions": 191,
+        "seconds": 52.671441316604614,
+        "retrieval_seconds": 19.37171745300293,
+        "feature_seconds": 13.853864669799805,
+        "inference_seconds": 18.85504961013794,
+        "peak_ram_gib": 43.3968505859375,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00470000.outputs.parquet",
+      "bytes": 4001862
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00470000.probabilities.parquet",
+      "bytes": 6275143
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00475000.candidates.parquet",
+      "bytes": 8422380
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00475000.features.parquet",
+      "bytes": 12379438
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00475000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400852,
+        "predicted_pairs": 18624,
+        "empty_predictions": 226,
+        "seconds": 52.637181997299194,
+        "retrieval_seconds": 19.43539547920227,
+        "feature_seconds": 13.900344848632812,
+        "inference_seconds": 18.713437795639038,
+        "peak_ram_gib": 43.419368743896484,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00475000.outputs.parquet",
+      "bytes": 4016109
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00475000.probabilities.parquet",
+      "bytes": 6295700
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00480000.candidates.parquet",
+      "bytes": 8399363
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00480000.features.parquet",
+      "bytes": 12421274
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00480000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400136,
+        "predicted_pairs": 18740,
+        "empty_predictions": 166,
+        "seconds": 53.70441675186157,
+        "retrieval_seconds": 19.744548559188843,
+        "feature_seconds": 14.05859923362732,
+        "inference_seconds": 19.2873637676239,
+        "peak_ram_gib": 43.43843460083008,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00480000.outputs.parquet",
+      "bytes": 4007379
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00480000.probabilities.parquet",
+      "bytes": 6282828
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00485000.candidates.parquet",
+      "bytes": 8370244
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00485000.features.parquet",
+      "bytes": 12358256
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00485000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399742,
+        "predicted_pairs": 18878,
+        "empty_predictions": 177,
+        "seconds": 53.09308123588562,
+        "retrieval_seconds": 19.580720901489258,
+        "feature_seconds": 13.932199716567993,
+        "inference_seconds": 18.992913722991943,
+        "peak_ram_gib": 43.515987396240234,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00485000.outputs.parquet",
+      "bytes": 4004557
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00485000.probabilities.parquet",
+      "bytes": 6276950
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00490000.candidates.parquet",
+      "bytes": 8419289
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00490000.features.parquet",
+      "bytes": 12286677
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00490000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401255,
+        "predicted_pairs": 18702,
+        "empty_predictions": 198,
+        "seconds": 52.990840673446655,
+        "retrieval_seconds": 19.505056142807007,
+        "feature_seconds": 13.940871477127075,
+        "inference_seconds": 18.91480278968811,
+        "peak_ram_gib": 43.58864974975586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00490000.outputs.parquet",
+      "bytes": 4021438
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00490000.probabilities.parquet",
+      "bytes": 6302064
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00495000.candidates.parquet",
+      "bytes": 8356508
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00495000.features.parquet",
+      "bytes": 12201655
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00495000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398098,
+        "predicted_pairs": 18700,
+        "empty_predictions": 198,
+        "seconds": 52.916242599487305,
+        "retrieval_seconds": 19.548299551010132,
+        "feature_seconds": 13.938390493392944,
+        "inference_seconds": 18.79369020462036,
+        "peak_ram_gib": 43.58864974975586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00495000.outputs.parquet",
+      "bytes": 3993000
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00495000.probabilities.parquet",
+      "bytes": 6260823
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00500000.candidates.parquet",
+      "bytes": 8335224
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00500000.features.parquet",
+      "bytes": 12178852
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00500000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397093,
+        "predicted_pairs": 18733,
+        "empty_predictions": 190,
+        "seconds": 52.99080014228821,
+        "retrieval_seconds": 19.82417345046997,
+        "feature_seconds": 13.665394067764282,
+        "inference_seconds": 18.940796852111816,
+        "peak_ram_gib": 43.58864974975586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00500000.outputs.parquet",
+      "bytes": 3977651
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00500000.probabilities.parquet",
+      "bytes": 6244552
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00505000.candidates.parquet",
+      "bytes": 8342249
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00505000.features.parquet",
+      "bytes": 12277261
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00505000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397350,
+        "predicted_pairs": 18906,
+        "empty_predictions": 192,
+        "seconds": 52.88182711601257,
+        "retrieval_seconds": 19.543744325637817,
+        "feature_seconds": 13.79175877571106,
+        "inference_seconds": 18.94834542274475,
+        "peak_ram_gib": 43.58864974975586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00505000.outputs.parquet",
+      "bytes": 3986151
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00505000.probabilities.parquet",
+      "bytes": 6247074
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00510000.candidates.parquet",
+      "bytes": 8405094
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00510000.features.parquet",
+      "bytes": 12342216
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00510000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400883,
+        "predicted_pairs": 18877,
+        "empty_predictions": 208,
+        "seconds": 53.25376105308533,
+        "retrieval_seconds": 19.5909743309021,
+        "feature_seconds": 14.141762733459473,
+        "inference_seconds": 18.895715475082397,
+        "peak_ram_gib": 43.58864974975586,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00510000.outputs.parquet",
+      "bytes": 4020529
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00510000.probabilities.parquet",
+      "bytes": 6293615
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00515000.candidates.parquet",
+      "bytes": 8409027
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00515000.features.parquet",
+      "bytes": 12285952
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00515000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399878,
+        "predicted_pairs": 18658,
+        "empty_predictions": 194,
+        "seconds": 53.31400442123413,
+        "retrieval_seconds": 19.678812980651855,
+        "feature_seconds": 13.985668897628784,
+        "inference_seconds": 19.043028593063354,
+        "peak_ram_gib": 43.62446594238281,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00515000.outputs.parquet",
+      "bytes": 4004697
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00515000.probabilities.parquet",
+      "bytes": 6283011
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00520000.candidates.parquet",
+      "bytes": 8425538
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00520000.features.parquet",
+      "bytes": 12293678
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00520000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401626,
+        "predicted_pairs": 18768,
+        "empty_predictions": 194,
+        "seconds": 53.49939846992493,
+        "retrieval_seconds": 19.88964867591858,
+        "feature_seconds": 14.106698274612427,
+        "inference_seconds": 18.878072023391724,
+        "peak_ram_gib": 43.692867279052734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00520000.outputs.parquet",
+      "bytes": 4025788
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00520000.probabilities.parquet",
+      "bytes": 6303615
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00525000.candidates.parquet",
+      "bytes": 8373958
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00525000.features.parquet",
+      "bytes": 12219639
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00525000.json",
+      "bytes": 366,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 398950,
+        "predicted_pairs": 18455,
+        "empty_predictions": 192,
+        "seconds": 53.060901403427124,
+        "retrieval_seconds": 19.93096685409546,
+        "feature_seconds": 13.827018737792969,
+        "inference_seconds": 18.667856693267822,
+        "peak_ram_gib": 43.692867279052734,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00525000.outputs.parquet",
+      "bytes": 3998181
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00525000.probabilities.parquet",
+      "bytes": 6270024
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00530000.candidates.parquet",
+      "bytes": 8476716
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00530000.features.parquet",
+      "bytes": 12500612
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00530000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 403640,
+        "predicted_pairs": 18459,
+        "empty_predictions": 189,
+        "seconds": 53.29399108886719,
+        "retrieval_seconds": 19.792365074157715,
+        "feature_seconds": 14.11860704421997,
+        "inference_seconds": 18.77225923538208,
+        "peak_ram_gib": 43.7197151184082,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00530000.outputs.parquet",
+      "bytes": 4042350
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00530000.probabilities.parquet",
+      "bytes": 6333987
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00535000.candidates.parquet",
+      "bytes": 8411780
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00535000.features.parquet",
+      "bytes": 12291836
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00535000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400577,
+        "predicted_pairs": 18575,
+        "empty_predictions": 167,
+        "seconds": 53.01743769645691,
+        "retrieval_seconds": 19.765075206756592,
+        "feature_seconds": 14.086814165115356,
+        "inference_seconds": 18.540046453475952,
+        "peak_ram_gib": 43.7197151184082,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00535000.outputs.parquet",
+      "bytes": 4011821
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00535000.probabilities.parquet",
+      "bytes": 6289076
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00540000.candidates.parquet",
+      "bytes": 8423628
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00540000.features.parquet",
+      "bytes": 12311377
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00540000.json",
+      "bytes": 359,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401519,
+        "predicted_pairs": 18593,
+        "empty_predictions": 198,
+        "seconds": 53.779212474823,
+        "retrieval_seconds": 19.8544282913208,
+        "feature_seconds": 14.08501148223877,
+        "inference_seconds": 19.304699182510376,
+        "peak_ram_gib": 43.7197151184082,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00540000.outputs.parquet",
+      "bytes": 4023390
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00540000.probabilities.parquet",
+      "bytes": 6303531
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00545000.candidates.parquet",
+      "bytes": 8378115
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00545000.features.parquet",
+      "bytes": 12341062
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00545000.json",
+      "bytes": 364,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399418,
+        "predicted_pairs": 18574,
+        "empty_predictions": 186,
+        "seconds": 53.437154054641724,
+        "retrieval_seconds": 19.77095866203308,
+        "feature_seconds": 14.137648344039917,
+        "inference_seconds": 18.855175018310547,
+        "peak_ram_gib": 43.7197151184082,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00545000.outputs.parquet",
+      "bytes": 4004826
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00545000.probabilities.parquet",
+      "bytes": 6274204
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00550000.candidates.parquet",
+      "bytes": 8338228
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00550000.features.parquet",
+      "bytes": 12253098
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00550000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397441,
+        "predicted_pairs": 18629,
+        "empty_predictions": 197,
+        "seconds": 52.86793303489685,
+        "retrieval_seconds": 19.72689461708069,
+        "feature_seconds": 13.71688961982727,
+        "inference_seconds": 18.785975217819214,
+        "peak_ram_gib": 43.74196243286133,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00550000.outputs.parquet",
+      "bytes": 3979581
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00550000.probabilities.parquet",
+      "bytes": 6250629
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00555000.candidates.parquet",
+      "bytes": 8377641
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00555000.features.parquet",
+      "bytes": 12254873
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00555000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399303,
+        "predicted_pairs": 18772,
+        "empty_predictions": 208,
+        "seconds": 53.007779359817505,
+        "retrieval_seconds": 19.55287480354309,
+        "feature_seconds": 13.95042371749878,
+        "inference_seconds": 18.93351936340332,
+        "peak_ram_gib": 43.82619857788086,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00555000.outputs.parquet",
+      "bytes": 4000709
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00555000.probabilities.parquet",
+      "bytes": 6269952
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00560000.candidates.parquet",
+      "bytes": 8395430
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00560000.features.parquet",
+      "bytes": 12271931
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00560000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400925,
+        "predicted_pairs": 18720,
+        "empty_predictions": 181,
+        "seconds": 53.38124370574951,
+        "retrieval_seconds": 19.867849588394165,
+        "feature_seconds": 14.0008065700531,
+        "inference_seconds": 18.95597767829895,
+        "peak_ram_gib": 43.82619857788086,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00560000.outputs.parquet",
+      "bytes": 4015562
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00560000.probabilities.parquet",
+      "bytes": 6295272
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00565000.candidates.parquet",
+      "bytes": 8382130
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00565000.features.parquet",
+      "bytes": 12283846
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00565000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400149,
+        "predicted_pairs": 18622,
+        "empty_predictions": 197,
+        "seconds": 53.172608375549316,
+        "retrieval_seconds": 19.606635570526123,
+        "feature_seconds": 14.062236309051514,
+        "inference_seconds": 18.86932873725891,
+        "peak_ram_gib": 43.82619857788086,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00565000.outputs.parquet",
+      "bytes": 4011538
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00565000.probabilities.parquet",
+      "bytes": 6282862
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00570000.candidates.parquet",
+      "bytes": 8382129
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00570000.features.parquet",
+      "bytes": 12310781
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00570000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 399868,
+        "predicted_pairs": 18488,
+        "empty_predictions": 196,
+        "seconds": 53.04899001121521,
+        "retrieval_seconds": 19.44562554359436,
+        "feature_seconds": 14.124731302261353,
+        "inference_seconds": 18.85838294029236,
+        "peak_ram_gib": 43.82619857788086,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00570000.outputs.parquet",
+      "bytes": 4003834
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00570000.probabilities.parquet",
+      "bytes": 6280019
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00575000.candidates.parquet",
+      "bytes": 8336939
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00575000.features.parquet",
+      "bytes": 12225671
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00575000.json",
+      "bytes": 365,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 397814,
+        "predicted_pairs": 18751,
+        "empty_predictions": 189,
+        "seconds": 52.796175956726074,
+        "retrieval_seconds": 19.509110689163208,
+        "feature_seconds": 13.797511339187622,
+        "inference_seconds": 18.89078450202942,
+        "peak_ram_gib": 43.89263153076172,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00575000.outputs.parquet",
+      "bytes": 3988498
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00575000.probabilities.parquet",
+      "bytes": 6251396
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00580000.candidates.parquet",
+      "bytes": 8424739
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00580000.features.parquet",
+      "bytes": 12403678
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00580000.json",
+      "bytes": 363,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 401742,
+        "predicted_pairs": 18589,
+        "empty_predictions": 217,
+        "seconds": 53.58429408073425,
+        "retrieval_seconds": 19.95948052406311,
+        "feature_seconds": 14.086081266403198,
+        "inference_seconds": 18.93976140022278,
+        "peak_ram_gib": 43.91440200805664,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00580000.outputs.parquet",
+      "bytes": 4024110
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00580000.probabilities.parquet",
+      "bytes": 6306988
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00585000.candidates.parquet",
+      "bytes": 8389012
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00585000.features.parquet",
+      "bytes": 12353529
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00585000.json",
+      "bytes": 362,
+      "marker": {
+        "complete": true,
+        "source1_rows": 5000,
+        "candidate_pairs": 400423,
+        "predicted_pairs": 18772,
+        "empty_predictions": 179,
+        "seconds": 53.79335117340088,
+        "retrieval_seconds": 20.0464026927948,
+        "feature_seconds": 14.138867139816284,
+        "inference_seconds": 19.0175678730011,
+        "peak_ram_gib": 43.938133239746094,
+        "peak_vram_gib": 8.032325744628906
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00585000.outputs.parquet",
+      "bytes": 4012204
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/shard_00585000.probabilities.parquet",
+      "bytes": 6287133
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/source1.json",
+      "bytes": 433,
+      "marker": {
+        "identity": {
+          "ids_sha256": "10222f263d9c8fcbb55075f825bdf3d58b6e9b20976bcca85addc881faeecb30",
+          "shape": [
+            809986,
+            768
+          ],
+          "model": "intfloat/multilingual-e5-base",
+          "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+          "max_length": 128,
+          "role": "query",
+          "dtype": "float16",
+          "precision": "autocast_fp16"
+        },
+        "rows": 809986,
+        "complete": true,
+        "seconds": 234.07849407196045
+      }
+    },
+    {
+      "path": "cache/encoder_native_v1/full/india/source1.npy",
+      "bytes": 1244138624
+    },
+    {
+      "path": "cache/encoder_native_v1/pipeline.lock",
+      "bytes": 0
+    },
+    {
+      "path": "cache/encoder_native_v1/production_configuration.json",
+      "bytes": 2069
+    },
+    {
+      "path": "cache/encoder_native_v1/selection.json",
+      "bytes": 1818,
+      "sha256": "7312ed4c54119024a8be4a319563258e19d391be468abe1ef9627d3da0e68ff3"
+    },
+    {
+      "path": "cache/encoder_native_v1/state.json",
+      "bytes": 1680
+    }
+  ],
+  "warning": "Snapshot only. Live disk state and host PIDs take precedence. Large caches/model weights are preserved locally and are not in this Git commit."
+}

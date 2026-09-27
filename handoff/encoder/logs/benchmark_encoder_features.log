@@ -1,0 +1,6 @@
+{"event": "features", "time": "2026-09-26 20:33:06", "elapsed_seconds": 17.294275522232056, "pairs": 115291, "feature_count": 51, "seconds": 11.017459630966187}
+{"workers": 1, "pairs": 115291, "seconds": 11.034250736236572, "equality": "EXACT"}
+{"event": "features", "time": "2026-09-26 20:33:15", "elapsed_seconds": 25.88583755493164, "pairs": 115291, "feature_count": 51, "seconds": 8.574695348739624}
+{"workers": 4, "pairs": 115291, "seconds": 8.603972434997559, "equality": "EXACT"}
+{"event": "features", "time": "2026-09-26 20:33:21", "elapsed_seconds": 31.97462272644043, "pairs": 115291, "feature_count": 51, "seconds": 6.059410333633423}
+{"workers": 4, "pairs": 115291, "seconds": 6.083786249160767, "equality": "EXACT"}

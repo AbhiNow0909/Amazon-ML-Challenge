@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import time
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 from math import ceil
 from typing import DefaultDict, Dict, Iterable, List, Mapping, Optional, Tuple
 
@@ -254,6 +255,261 @@ def _build_indexes(
         address_df,
         shard_sizes,
     )
+
+
+@dataclass
+class PreparedLegacyIndex:
+    """Reusable legacy blocker state for bounded Source-1 query batches."""
+
+    feed: pd.DataFrame
+    exact_full: Mapping[object, List[int]]
+    exact_core: Mapping[object, List[int]]
+    exact_sorted: Mapping[object, List[int]]
+    exact_address: Mapping[object, List[int]]
+    global_exact_full: Mapping[object, List[int]]
+    rare_name: Mapping[Tuple[str, str], List[int]]
+    rare_address: Mapping[Tuple[str, str], List[int]]
+    name_df: Mapping[Tuple[str, str], int]
+    address_df: Mapping[Tuple[str, str], int]
+    shard_sizes: Mapping[str, int]
+    build_seconds: float
+
+
+def prepare_legacy_index(
+    feed: pd.DataFrame, config: PipelineConfig
+) -> PreparedLegacyIndex:
+    """Build legacy indexes once for repeated production query batches."""
+
+    started = time.perf_counter()
+    required = {
+        "entity_id",
+        "name_full",
+        "name_core",
+        "name_sorted",
+        "name_tokens",
+        "address_full",
+        "address_tokens",
+        "country_norm",
+    }
+    missing = required.difference(feed.columns)
+    if missing:
+        raise ValueError(f"feed is missing normalized columns: {sorted(missing)}")
+    invalid = ~feed["entity_id"].str.startswith(("S2-", "S3-"))
+    if invalid.any():
+        raise ValueError("Prepared legacy feed contains a non-S2/S3 ID")
+    indexed_feed = feed.reset_index(drop=True)
+    values = _build_indexes(indexed_feed, config)
+    return PreparedLegacyIndex(
+        feed=indexed_feed,
+        exact_full=values[0],
+        exact_core=values[1],
+        exact_sorted=values[2],
+        exact_address=values[3],
+        global_exact_full=values[4],
+        rare_name=values[5],
+        rare_address=values[6],
+        name_df=values[7],
+        address_df=values[8],
+        shard_sizes=values[9],
+        build_seconds=time.perf_counter() - started,
+    )
+
+
+def generate_legacy_candidates_from_prepared(
+    source1: pd.DataFrame,
+    prepared: PreparedLegacyIndex,
+    config: PipelineConfig,
+    *,
+    max_k: int = 50,
+) -> Tuple[pd.DataFrame, Dict[str, object]]:
+    """Query a prepared legacy index with the exact Tier-0 scoring behavior."""
+
+    started = time.perf_counter()
+    _validate_inputs(source1, prepared.feed)
+    if max_k <= 0:
+        raise ValueError("max_k must be positive")
+    feed = prepared.feed
+    rows: List[Dict[str, object]] = []
+    raw_counts: Dict[str, int] = {}
+
+    for s1 in source1.itertuples(index=False):
+        country = s1.country_norm
+        candidate_support: Dict[int, Dict[str, object]] = {}
+
+        def add(
+            indices: Iterable[int], flag: str, hit_column: Optional[str] = None
+        ) -> None:
+            for idx in indices:
+                support = candidate_support.setdefault(idx, _empty_support())
+                support[flag] = True
+                if hit_column:
+                    support[hit_column] = int(support[hit_column]) + 1
+
+        add(
+            prepared.exact_full.get((country, s1.name_full), ()),
+            "block_exact_full_name",
+        )
+        add(
+            prepared.exact_core.get((country, s1.name_core), ()),
+            "block_exact_core_name",
+        )
+        add(
+            prepared.exact_sorted.get((country, s1.name_sorted), ()),
+            "block_exact_sorted_name",
+        )
+        add(
+            prepared.exact_address.get((country, s1.address_full), ())
+            if s1.address_full
+            else (),
+            "block_exact_address",
+        )
+
+        name_tokens = _eligible_query_tokens(
+            informative_tokens(
+                s1.name_tokens, minimum_length=config.minimum_token_length
+            ),
+            country=country,
+            document_frequencies=prepared.name_df,
+            shard_sizes=prepared.shard_sizes,
+            absolute_max_df=config.rare_name_token_max_df,
+            relative_max_df=config.rare_name_token_max_df_fraction,
+            config=config,
+            ranked_limit=config.ranked_name_tokens_per_query,
+        )
+        for token in name_tokens:
+            add(
+                prepared.rare_name.get((country, token), ()),
+                "block_rare_name_token",
+                "rare_name_token_hits",
+            )
+        address_tokens = _eligible_query_tokens(
+            informative_tokens(
+                s1.address_tokens, minimum_length=config.minimum_token_length
+            ),
+            country=country,
+            document_frequencies=prepared.address_df,
+            shard_sizes=prepared.shard_sizes,
+            absolute_max_df=config.rare_address_token_max_df,
+            relative_max_df=config.rare_address_token_max_df_fraction,
+            config=config,
+        )
+        for token in address_tokens:
+            add(
+                prepared.rare_address.get((country, token), ()),
+                "block_rare_address_token",
+                "rare_address_token_hits",
+            )
+        if s1.name_full:
+            for idx in prepared.global_exact_full.get(s1.name_full, ()):
+                if feed.at[idx, "country_norm"] != country:
+                    add((idx,), "block_cross_country_exact_name")
+
+        raw_counts[s1.entity_id] = len(candidate_support)
+        for idx, support in candidate_support.items():
+            candidate = feed.iloc[idx]
+            score = (
+                config.weight_exact_full_name
+                * int(support["block_exact_full_name"])
+                + config.weight_exact_core_name
+                * int(support["block_exact_core_name"])
+                + config.weight_exact_sorted_name
+                * int(support["block_exact_sorted_name"])
+                + config.weight_rare_name_token
+                * min(int(support["rare_name_token_hits"]), 3)
+                + config.weight_exact_address
+                * int(support["block_exact_address"])
+                + config.weight_rare_address_token
+                * min(int(support["rare_address_token_hits"]), 3)
+                + config.weight_same_country
+                * int(candidate["country_norm"] == country)
+            )
+            rows.append(
+                {
+                    "source1_entity_id": s1.entity_id,
+                    "candidate_entity_id": candidate["entity_id"],
+                    "candidate_source": candidate["entity_id"][:2],
+                    "same_country_block": candidate["country_norm"] == country,
+                    "cheap_score": np.float32(score),
+                    **support,
+                }
+            )
+
+    if not rows:
+        columns = [
+            "source1_entity_id",
+            "candidate_entity_id",
+            "candidate_source",
+            "same_country_block",
+            "cheap_score",
+            *PROVENANCE_COLUMNS,
+            "rare_name_token_hits",
+            "rare_address_token_hits",
+            "name_tfidf_similarity",
+            "name_tfidf_rank",
+            "candidate_count_raw",
+            "candidate_count_for_s1",
+            "cheap_rank",
+            "cheap_score_margin_to_next",
+        ]
+        return pd.DataFrame(columns=columns), {
+            "runtime_seconds": time.perf_counter() - started,
+            "pairs_before_cap": 0,
+            "pairs_after_cap": 0,
+            "max_k": max_k,
+        }
+
+    candidates = pd.DataFrame(rows)
+    if candidates.duplicated(["source1_entity_id", "candidate_entity_id"]).any():
+        raise AssertionError("Prepared legacy query emitted duplicate pairs")
+    candidates["candidate_count_raw"] = candidates["source1_entity_id"].map(
+        raw_counts
+    )
+    candidates.sort_values(
+        ["source1_entity_id", "cheap_score", "candidate_entity_id"],
+        ascending=[True, False, True],
+        kind="mergesort",
+        inplace=True,
+    )
+    candidates["cheap_rank"] = (
+        candidates.groupby("source1_entity_id", sort=False).cumcount() + 1
+    ).astype("uint16")
+    before_cap = len(candidates)
+    candidates = candidates.loc[candidates["cheap_rank"] <= max_k].copy()
+    counts = candidates.groupby("source1_entity_id").size().astype("uint16")
+    candidates["candidate_count_for_s1"] = (
+        candidates["source1_entity_id"].map(counts).astype("uint16")
+    )
+    next_score = candidates.groupby("source1_entity_id", sort=False)[
+        "cheap_score"
+    ].shift(-1)
+    candidates["cheap_score_margin_to_next"] = (
+        candidates["cheap_score"] - next_score.fillna(0.0)
+    ).astype("float32")
+    candidates[[*PROVENANCE_COLUMNS, "same_country_block"]] = candidates[
+        [*PROVENANCE_COLUMNS, "same_country_block"]
+    ].astype("uint8")
+    candidates["rare_name_token_hits"] = candidates[
+        "rare_name_token_hits"
+    ].astype("uint8")
+    candidates["rare_address_token_hits"] = candidates[
+        "rare_address_token_hits"
+    ].astype("uint8")
+    candidates["name_tfidf_similarity"] = candidates[
+        "name_tfidf_similarity"
+    ].astype("float32")
+    candidates["name_tfidf_rank"] = candidates["name_tfidf_rank"].astype(
+        "uint16"
+    )
+    candidates.reset_index(drop=True, inplace=True)
+    return candidates, {
+        "runtime_seconds": time.perf_counter() - started,
+        "pairs_before_cap": before_cap,
+        "pairs_after_cap": len(candidates),
+        "max_k": max_k,
+        "source1_entities": len(source1),
+        "feed_entities": len(feed),
+        "prepared_index_build_seconds": prepared.build_seconds,
+    }
 
 
 def _empty_support() -> Dict[str, object]:

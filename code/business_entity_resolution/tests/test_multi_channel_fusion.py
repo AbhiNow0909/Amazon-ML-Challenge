@@ -5,6 +5,7 @@ from business_entity_resolution.multi_channel_fusion import (
     multi_channel_rrf,
     prepare_multi_channel_universe,
     protected_legacy_multi_channel_rrf,
+    protected_legacy_multi_channel_rrf_fast_exact,
 )
 
 
@@ -97,6 +98,23 @@ def test_protected_fusion_preserves_legacy_quota():
     )
     assert int(fused.has_legacy.sum()) >= 4
     assert len(fused) == 5
+
+
+def test_fast_protected_fusion_is_exactly_equal():
+    universe = prepare_multi_channel_universe(
+        _legacy(60), _name(), _address(), name_top_k=3, address_top_k=3
+    )
+    kwargs = dict(
+        final_k=50,
+        minimum_legacy=35,
+        legacy_weight=2,
+        name_weight=1,
+        address_weight=1,
+        rrf_constant=20,
+    )
+    reference = protected_legacy_multi_channel_rrf(universe, **kwargs)
+    optimized = protected_legacy_multi_channel_rrf_fast_exact(universe, **kwargs)
+    pd.testing.assert_frame_equal(reference, optimized, check_exact=True)
 
 
 def test_three_channel_fusion_enforces_final_k_50():

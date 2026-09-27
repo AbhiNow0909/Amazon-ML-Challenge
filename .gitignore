@@ -32,3 +32,13 @@ env/
 *.swp
 *~
 
+# Live job state is snapshotted under handoff/encoder for versioned handoffs.
+logs/*.log
+logs/*.jsonl
+logs/*.pid
+logs/ASTRA_STATUS.md
+logs/ENCODER_FINAL_REPORT.*
+logs/encoder_archive_contents.txt
+**/.ipynb_checkpoints/
+encoder_submission.zip
+*_submission.zip

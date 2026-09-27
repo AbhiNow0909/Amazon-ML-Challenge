@@ -1,0 +1,15 @@
+{
+  "calibration_score": 0.967616211546784,
+  "xgb_weight": 0.5,
+  "thresholds": {
+    "global": 0.6977310924369747,
+    "countries": {
+      "india": 0.5555462184873949,
+      "us": 0.6977310924369747
+    }
+  },
+  "gate": 0.02,
+  "epoch": 2,
+  "model": "intfloat/multilingual-e5-base",
+  "frozen_layers": 8
+}

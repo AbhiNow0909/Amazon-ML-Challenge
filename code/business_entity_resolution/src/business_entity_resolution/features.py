@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from difflib import SequenceMatcher
-from typing import Dict, Iterator, List, Set
+from typing import Dict, Iterator, List, Set, Sequence
 
 import numpy as np
 import pandas as pd
@@ -297,6 +297,249 @@ def build_feature_table(
             candidates, source1, feed, chunk_size=chunk_size
         )
     )
+    if not chunks:
+        return pd.DataFrame(columns=[*IDENTIFIER_COLUMNS, *FEATURE_COLUMNS])
+    return pd.concat(chunks, ignore_index=True)
+
+
+def _cached_token_sets(values: Sequence[object]) -> List[Set[str]]:
+    """Split repeated normalized strings once while retaining exact set semantics."""
+
+    cache: Dict[str, Set[str]] = {}
+    result: List[Set[str]] = []
+    for raw in values:
+        value = str(raw) if raw else ""
+        tokens = cache.get(value)
+        if tokens is None:
+            tokens = set(value.split()) if value else set()
+            cache[value] = tokens
+        result.append(tokens)
+    return result
+
+
+def _fast_pair_feature_block(
+    candidates: pd.DataFrame,
+    left_index: pd.DataFrame,
+    right_index: pd.DataFrame,
+) -> pd.DataFrame:
+    """Build one feature block without changing the validated formulas.
+
+    The original implementation constructs two Pandas Series for every pair.
+    This version aligns records once and evaluates the same scalar helpers over
+    arrays.  In particular, character similarity remains ``SequenceMatcher``;
+    it is not replaced with a different fuzzy-matching definition.
+    """
+
+    left = left_index.loc[candidates["source1_entity_id"].to_numpy()].reset_index(
+        drop=True
+    )
+    right = right_index.loc[candidates["candidate_entity_id"].to_numpy()].reset_index(
+        drop=True
+    )
+    left_names = left["name_full"].astype(str).tolist()
+    right_names = right["name_full"].astype(str).tolist()
+    left_addresses = left["address_full"].astype(str).tolist()
+    right_addresses = right["address_full"].astype(str).tolist()
+    left_name_tokens = _cached_token_sets(left["name_tokens"].tolist())
+    right_name_tokens = _cached_token_sets(right["name_tokens"].tolist())
+    left_address_tokens = _cached_token_sets(left["address_tokens"].tolist())
+    right_address_tokens = _cached_token_sets(right["address_tokens"].tolist())
+    left_numbers = _cached_token_sets(left["address_numeric_tokens"].tolist())
+    right_numbers = _cached_token_sets(right["address_numeric_tokens"].tolist())
+
+    result = candidates[["source1_entity_id", "candidate_entity_id"]].reset_index(
+        drop=True
+    ).copy()
+    result["name_full_exact"] = [
+        bool(l_value and l_value == r_value)
+        for l_value, r_value in zip(left_names, right_names)
+    ]
+    result["name_core_exact"] = [
+        bool(l_value and l_value == r_value)
+        for l_value, r_value in zip(left["name_core"], right["name_core"])
+    ]
+    result["name_sorted_exact"] = [
+        bool(l_value and l_value == r_value)
+        for l_value, r_value in zip(left["name_sorted"], right["name_sorted"])
+    ]
+    result["name_token_jaccard"] = [
+        _jaccard(l_value, r_value)
+        for l_value, r_value in zip(left_name_tokens, right_name_tokens)
+    ]
+    result["name_shared_token_count"] = [
+        len(l_value & r_value)
+        for l_value, r_value in zip(left_name_tokens, right_name_tokens)
+    ]
+    result["name_token_count_difference"] = [
+        abs(len(l_value) - len(r_value))
+        for l_value, r_value in zip(left_name_tokens, right_name_tokens)
+    ]
+    result["name_length_ratio"] = [
+        _length_ratio(l_value, r_value)
+        for l_value, r_value in zip(left_names, right_names)
+    ]
+    result["name_character_similarity"] = [
+        SequenceMatcher(None, l_value, r_value, autojunk=False).ratio()
+        for l_value, r_value in zip(left_names, right_names)
+    ]
+    result["name_prefix_ratio"] = [
+        _edge_ratio(l_value, r_value)
+        for l_value, r_value in zip(left_names, right_names)
+    ]
+    result["name_suffix_ratio"] = [
+        _edge_ratio(l_value, r_value, reverse=True)
+        for l_value, r_value in zip(left_names, right_names)
+    ]
+    result["address_exact"] = [
+        bool(l_value and l_value == r_value)
+        for l_value, r_value in zip(left_addresses, right_addresses)
+    ]
+    result["address_token_jaccard"] = [
+        _jaccard(l_value, r_value)
+        for l_value, r_value in zip(left_address_tokens, right_address_tokens)
+    ]
+    result["address_shared_token_count"] = [
+        len(l_value & r_value)
+        for l_value, r_value in zip(left_address_tokens, right_address_tokens)
+    ]
+    both_numbers = [
+        bool(l_value and r_value)
+        for l_value, r_value in zip(left_numbers, right_numbers)
+    ]
+    result["numeric_token_equal"] = [
+        bool(both and l_value == r_value)
+        for both, l_value, r_value in zip(both_numbers, left_numbers, right_numbers)
+    ]
+    result["numeric_token_overlap"] = [
+        _jaccard(l_value, r_value) if both else 0.0
+        for both, l_value, r_value in zip(both_numbers, left_numbers, right_numbers)
+    ]
+    result["numeric_token_conflict"] = [
+        bool(both and not (l_value & r_value))
+        for both, l_value, r_value in zip(both_numbers, left_numbers, right_numbers)
+    ]
+    result["address_length_ratio"] = [
+        _length_ratio(l_value, r_value)
+        for l_value, r_value in zip(left_addresses, right_addresses)
+    ]
+    result["address_missing_left"] = [not bool(value) for value in left_addresses]
+    result["address_missing_right"] = [not bool(value) for value in right_addresses]
+    left_countries = left["country_norm"].astype(str).tolist()
+    right_countries = right["country_norm"].astype(str).tolist()
+    result["same_country"] = [
+        bool(l_value and l_value == r_value)
+        for l_value, r_value in zip(left_countries, right_countries)
+    ]
+    result["country_conflict"] = [
+        bool(l_value and r_value and l_value != r_value)
+        for l_value, r_value in zip(left_countries, right_countries)
+    ]
+    result["country_missing_left"] = [not bool(value) for value in left_countries]
+    result["country_missing_right"] = [not bool(value) for value in right_countries]
+    result["both_country_present"] = [
+        bool(l_value and r_value)
+        for l_value, r_value in zip(left_countries, right_countries)
+    ]
+    result["source_is_s2"] = candidates["candidate_entity_id"].str.startswith(
+        "S2-"
+    ).to_numpy()
+    result["source_is_s3"] = candidates["candidate_entity_id"].str.startswith(
+        "S3-"
+    ).to_numpy()
+
+    channel_count = np.zeros(len(candidates), dtype=np.uint8)
+    for column in PROVENANCE_COLUMNS:
+        values = candidates[column].astype(bool).to_numpy()
+        result[column] = values
+        channel_count += values.astype(np.uint8)
+    result["blocking_channel_count"] = channel_count
+    for column in (
+        "rare_name_token_hits",
+        "rare_address_token_hits",
+        "name_tfidf_similarity",
+        "name_tfidf_rank",
+        "candidate_count_for_s1",
+        "cheap_score",
+        "cheap_rank",
+        "cheap_score_margin_to_next",
+    ):
+        result[column] = candidates[column].to_numpy()
+    result["legacy_blocking_channel_count"] = (
+        candidates["legacy_blocking_channel_count"].to_numpy()
+        if "legacy_blocking_channel_count" in candidates
+        else channel_count
+    )
+    result["legacy_rank"] = (
+        candidates["legacy_rank"].to_numpy()
+        if "legacy_rank" in candidates
+        else candidates["cheap_rank"].to_numpy()
+    )
+    result["legacy_cheap_score"] = (
+        candidates["legacy_cheap_score"].to_numpy()
+        if "legacy_cheap_score" in candidates
+        else candidates["cheap_score"].to_numpy()
+    )
+    result["is_tfidf_only"] = (
+        candidates["is_tfidf_only"].to_numpy()
+        if "is_tfidf_only" in candidates
+        else np.zeros(len(candidates), dtype=np.uint8)
+    )
+    result["is_legacy_only"] = (
+        candidates["is_legacy_only"].to_numpy()
+        if "is_legacy_only" in candidates
+        else (~candidates["block_name_tfidf"].astype(bool)).astype(np.uint8).to_numpy()
+    )
+    result["supported_by_both"] = (
+        candidates["supported_by_both"].to_numpy()
+        if "supported_by_both" in candidates
+        else np.zeros(len(candidates), dtype=np.uint8)
+    )
+    result["fusion_score"] = (
+        candidates["fusion_score"].to_numpy()
+        if "fusion_score" in candidates
+        else candidates["cheap_score"].to_numpy()
+    )
+    result["fusion_rank"] = (
+        candidates["fusion_rank"].to_numpy()
+        if "fusion_rank" in candidates
+        else candidates["cheap_rank"].to_numpy()
+    )
+    return compact_feature_dtypes(
+        result[[*IDENTIFIER_COLUMNS, *FEATURE_COLUMNS]]
+    )
+
+
+def build_feature_table_fast_exact(
+    candidates: pd.DataFrame,
+    source1: pd.DataFrame,
+    feed: pd.DataFrame,
+    *,
+    chunk_size: int = 100_000,
+    prepared_feed_index: pd.DataFrame = None,
+) -> pd.DataFrame:
+    """Faster batch-oriented implementation of the validated feature table."""
+
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+    left = source1.set_index("entity_id", verify_integrity=True)
+    right = (
+        prepared_feed_index
+        if prepared_feed_index is not None
+        else feed.set_index("entity_id", verify_integrity=True)
+    )
+    if right.index.name != "entity_id" or not right.index.is_unique:
+        raise ValueError("prepared_feed_index must have a unique entity_id index")
+    missing_left = set(candidates["source1_entity_id"]) - set(left.index)
+    missing_right = set(candidates["candidate_entity_id"]) - set(right.index)
+    if missing_left or missing_right:
+        raise ValueError(
+            f"Candidate references unknown records; S1={list(missing_left)[:5]}, "
+            f"feed={list(missing_right)[:5]}"
+        )
+    chunks = [
+        _fast_pair_feature_block(candidates.iloc[start : start + chunk_size], left, right)
+        for start in range(0, len(candidates), chunk_size)
+    ]
     if not chunks:
         return pd.DataFrame(columns=[*IDENTIFIER_COLUMNS, *FEATURE_COLUMNS])
     return pd.concat(chunks, ignore_index=True)

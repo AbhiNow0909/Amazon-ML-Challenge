@@ -238,3 +238,61 @@ def protected_legacy_multi_channel_rrf(
             f"aw{address_weight:g}_c{rrf_constant:g}"
         ),
     )
+
+
+def protected_legacy_multi_channel_rrf_fast_exact(
+    universe: pd.DataFrame,
+    *,
+    final_k: int,
+    minimum_legacy: int,
+    legacy_weight: float,
+    name_weight: float,
+    address_weight: float,
+    rrf_constant: float,
+) -> pd.DataFrame:
+    """Vectorized equivalent of protected legacy RRF for production batches."""
+
+    if minimum_legacy < 0 or minimum_legacy > final_k:
+        raise ValueError("minimum_legacy must be between zero and final_k")
+    scored = _score_rrf(
+        universe,
+        legacy_weight=legacy_weight,
+        name_weight=name_weight,
+        address_weight=address_weight,
+        rrf_constant=rrf_constant,
+    )
+    legacy = scored.loc[scored["has_legacy"] == 1].sort_values(
+        ["source1_entity_id", "legacy_rank", "candidate_entity_id"],
+        kind="mergesort",
+    )
+    legacy_position = legacy.groupby("source1_entity_id", sort=False).cumcount()
+    protected = legacy.loc[legacy_position < minimum_legacy]
+    protected_mask = scored.index.isin(protected.index)
+    remaining = scored.loc[~protected_mask].sort_values(
+        [
+            "source1_entity_id",
+            "fusion_score",
+            "retrieval_channel_count",
+            "candidate_entity_id",
+        ],
+        ascending=[True, False, False, True],
+        kind="mergesort",
+    )
+    protected_counts = protected.groupby("source1_entity_id", sort=False).size()
+    available = (
+        final_k
+        - remaining["source1_entity_id"].map(protected_counts).fillna(0).astype(int)
+    )
+    remaining_position = remaining.groupby(
+        "source1_entity_id", sort=False
+    ).cumcount()
+    fill = remaining.loc[remaining_position < available]
+    selected = pd.concat([protected, fill], ignore_index=True)
+    return _sort_and_cap(
+        selected,
+        final_k=final_k,
+        strategy=(
+            f"protected{minimum_legacy}_lw{legacy_weight:g}_nw{name_weight:g}_"
+            f"aw{address_weight:g}_c{rrf_constant:g}"
+        ),
+    )

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import resource
 import time
+from concurrent.futures import ThreadPoolExecutor
+from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
@@ -26,6 +28,17 @@ ADDRESS_RESULT_COLUMNS = [
     "address_tfidf_similarity",
     "address_tfidf_rank",
 ]
+
+
+@dataclass
+class PreparedNameTfidfIndex:
+    """Reusable sparse name index for production Source-1 batches."""
+
+    vectorizer: TfidfVectorizer
+    matrix: sparse.csr_matrix
+    candidate_ids: np.ndarray
+    country: str
+    profile: Dict[str, object]
 
 
 def _peak_rss_mib() -> float:
@@ -282,6 +295,156 @@ def retrieve_name_tfidf(
         max_features=config.tfidf_max_features,
         min_df=config.tfidf_min_df,
     )
+
+
+def prepare_name_tfidf_index(
+    feed: pd.DataFrame, config: PipelineConfig
+) -> PreparedNameTfidfIndex:
+    """Fit the validated name TF-IDF representation once for one country."""
+
+    required = {"entity_id", "name_core", "country_norm"}
+    missing = required.difference(feed.columns)
+    if missing:
+        raise ValueError(f"feed lacks name TF-IDF columns: {sorted(missing)}")
+    countries = sorted(set(feed["country_norm"]))
+    if len(countries) != 1:
+        raise ValueError(
+            "Prepared production name index requires exactly one country shard"
+        )
+    started = time.perf_counter()
+    values = feed["name_core"].astype(str).tolist()
+    vectorizer = TfidfVectorizer(
+        analyzer="char_wb",
+        ngram_range=(config.tfidf_ngram_min, config.tfidf_ngram_max),
+        sublinear_tf=True,
+        dtype=np.float32,
+        min_df=config.tfidf_min_df,
+        max_features=config.tfidf_max_features,
+        lowercase=False,
+        norm="l2",
+    )
+    fit_started = time.perf_counter()
+    vectorizer.fit(values)
+    fit_seconds = time.perf_counter() - fit_started
+    matrix_started = time.perf_counter()
+    matrix = vectorizer.transform(values).tocsr()
+    matrix_seconds = time.perf_counter() - matrix_started
+    if not sparse.isspmatrix_csr(matrix):
+        raise AssertionError("Prepared name TF-IDF index became dense")
+    profile = {
+        "country": countries[0],
+        "index_rows": len(feed),
+        "matrix_shape": [int(matrix.shape[0]), int(matrix.shape[1])],
+        "vocabulary_size": len(vectorizer.vocabulary_),
+        "index_nnz": int(matrix.nnz),
+        "index_sparse_bytes": _sparse_bytes(matrix),
+        "vectorizer_fit_seconds": fit_seconds,
+        "index_transform_seconds": matrix_seconds,
+        "total_build_seconds": time.perf_counter() - started,
+        "dense_similarity_constructed": False,
+    }
+    return PreparedNameTfidfIndex(
+        vectorizer=vectorizer,
+        matrix=matrix,
+        candidate_ids=feed["entity_id"].to_numpy(dtype=object),
+        country=countries[0],
+        profile=profile,
+    )
+
+
+def retrieve_name_tfidf_from_prepared(
+    source1: pd.DataFrame,
+    prepared: PreparedNameTfidfIndex,
+    config: PipelineConfig,
+    *,
+    top_k: int = 30,
+) -> Tuple[pd.DataFrame, Dict[str, object]]:
+    """Query a prepared sparse name index without refitting it."""
+
+    required = {"entity_id", "name_core", "country_norm"}
+    missing = required.difference(source1.columns)
+    if missing:
+        raise ValueError(f"source1 lacks name TF-IDF columns: {sorted(missing)}")
+    if top_k <= 0:
+        raise ValueError("top_k must be positive")
+    invalid_country = source1["country_norm"].ne(prepared.country)
+    if invalid_country.any():
+        raise ValueError("Name TF-IDF query contains rows from another country")
+    started = time.perf_counter()
+    rows: List[Dict[str, object]] = []
+    query_values = source1["name_core"].astype(str).to_numpy(dtype=object)
+    query_ids = source1["entity_id"].to_numpy(dtype=object)
+    transform_seconds = 0.0
+    multiplication_seconds = 0.0
+    extraction_seconds = 0.0
+    maximum_chunk_nnz = 0
+    ranges = [
+        (start, min(start + config.tfidf_query_chunk_size, len(source1)))
+        for start in range(0, len(source1), config.tfidf_query_chunk_size)
+    ]
+
+    def query_chunk(bounds: Tuple[int, int]):
+        start, end = bounds
+        chunk_started = time.perf_counter()
+        query = prepared.vectorizer.transform(query_values[start:end]).tocsr()
+        transformed = time.perf_counter() - chunk_started
+        stage = time.perf_counter()
+        similarities = (query @ prepared.matrix.T).tocsr()
+        multiplied = time.perf_counter() - stage
+        if not sparse.isspmatrix_csr(similarities):
+            raise AssertionError("Prepared name similarities became dense")
+        stage = time.perf_counter()
+        chunk_rows = _row_top_k(
+            similarities,
+            query_ids[start:end],
+            prepared.candidate_ids,
+            top_k,
+            similarity_column="name_tfidf_similarity",
+            rank_column="name_tfidf_rank",
+        )
+        extracted = time.perf_counter() - stage
+        return chunk_rows, transformed, multiplied, extracted, int(similarities.nnz)
+
+    workers = max(1, int(config.tfidf_name_query_workers))
+    if workers == 1:
+        chunk_results = map(query_chunk, ranges)
+    else:
+        executor = ThreadPoolExecutor(max_workers=workers)
+        chunk_results = executor.map(query_chunk, ranges)
+    try:
+        for chunk_rows, transformed, multiplied, extracted, chunk_nnz in chunk_results:
+            rows.extend(chunk_rows)
+            transform_seconds += transformed
+            multiplication_seconds += multiplied
+            extraction_seconds += extracted
+            maximum_chunk_nnz = max(maximum_chunk_nnz, chunk_nnz)
+    finally:
+        if workers > 1:
+            executor.shutdown(wait=True)
+    result = pd.DataFrame(rows, columns=RESULT_COLUMNS)
+    if not result.empty:
+        result["name_tfidf_similarity"] = result[
+            "name_tfidf_similarity"
+        ].astype("float32")
+        result["name_tfidf_rank"] = pd.to_numeric(
+            result["name_tfidf_rank"], downcast="unsigned"
+        )
+        if result.duplicated(["source1_entity_id", "candidate_entity_id"]).any():
+            raise AssertionError("Prepared name retrieval emitted duplicate pairs")
+        if result.groupby("source1_entity_id").size().max() > top_k:
+            raise AssertionError("Prepared name retrieval exceeded top_k")
+    return result, {
+        "query_rows": len(source1),
+        "result_pairs": len(result),
+        "query_transform_seconds": transform_seconds,
+        "similarity_multiplication_seconds": multiplication_seconds,
+        "top_k_extraction_seconds": extraction_seconds,
+        "maximum_similarity_chunk_nnz": maximum_chunk_nnz,
+        "total_query_seconds": time.perf_counter() - started,
+        "dense_similarity_constructed": False,
+        "query_workers": workers,
+        "prepared_index_profile": prepared.profile,
+    }
 
 
 def retrieve_address_tfidf(

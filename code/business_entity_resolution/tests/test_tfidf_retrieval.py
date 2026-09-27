@@ -6,8 +6,10 @@ from business_entity_resolution.blocking import generate_candidates
 from business_entity_resolution.config import PipelineConfig
 from business_entity_resolution.normalize import normalize_records
 from business_entity_resolution.tfidf_retrieval import (
+    prepare_name_tfidf_index,
     retrieve_address_tfidf,
     retrieve_name_tfidf,
+    retrieve_name_tfidf_from_prepared,
 )
 
 
@@ -143,3 +145,68 @@ def test_address_tfidf_is_sparse_bounded_and_recovers_format_noise():
     assert len(result) <= len(source1)
     assert profile["dense_similarity_constructed"] is False
     assert profile["total_index_nnz"] > 0
+
+
+def test_prepared_name_index_matches_reference_and_is_reusable():
+    source1 = normalize_records(
+        _frame(
+            [
+                ["S1-1", "Acme Pharmaceuticals", "1 Main", "US"],
+                ["S1-2", "Blue Trading", "2 Main", "US"],
+            ]
+        )
+    )
+    feed = normalize_records(
+        _frame(
+            [
+                ["S2-1", "Acme Farmaceuticals", "1 Main", "US"],
+                ["S2-2", "Blue Traders", "2 Main", "US"],
+                ["S3-3", "Different Name", "3 Main", "US"],
+            ]
+        )
+    )
+    config = _config(top_k=2)
+    reference, _ = retrieve_name_tfidf(source1, feed, config)
+    prepared = prepare_name_tfidf_index(feed, config)
+    first, profile = retrieve_name_tfidf_from_prepared(
+        source1, prepared, config, top_k=2
+    )
+    second, _ = retrieve_name_tfidf_from_prepared(
+        source1, prepared, config, top_k=2
+    )
+    pd.testing.assert_frame_equal(reference, first)
+    pd.testing.assert_frame_equal(first, second)
+    assert profile["dense_similarity_constructed"] is False
+
+
+def test_parallel_prepared_name_queries_are_exactly_equal():
+    source1 = normalize_records(
+        _frame(
+            [
+                ["S1-1", "Acme Pharmaceuticals", "1 Main", "US"],
+                ["S1-2", "Blue Trading", "2 Main", "US"],
+                ["S1-3", "Green Market", "3 Main", "US"],
+            ]
+        )
+    )
+    feed = normalize_records(
+        _frame(
+            [
+                ["S2-1", "Acme Farmaceuticals", "1 Main", "US"],
+                ["S2-2", "Blue Traders", "2 Main", "US"],
+                ["S3-3", "Green Markets", "3 Main", "US"],
+                ["S3-4", "Different Name", "4 Main", "US"],
+            ]
+        )
+    )
+    sequential_config = replace(_config(top_k=3), tfidf_name_query_workers=1)
+    parallel_config = replace(sequential_config, tfidf_name_query_workers=2)
+    prepared = prepare_name_tfidf_index(feed, sequential_config)
+    sequential, _ = retrieve_name_tfidf_from_prepared(
+        source1, prepared, sequential_config, top_k=3
+    )
+    parallel, profile = retrieve_name_tfidf_from_prepared(
+        source1, prepared, parallel_config, top_k=3
+    )
+    pd.testing.assert_frame_equal(sequential, parallel, check_exact=True)
+    assert profile["query_workers"] == 2

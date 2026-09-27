@@ -1,0 +1,32 @@
+# Encoder-first submission status
+
+- **next_step**: continue checkpointed shards
+- **stage**: full_test_inference
+- **pid**: 1328767
+- **updated**: 2026-09-27 08:56:13
+- **latest_clean_holdout_score**: 0.9665124399102869
+- **best_calibration_score**: 0.967616211546784
+- **validator**: NOT RUN
+- **id_check**: NOT RUN
+- **failures**: ['Prior PID 1308325 absent on host at 2026-09-27 01:01; log stopped without traceback at 2026-09-26 22:50:26. Cause unconfirmed. Resuming completed and partial checkpoints.']
+- **output_paths**: ['output/matching_results.tsv', 'output/candidate_pairs.tsv']
+- **log**: logs/encoder_pipeline.log
+- **state_path**: /home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/encoder_native_v1/state.json
+- **best_model**: e5_structural_xgb_cross_encoder
+- **cross_encoder**: intfloat/multilingual-e5-base pair classifier
+- **reached_0_98_clean_holdout**: False
+- **current_embedding**: /home/jupyter-1nt23cb058/Amazon-ML-Challenge/cache/encoder_native_v1/full/india/address_feed.npy
+- **embedding_rows**: 4717565/4717565
+- **country**: india
+- **source1_rows**: 809986
+- **feed_rows**: 4717565
+- **completed_source1_in_country**: 590000
+- **country_source1**: 809986
+- **checkpoints_completed**: Frozen model and clean holdout; all 52 France shards (259452 Source1); India Source1 embeddings; India feed 3194880/4717565
+- **best_architecture**: E5 structured top40 + address E5 top20 + structural recovery; GPU XGBoost and E5 pair classifier 50:50
+- **current_bottleneck**: Remaining India/US embeddings and inference
+- **started_at_epoch**: 1790451610.3702362
+- **baseline**: 0.965614
+- **target**: 0.98
+- **beat_baseline**: True
+- **submission_archive**: not created

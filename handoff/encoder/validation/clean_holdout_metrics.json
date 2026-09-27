@@ -1,0 +1,124 @@
+{
+  "entities": 1980,
+  "macro_f0_5": 0.9665124399102869,
+  "entity_macro_precision": 0.9800539121372456,
+  "entity_macro_recall": 0.9391005291005291,
+  "pair_micro_precision": 0.985111281657713,
+  "pair_micro_recall": 0.9388531304856641,
+  "true_pairs": 6836,
+  "predicted_pairs": 6515,
+  "true_positive_pairs": 6418,
+  "empty_predictions": 109,
+  "nonempty_predictions": 1871,
+  "average_predicted_matches": 3.29040404040404,
+  "by_country": {
+    "India": {
+      "entities": 766,
+      "macro_f0_5": 0.9533537586405949,
+      "entity_macro_precision": 0.972079240747648,
+      "entity_macro_recall": 0.9173924530647768,
+      "pair_micro_precision": 0.9804411152725759,
+      "pair_micro_recall": 0.9163749513807857,
+      "true_pairs": 2571,
+      "predicted_pairs": 2403,
+      "true_positive_pairs": 2356,
+      "empty_predictions": 50,
+      "nonempty_predictions": 716,
+      "average_predicted_matches": 3.137075718015666
+    },
+    "US": {
+      "entities": 1214,
+      "macro_f0_5": 0.9748151992616739,
+      "entity_macro_precision": 0.9850857064407311,
+      "entity_macro_recall": 0.9527977171099081,
+      "pair_micro_precision": 0.9878404669260701,
+      "pair_micro_recall": 0.9524032825322392,
+      "true_pairs": 4265,
+      "predicted_pairs": 4112,
+      "true_positive_pairs": 4062,
+      "empty_predictions": 59,
+      "nonempty_predictions": 1155,
+      "average_predicted_matches": 3.387149917627677
+    }
+  },
+  "by_true_match_count": {
+    "0": {
+      "entities": 101,
+      "macro_f0_5": 0.9603960396039604,
+      "entity_macro_precision": 0.9603960396039604,
+      "entity_macro_recall": 0.9603960396039604,
+      "pair_micro_precision": 0.0,
+      "pair_micro_recall": 1.0,
+      "true_pairs": 0,
+      "predicted_pairs": 4,
+      "true_positive_pairs": 0,
+      "empty_predictions": 97,
+      "nonempty_predictions": 4,
+      "average_predicted_matches": 0.039603960396039604
+    },
+    "1": {
+      "entities": 124,
+      "macro_f0_5": 0.9199346405228758,
+      "entity_macro_precision": 0.9173387096774194,
+      "entity_macro_recall": 0.9435483870967742,
+      "pair_micro_precision": 0.936,
+      "pair_micro_recall": 0.9435483870967742,
+      "true_pairs": 124,
+      "predicted_pairs": 125,
+      "true_positive_pairs": 117,
+      "empty_predictions": 7,
+      "nonempty_predictions": 117,
+      "average_predicted_matches": 1.0080645161290323
+    },
+    "2": {
+      "entities": 334,
+      "macro_f0_5": 0.951240376390077,
+      "entity_macro_precision": 0.9700598802395209,
+      "entity_macro_recall": 0.9221556886227545,
+      "pair_micro_precision": 0.9731437598736177,
+      "pair_micro_recall": 0.9221556886227545,
+      "true_pairs": 668,
+      "predicted_pairs": 633,
+      "true_positive_pairs": 616,
+      "empty_predictions": 4,
+      "nonempty_predictions": 330,
+      "average_predicted_matches": 1.8952095808383234
+    },
+    "3+": {
+      "entities": 1421,
+      "macro_f0_5": 0.9746013018179068,
+      "entity_macro_precision": 0.9892728684248739,
+      "entity_macro_recall": 0.9411815957910258,
+      "pair_micro_precision": 0.9881800799582826,
+      "pair_micro_recall": 0.9406022501654533,
+      "true_pairs": 6044,
+      "predicted_pairs": 5753,
+      "true_positive_pairs": 5685,
+      "empty_predictions": 1,
+      "nonempty_predictions": 1420,
+      "average_predicted_matches": 4.048557353976073
+    }
+  },
+  "FP": 97,
+  "FN": 418,
+  "retrieval": {
+    "pair_candidate_recall": 0.9855178466939731,
+    "entity_candidate_recall": 0.9857551707551706,
+    "oracle_macro_f0_5": 0.9948744995749075,
+    "true_pairs": 6836,
+    "recovered_true_pairs": 6737,
+    "missed_true_pairs": 99,
+    "total_candidate_pairs": 143259,
+    "average_candidate_count": 72.35303030303031,
+    "median_candidate_count": 72.0,
+    "p95_candidate_count": 80.0,
+    "maximum_candidate_count": 145
+  },
+  "thresholds": {
+    "global": 0.6977310924369747,
+    "countries": {
+      "india": 0.5555462184873949,
+      "us": 0.6977310924369747
+    }
+  }
+}

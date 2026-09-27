@@ -126,6 +126,30 @@ numeric-token DF up to 5,000, the three rarest lexical address tokens with DF
 up to 500, a 15,000-row pool cap, address top-K 20, and the unchanged E2.2
 protected fusion at final K=50.
 
+## Production submission
+
+The frozen E2.3 LightGBM/XGBoost ensemble has a guarded, checkpointed production
+runner. Run the real-data smoke test first:
+
+```bash
+PYTHONPATH=code/business_entity_resolution/src \
+python -m business_entity_resolution.production_submission --smoke
+```
+
+Launch full inference explicitly with:
+
+```bash
+PYTHONPATH=code/business_entity_resolution/src \
+python -m business_entity_resolution.production_submission \
+  --full --s1-batch-size 2000
+```
+
+Normalized country shards and completed Source-1 batches are stored below
+`cache/production/e23_ensemble_production_v1/`. Re-running the same command
+reuses compatible checkpoints. Final output is written only after every country
+is complete, then checked with the official validator. France and any future
+country use the conservative global 50/50 blend fallback.
+
 Individual bounded stages are also available:
 
 ```bash
@@ -177,3 +201,59 @@ The raw challenge files and official validator are read-only inputs.
 test S1 entity. Internal validation treats matched-without-candidate and unknown
 target IDs as errors even though some checks are warnings in the official
 validator.
+
+## Encoder-first submission
+
+`encoder_pipeline.py` uses multilingual E5 base (MIT, revision
+`d128750597153bb5987e10b1c3493a34e5a4502a`), country-restricted blocked GPU retrieval,
+bounded exact/rare-address recovery and an encoder-aware GPU XGBoost classifier.
+A cross-encoder pilot is selected only using calibration entities. Source1 IDs
+are assigned with seed 260926 to 60% training / 20% calibration / 20% final holdout.
+The holdout is evaluated after model and thresholds are frozen.
+
+Full reproduction from supplied frozen package artifacts and official test data:
+
+```sh
+python -m pip install -r code/business_entity_resolution/requirements.txt
+mkdir -p logs
+export PYTHONPATH=code/business_entity_resolution/src
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 NUMEXPR_NUM_THREADS=8
+export ENCODER_FEATURE_WORKERS=4 TOKENIZERS_PARALLELISM=true
+nohup setsid python -u -m business_entity_resolution.encoder_pipeline --stage full >> logs/encoder_pipeline.log 2>&1 < /dev/null &
+echo $! > logs/encoder_pipeline.pid
+```
+
+Run from the unpacked archive root on Linux with a CUDA GPU (tested on a 32 GB
+V100), about 120 GiB available RAM and at least 100 GiB working disk. Place the
+official `student_resource` directory at that root, including the unmodified
+validator and `dataset/test/test_source{1,2,3}.tsv`. The production path loads
+packaged frozen artifacts and does not require development caches. Keep an
+existing job running; check its PID/log before launching. An advisory lock also
+prevents concurrent copies. A stopped job resumes completed country/shard files
+and partial embeddings. The model configuration is fingerprinted on production.
+
+Optionally provide `submission_identity.json` in the root with `team_name` and
+`team_members` fields. Otherwise the technical archive is `encoder_submission.zip`
+and its documentation explicitly marks team identity as not provided.
+
+The selected architecture uses structured E5 top40, address-only E5 top20,
+structural recovery, GPU XGBoost and an E5 pair classifier in a 50:50 blend.
+The XGBoost cross-encoder gate is 0.02. India threshold is 0.5555462184873949;
+US/global threshold is 0.6977310924369747, also used for unseen France. The single
+frozen entity-level holdout score is 0.9665124399102869 (1,980 entities); the 0.98
+target was not reached. The bounded development feed is not the hidden test feed.
+
+The packaged artifacts are imported automatically if no encoder selection exists.
+The multilingual encoder downloads from Hugging Face when absent locally.
+Normalization reuses compatible country caches or generates them from official TSVs.
+Embeddings checkpoint every 8,192 rows; inference checkpoints every 5,000 S1 rows.
+Both official validator modes run automatically before packaging.
+`logs/ENCODER_FINAL_REPORT.json` records the final counts, metrics, timings,
+resource measurement limitations and output/archive hashes. The methodology uses
+the official template structure. No datasets, embeddings or large caches are
+included in the archive.
+
+For development, `--stage development` currently reuses the documented E2.1
+10,000-S1 / 1,000,000-distractor normalized cache and E2.6 aligned E5 embeddings.
+Those large development intermediates are intentionally excluded from the package.
+The frozen inference path does not require training caches.
